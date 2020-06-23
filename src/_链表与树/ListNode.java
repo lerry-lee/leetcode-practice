@@ -18,4 +18,9 @@ public class ListNode {
         val = x;
     }
 
+    @Override
+    public String toString() {
+        String str=super.toString();
+        return str.substring(str.length()-8);
+    }
 }

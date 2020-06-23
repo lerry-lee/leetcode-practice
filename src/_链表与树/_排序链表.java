@@ -22,6 +22,34 @@ public class _排序链表 {
      * @param head
      * @return
      */
+    //递归版
+    public ListNode sortList_(ListNode head) {
+        if(head.next==null) return head;
+        ListNode slow=head;
+        ListNode fast=head.next;
+        while(fast.next!=null&&fast.next.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        ListNode right=slow.next;
+        slow.next=null;
+        ListNode L=sortList_(head);
+        ListNode R=sortList_(right);
+        return merge_(L,R);
+    }
+    public ListNode merge_(ListNode n1,ListNode n2){
+        if(n1==null) return n2;
+        if(n2==null) return n1;
+        if(n1.val<n2.val) {
+            n1.next = merge_(n1.next, n2);
+            return n1;
+        }
+        else {
+            n2.next = merge_(n1, n2.next);
+            return n2;
+        }
+    }
+
     public ListNode sortList(ListNode head) {
         // 确定链表长度
         int len = 0;
