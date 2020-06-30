@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="300">
+    <!--    配置log的输出目录-->
+    <properties>
+        <property name="LOG_HOME">log</property>
+        <property name="FILE_NAME">myTest</property>
+    </properties>
+    <!--    自定义log输出-->
+    <Appenders>
+        <!--        输出到控制台上-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>
+        </Console>
+        <!--        输出都文件中-->
+<!--        <File name="File" fileName="log/testing.log">-->
+<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>-->
+<!--        </File>-->
+        <!--        按时间和大小滚动日志文件-->
+        <RollingRandomAccessFile name="MyFile"
+                                 fileName="${LOG_HOME}/${FILE_NAME}"
+                                 filePattern="${LOG_HOME}/$$${date:yyyy-MM-dd}/${FILE_NAME}-%d{HH-mm}-%i.log">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <!--        additivity开启的话，由于这个logger也是满足root的，所以会被打印两遍-->
+        <Logger name="TRACE_ALL" level="debug" additivity="false" includeLocation="true">
+            <AppenderRef ref="MyFile"/>
+            <AppenderRef ref="Console"/>
+            <!--            <AppenderRef ref="File"/>-->
+        </Logger>
+    </Loggers>
+</Configuration>

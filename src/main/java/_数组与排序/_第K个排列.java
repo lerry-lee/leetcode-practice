@@ -30,7 +30,7 @@ import java.util.List;
  * 输入: n = 4, k = 9
  * 输出: "2314"
  */
-public class GetPermutation {
+public class _第K个排列 {
     int count;
     StringBuilder res;
     List<Integer> pai;

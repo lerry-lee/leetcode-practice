@@ -21,7 +21,7 @@ package _数组与排序;
  * 注意：访问过的要记录，不然stack over flow
  */
 
-public class MaxAreaOfIsland {
+public class _岛屿的最大面积 {
     int max_num;
     int[][] GRID;
     int[][] flag;
@@ -41,7 +41,7 @@ public class MaxAreaOfIsland {
 //                    if (j > 0 && GRID[i][j - 1] == 1) continue;
 //                    num=0;
 //                    backTrack(i, j);
-                    int temp=backTrack1(i,j);
+                    int temp = backTrack1(i, j);
                     System.out.println(temp);
                     max_num = Math.max(max_num, temp);
                 }
@@ -74,11 +74,11 @@ public class MaxAreaOfIsland {
 
             GRID[i][j] = 0;
 
-            int num1=1;
-            num1 += backTrack1(i + 1, j) ;
-            num1 += backTrack1(i - 1, j) ;
-            num1 += backTrack1(i, j + 1) ;
-            num1 += backTrack1(i, j - 1) ;
+            int num1 = 1;
+            num1 += backTrack1(i + 1, j);
+            num1 += backTrack1(i - 1, j);
+            num1 += backTrack1(i, j + 1);
+            num1 += backTrack1(i, j - 1);
 
             return num1;
         }

@@ -22,7 +22,7 @@ import java.util.Random;
  * 解法3：用优先队列实现
  * 解法4：BFPRT算法（线性查找算法），最坏情况在O(n)时间复杂度；本质是改进快排pivot的选取（选择中位数的中位数）
  */
-public class FindKthLargest {
+public class _数组中的第K个最大元素 {
 
     //堆版本：用队列实现
     public int findKthLargest_heap(int[] nums, int k) {

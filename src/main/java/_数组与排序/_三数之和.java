@@ -15,12 +15,12 @@ import java.util.List;
  * [-1, -1, 2]
  * ]
  * 暴力解法：找出所有的三元组，判断是否满足和为0；时间复杂度C(3,N)，指数级？
- * 解法1：先排序？ 不剪枝会超时,剪枝也会超市= =
+ * 解法1：先排序？ 不剪枝会超时,剪枝也会超时= =
  * 解法2:双指针
  * Arrays.asList():将数组转化为list 示例：Arrays.asList(nums)或者Arrays.asList(-1,0,1,2,0,-4,-4)
  */
 
-public class TreeSum {
+public class _三数之和 {
 
     public List<List<Integer>> threeSum2(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();

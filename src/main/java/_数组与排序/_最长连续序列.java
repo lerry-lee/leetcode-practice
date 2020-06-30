@@ -17,7 +17,7 @@ import java.util.*;
  * 解法1：建立hashset，因为查询复杂度为O(1)，所以每次查完就删除该元素
  * 解法2：并查集
  */
-public class LongestConsecutive {
+public class _最长连续序列 {
     public int longestConsecutive(int[] nums) {
         HashSet<Integer> hashSet=new HashSet<>();
         for(int num:nums) hashSet.add(num);

@@ -24,7 +24,7 @@ import java.util.Arrays;
  * 输出: 1
  * 说明：已知学生0和学生1互为朋友，学生1和学生2互为朋友，所以学生0和学生2也是朋友，所以他们三个在一个朋友圈，返回1。
  */
-public class FindCircleNum {
+public class _朋友圈 {
     /**
      * 并查集算法：时间复杂度O(n)，外部遍历O(n^2),总共O(n^3)，路径压缩优化可以达到O(n^2)
      *

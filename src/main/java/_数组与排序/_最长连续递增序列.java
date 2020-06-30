@@ -14,7 +14,7 @@ package _数组与排序;
  *
  * 解法：暴力循环O(n^2)，优化O(n)
  */
-public class FindLengthOfLCIS {
+public class _最长连续递增序列 {
 
     //两层for循环，时间复杂度O(n^2)
     public int findLengthOfLCIS(int[] nums) {
@@ -38,7 +38,7 @@ public class FindLengthOfLCIS {
         int temp = 0;
         for (int i = 0; i < nums.length; i++) {
             if(i==0) temp=1;
-            else if (i > 0 && nums[i] > nums[i - 1]) {
+            else if (nums[i] > nums[i - 1]) {
                 temp++;
             } else {
                 max = Math.max(max, temp);

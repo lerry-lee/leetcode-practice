@@ -2,3 +2,6 @@
 *.iml
 data/
 out/
+lib/
+log/
+target/

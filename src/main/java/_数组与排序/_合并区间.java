@@ -22,7 +22,7 @@ public class _合并区间 {
     //看了题解，lamda表达式+区间遍历，贼强，简洁高效
     public int[][] merge_(int[][] intervals) {
         // 先按照区间起始位置排序
-        Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
+        Arrays.sort(intervals, Comparator.comparingInt(v -> v[0]));
         // 遍历区间
         int[][] res = new int[intervals.length][2];
         int idx = -1;

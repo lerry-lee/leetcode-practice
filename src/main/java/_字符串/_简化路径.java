@@ -9,7 +9,7 @@ import java.util.Stack;
  * 一个方法是直接循环判断
  * 比较清洗的思路是用栈的数据结构
  */
-public class UnixPathSimplify {
+public class _简化路径 {
     public static void main(String[] args) {
         String path = "/../a///b/./c/../";
         String path1 = "/../";
@@ -36,16 +36,16 @@ public class UnixPathSimplify {
         StringBuilder path_res = new StringBuilder("/");
 
         for (int j = 0; j < i; j++) {
-            path_res.append(res[j] + "/");
+            path_res.append(res[j]).append("/");
         }
         if (path_res.length() > 1) path_res.setLength(path_res.length() - 1);
         return (path_res.toString());
     }
 
     public static String useStack(String path) {
-        Stack<String> stack = new Stack();
+        Stack<String> stack = new Stack<>();
         String[] arr = path.split("/+");
-//        stack.push("/");
+
         for (String a : arr) {
             if (a.equals("") || a.equals(".")) continue;
             if (a.equals("..")) {
@@ -59,12 +59,9 @@ public class UnixPathSimplify {
         }
         StringBuilder res = new StringBuilder();
         if (stack.isEmpty()) return "/";
-        while(!stack.isEmpty()){
-            res.insert(0,"/"+stack.pop());
+        while (!stack.isEmpty()) {
+            res.insert(0, "/" + stack.pop());
         }
-//        for (int i = 0; i < stack.size(); i++) {
-//            res.append("/" + stack.get(i));
-//        }
 
         return res.toString();
     }
