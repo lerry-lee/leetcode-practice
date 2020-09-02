@@ -34,4 +34,14 @@ public class _201数字范围按位与 {
         }
         return m<<shift;
     }
+    /**
+     * 方法二：Brian Kernighan 算法
+     * 思路与算法
+     *
+     * 还有一个位移相关的算法叫做「Brian Kernighan 算法」，它用于清除二进制串中最右边的 11。
+     *
+     * Brian Kernighan 算法的关键在于我们每次对 \textit{number}number 和 \textit{number}-1number−1 之间进行按位与运算后，\textit{number}
+     * number 中最右边的 11 会被抹去变成 00。
+     *
+     */
 }

@@ -22,23 +22,74 @@ public class _0_Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_43();
+        System.out.println(t3(35));
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
     }
 
-    public static void test_43(){
-        String a="41",b="124124";
-        System.out.println(new _43字符串相乘().multiply(a,b));
+    public static int t3(int a){
+        int maxVal=0;
+        for(int m=1;m<=a/2;m++){
+            int n=a-m;
+            maxVal=Math.max(maxVal,calVal(m)+calVal(n));
+        }
+        return maxVal;
+    }
+    public static int calVal(int num){
+        int res=0,wei;
+        while(num>0){
+            wei=num%10;
+            res+=wei;
+            num/=10;
+        }
+        return res;
     }
 
-    public static void test_demo(){
-        StringBuilder res=new StringBuilder();
+    public static void display(ListNode res) {
+        while (res != null) {
+            System.out.print(res.val + "->");
+            res = res.next;
+        }
+        System.out.println();
+    }
+
+    public static ListNode deleteKNode() {
+
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(2);
+        node.next.next = new ListNode(3);
+        node.next.next.next = new ListNode(4);
+        display(node);
+        int k = 3;
+        ListNode head = node;
+        int cnt = 0;
+        while (node != null) {
+            if (cnt == k) {
+                ListNode temp = node.next.next;
+                node.next = node.next.next;
+//                node.next=temp;
+                return head;
+            }
+            node = node.next;
+            cnt++;
+        }
+        return head;
+    }
+
+    public static void test_43() {
+        String a = "41", b = "124124";
+        System.out.println(new _43字符串相乘().multiply(a, b));
+    }
+
+    public static void test_demo() {
+        StringBuilder res = new StringBuilder();
         res.append("abc");
         res.length();
-        int a=Integer.parseInt("255");
+        int a = Integer.parseInt("255");
         System.out.println(a);
-        Stack<Character> stack=new Stack<>();
+        Stack<Character> stack = new Stack<>();
+        String s = Integer.toBinaryString(4);
+        System.out.println(s);
     }
 
     public static void test_java() {
