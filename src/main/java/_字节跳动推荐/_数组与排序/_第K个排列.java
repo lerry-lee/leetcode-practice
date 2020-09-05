@@ -31,78 +31,49 @@ import java.util.List;
  * 输出: "2314"
  */
 public class _第K个排列 {
-    int count;
-    StringBuilder res;
-    List<Integer> pai;
+
+    /**
+     * 解法：dfs+剪枝：时间复杂度O（n^2） 空间复杂度O（n）
+     */
     int[] factorial;
-
+    String res;
     public String getPermutation(int n, int k) {
-        count=0;
-        pai=new ArrayList<>(n);
-        int[] nums = new int[n];
-        boolean[] bool=new boolean[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-            bool[i] = false;
-        }
-        res = new StringBuilder();
-//        backTrack(nums, 0, n-1, k);
-        backTrack_bool(nums,0,n-1,k,bool);
-        return res.toString();
-    }
-
-
-    public String getPermutation_(int n,int k){
-        factorial=new int[n+1];
+        factorial=new int[n];
         factorial[0]=1;
-        for(int i=1;i<=n;i++) {
-            factorial[i] = factorial[i - 1] * i;
-        }
-        res = new StringBuilder();
-        int[] nums = new int[n];
-        boolean[] bool=new boolean[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-            bool[i] = false;
-        }
-        for(int f:factorial) System.out.print(f+" ");
-        System.out.println();
-        pai=new ArrayList<>(n);
-        search_pruning(nums,bool,0,n,k);
-        return res.toString();
+        for(int i=1;i<n;i++) factorial[i]=i*factorial[i-1];
+        boolean[] visited=new boolean[n+1];
+        List<String> pai=new ArrayList<>();
+        dfs(n,k,0,visited,pai);
+        return res;
     }
-
-    //剪枝：时间复杂度在O(n^2)
-    public void search_pruning(int[] nums,boolean[] bool,int t,int n,int k){
-        if(t>=n) {
-            for (int num:pai) {
-                res.append(num);
-            }
+    public void dfs(int n,int k,int t,boolean[] visited,List<String> pai){
+        if(t>=n){
+            res=String.join("",pai);
             return;
         }
         int x=factorial[n-1-t];
-//        System.out.println(x);
-        for(int i=0;i<n;i++){
-//            System.out.println("t:"+t+" x:"+x+" k:"+k);
-            if(bool[i]) continue;
-            if(x<k) {
+        for(int i=1;i<=n;i++){
+            if(visited[i]) continue;
+            if(x<k){
                 k-=x;
-//                System.out.println("k:"+k);
                 continue;
             }
-            if(!bool[i]){
-                System.out.println("x:"+x+" k:"+k+" 数字："+nums[i]);
-                bool[i]=true;
-                pai.add(nums[i]);
-                search_pruning(nums,bool,t+1,n,k);
-//                pai.remove(pai.size()-1);
-//                bool[i]=false;
-            }
+            pai.add(i+"");
+            visited[i]=true;
+            dfs(n,k,t+1,visited,pai);
+            return;
         }
     }
 
+    /**
+     * 求全排列的两种方式：1）交换法 2）bool法
+     * 交换法的时间和空间复杂度比bool法略低一些，但得到的全排列顺序不是严格递增的
+     */
+    int count=0;//计数：第几次排列
+    int[] nums;
+    List<Integer> pai=new ArrayList<>();
     //交换法：得到的顺序不是严格递增的
-    public void backTrack(int[] nums, int t, int n, int k) {
+    public void backTrack(int t, int n, int k) {
         if (t > n) {
             count++;
             System.out.print("第"+count+"次排列：");
@@ -112,15 +83,17 @@ public class _第K个排列 {
             System.out.println();
 
             if(count==k){
+                System.out.print("结果：");
                 for (int num : nums) {
-                    res.append(num + "");
+                    System.out.print(num+" ");
                 }
+                System.out.println();
             }
             return;
         }
         for (int i = t; i <= n /*&& count < k*/; i++) {
             swap(nums, i, t);
-            backTrack(nums, t+1, n, k);
+            backTrack(t+1, n, k);
             swap(nums, i, t);
         }
     }
@@ -128,11 +101,13 @@ public class _第K个排列 {
     public void backTrack_bool(int[] nums,int t,int n,int k,boolean[] bool){
         if (t > n) {
             count++;
-//            System.out.println(pai);
+
             if(count==k){
-                for (int num : pai) {
-                    res.append(num + "");
+                System.out.print("结果：");
+                for (int num : nums) {
+                    System.out.print(num+" ");
                 }
+                System.out.println();
             }
             return;
         }
