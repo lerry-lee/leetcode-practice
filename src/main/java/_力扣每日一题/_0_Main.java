@@ -4,9 +4,6 @@ package _力扣每日一题;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 import java.util.Stack;
 
 
@@ -22,25 +19,32 @@ public class _0_Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        System.out.println(t3(35));
+        test_216();
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
     }
 
-    public static int t3(int a){
-        int maxVal=0;
-        for(int m=1;m<=a/2;m++){
-            int n=a-m;
-            maxVal=Math.max(maxVal,calVal(m)+calVal(n));
+    public static void test_216() {
+        _216组合总和3 demo = new _216组合总和3();
+        System.out.println(demo.combinationSum3(3, 9));
+        System.out.println(demo.combinationSum3(3, 7));
+    }
+
+    public static int t3(int a) {
+        int maxVal = 0;
+        for (int m = 1; m <= a / 2; m++) {
+            int n = a - m;
+            maxVal = Math.max(maxVal, calVal(m) + calVal(n));
         }
         return maxVal;
     }
-    public static int calVal(int num){
-        int res=0,wei;
-        while(num>0){
-            wei=num%10;
-            res+=wei;
-            num/=10;
+
+    public static int calVal(int num) {
+        int res = 0, wei;
+        while (num > 0) {
+            wei = num % 10;
+            res += wei;
+            num /= 10;
         }
         return res;
     }
@@ -84,7 +88,6 @@ public class _0_Main {
     public static void test_demo() {
         StringBuilder res = new StringBuilder();
         res.append("abc");
-        res.length();
         int a = Integer.parseInt("255");
         System.out.println(a);
         Stack<Character> stack = new Stack<>();
@@ -149,24 +152,24 @@ public class _0_Main {
         int[] pre1 = {1, 2};
         int[] in1 = {2, 1};
         TreeNode res = new _105从前序与中序遍历序列构造二叉树().buildTree(pre1, in1);
-        _先序遍历(res);
+        preOrder(res);
         System.out.println();
     }
 
     public static void test_1008() {
         int[] a = {8, 5, 1, 7, 10, 12};
         TreeNode res = new _1008先序遍历构造二叉树()._用栈(a);
-        _先序遍历(res);
+        preOrder(res);
         System.out.println();
     }
 
-    public static void _先序遍历(TreeNode node) {
+    public static void preOrder(TreeNode node) {
         if (node == null) {
             return;
         }
         System.out.print(node.val + " ");
-        _先序遍历(node.left);
-        _先序遍历(node.right);
+        preOrder(node.left);
+        preOrder(node.right);
     }
 
     public static void display(String[] a) {
