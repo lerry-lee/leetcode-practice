@@ -12,22 +12,26 @@ package _字节跳动推荐._链表与树;
  * 输出: 5->4->3->2->1->NULL
  * 进阶:
  * 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
- * TODO:递归
  */
 public class _反转链表 {
-    //迭代
+    /**
+     * 解法1：迭代
+     */
     public ListNode reverseList(ListNode head) {
-        ListNode temp=null;
-        ListNode root=null;
+        ListNode temp=null;//遍历过程中，负责将旧链表的节点链接到新链表的头上
+        ListNode root=null;//遍历过程中，负责记录新链表头
         while(head!=null){
-            root=new ListNode(head.val);
-            root.next=temp;
-            temp=root;
-            head=head.next;
+            temp=new ListNode(head.val);//相当于取出当前节点
+            temp.next=root;//将当前节点链接到新链表上，作为头节点
+            root=temp;//头节点更新
+            head=head.next;//旧链表向后遍历
         }
-        return root;
+        return root;//返回新链表的头节点
     }
-    //递归???
+
+    /**
+     * 解法2：递归
+     */
     public ListNode reverseList_递归(ListNode head) {
         if(head.next==null||head==null) return head;
         ListNode node=reverseList(head.next);
