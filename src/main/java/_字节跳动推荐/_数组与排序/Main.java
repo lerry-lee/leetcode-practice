@@ -72,7 +72,7 @@ public class Main {
 
     public static void testGetPe() {
         _第K个排列 demo = new _第K个排列();
-        System.out.println(demo.getPermutation_(3, 2));
+//        System.out.println(demo.getPermutation_(3, 2));
     }
 
     public static void testFindK() {
