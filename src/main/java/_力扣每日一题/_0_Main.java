@@ -1,6 +1,7 @@
 package _力扣每日一题;
 
 
+import _腾讯推荐._数组与字符串._最长回文子串;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,9 +20,28 @@ public class _0_Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_216();
+        test_最长回文子串();
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
+    }
+
+    public static void test_最长回文子串(){
+        String s="babad";
+        System.out.println(new _最长回文子串().longestPalindrome_dp(s));
+    }
+
+    public static void test_79() {
+        char[][] board = {
+                {'A', 'B', 'C', 'E'},
+                {'S', 'F', 'C', 'S'},
+                {'A', 'D', 'E', 'E'}
+        };
+        char[][] board1={
+                {'a','b'}
+        };
+        String word="ab";
+        System.out.println(new _79单词搜索().exist(board1,word));
+
     }
 
     public static void test_216() {
