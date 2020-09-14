@@ -58,7 +58,7 @@ public class _17dot13恢复空格 {
 
     /**
      * 思路2：字典树+动态规划
-     * TODO：不会
+     * TODO
      */
     public int respace_tree(String[] dictionary, String sentence) {
         int n = sentence.length();
