@@ -20,9 +20,28 @@ public class _0_Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_最长回文子串();
+        test_226();
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
+    }
+
+    public static void test_226(){
+        TreeNode root=new TreeNode(4);
+        root.left=new TreeNode(2);
+        root.left.left=new TreeNode(1);
+        root.left.right=new TreeNode(3);
+        root.right=new TreeNode(7);
+        root.right.left=new TreeNode(6);
+        root.right.right=new TreeNode(9);
+        new _226翻转二叉树().invertTree(root);
+        display(root);
+    }
+
+    public static void display(TreeNode root){
+        if(root==null) return;
+        System.out.println(root.val);
+        display(root.left);
+        display(root.right);
     }
 
     public static void test_最长回文子串(){
