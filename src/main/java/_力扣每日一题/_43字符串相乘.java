@@ -4,7 +4,7 @@ package _力扣每日一题;
  * @author lerrylee
  * @version 1.0
  * @create 2020/08/13 09:58
- * @description TODO
+ * @description
  */
 public class _43字符串相乘 {
     public String multiply(String num1, String num2) {

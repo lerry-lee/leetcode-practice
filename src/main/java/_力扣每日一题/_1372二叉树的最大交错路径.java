@@ -4,8 +4,7 @@ package _力扣每日一题;
  * @author lerry-lee
  * @version 1.0
  * @create 2020/07/26 11:21
- * @description TODO
- * 二叉树中的最长交错路径
+ * @description 二叉树中的最长交错路径
  * 给你一棵以 root 为根的二叉树，二叉树中的交错路径定义如下：
  * <p>
  * 选择二叉树中 任意 节点和一个方向（左或者右）。
