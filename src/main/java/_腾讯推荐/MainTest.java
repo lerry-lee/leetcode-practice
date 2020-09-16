@@ -2,6 +2,7 @@ package _腾讯推荐;
 
 import _腾讯推荐._数组与字符串._字符串转换整数;
 import _腾讯推荐._数组与字符串._寻找两个正序数组中的中位数;
+import _腾讯推荐._数组与字符串._最长公共前缀;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,11 +19,17 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-//        test_demo();
-        test_字符串转换整数();
+        test_最长公共前缀();
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
     }
+
+    public static void test_最长公共前缀(){
+        String[] strs={"flower","flow","flight"};
+        String[] strs1={"dog","racecar","car"};
+        System.out.println(new _最长公共前缀().longestCommonPrefix(strs1));
+    }
+
     public static void test_寻找两个正序数组的中位数(){
         int[] nums1={1,2};
         int[] nums2={3,4};
