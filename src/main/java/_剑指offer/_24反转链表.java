@@ -1,13 +1,13 @@
 package _剑指offer;
 
-import _力扣每日一题.ListNode;
+import _力扣每日一题.dataStructure.ListNode;
 
 /**
  * @author lerrylee
  * @version 1.0.0
  * @className _24反转链表
  * @date 上午10:31 20-9-11
- * @description
+ * @description 反转链表
  **/
 public class _24反转链表 {
     /**
