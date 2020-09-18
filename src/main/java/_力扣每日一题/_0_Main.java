@@ -20,12 +20,24 @@ public class _0_Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_226();
+        test_47();
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
     }
 
-
+    public static void test_47(){
+        int[] nums={1,1,2,};
+        int[] nums1={1,2,3};
+        int[] nums2={2,2,1,1};
+        System.out.println(new _47全排列2().permuteUnique(nums));
+        System.out.println(new _47全排列2().permuteUnique_swap(nums));
+        System.out.println();
+        System.out.println(new _47全排列2().permuteUnique(nums1));
+        System.out.println(new _47全排列2().permuteUnique_swap(nums1));
+        System.out.println();
+        System.out.println(new _47全排列2().permuteUnique(nums2));
+        System.out.println(new _47全排列2().permuteUnique_swap(nums2));
+    }
 
     public static void test_226(){
         TreeNode root=new TreeNode(4);
