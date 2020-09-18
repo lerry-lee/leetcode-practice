@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.math.BigInteger;
+import java.util.Scanner;
 
 /**
  * @author lerrylee
@@ -17,9 +18,17 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_最接近的三数之和();
+        test_有效的括号();
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
+    }
+
+    public static void test_有效的括号(){
+        Scanner sc=new Scanner(System.in);
+        while(true){
+            String s=sc.next();
+            System.out.println(new _有效的括号().isValid(s));
+        }
     }
 
     public static void test_最接近的三数之和(){
