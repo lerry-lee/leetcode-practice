@@ -48,8 +48,8 @@ public class _47全排列2 {
         }
         for (int i = 0; i < nums.length; i++) {
             if (visited[i]) continue;
+            //因为是先排完序的，所以判断打头的元素是否重复时，直接和前一个数比较，相同则略过（!visited[i-1]表示前一个数未被访问，如果被访问了说明不是打头的元素）
             if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
-
             visited[i] = true;
             temp.add(nums[i]);
             dfs(res, temp, visited, nums, t + 1);
