@@ -41,7 +41,6 @@ public class _删除排序数组中的重复项 {
             else{
                 swap(nums,l+1,r);
                 l+=1;
-                r=l+1;
             }
         }
         return l+1;
