@@ -1,8 +1,8 @@
 package _力扣每日一题._20年8月;
 
 
-import _力扣每日一题.dataStructure.ListNode;
-import _力扣每日一题.dataStructure.TreeNode;
+import _数据结构.ListNode;
+import _数据结构.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

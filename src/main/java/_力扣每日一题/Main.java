@@ -3,17 +3,15 @@ package _力扣每日一题;
 
 import _力扣每日一题._20年7月.*;
 import _力扣每日一题._20年8月._43字符串相乘;
-import _力扣每日一题._20年9月._216组合总和3;
-import _力扣每日一题._20年9月._226翻转二叉树;
-import _力扣每日一题._20年9月._47全排列2;
-import _力扣每日一题._20年9月._79单词搜索;
-import _力扣每日一题._todo._315计算右侧小于当前元素的个数;
-import _力扣每日一题.dataStructure.ListNode;
-import _力扣每日一题.dataStructure.TreeNode;
+import _力扣每日一题._20年9月.*;
+import _TODO._315计算右侧小于当前元素的个数;
+import _数据结构.ListNode;
+import _数据结构.TreeNode;
 import _腾讯推荐._数组与字符串._最长回文子串;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 
@@ -29,9 +27,48 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_47();
+        test_78();
         long t2 = System.currentTimeMillis();
         log.info("测试结束，耗时:%dms", (t2 - t1));
+    }
+
+    public static ListNode getListNode(){
+        Scanner sc=new Scanner(System.in);
+        ListNode listNode=new ListNode();
+        ListNode head=listNode;
+        int n=sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            listNode=new ListNode(sc.nextInt());
+            listNode=listNode.next;
+        }
+        return head;
+    }
+
+    public static String getString(){
+        Scanner sc=new Scanner(System.in);
+        return sc.next();
+    }
+
+    public static int[] getNums(){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] nums=new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i]=sc.nextInt();
+        }
+        sc.close();
+        return nums;
+    }
+
+    public static void test_78(){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] nums=new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i]=sc.nextInt();
+        }
+        System.out.println(new _78子集().subsets(nums));
+        sc.close();
     }
 
     public static void test_47(){

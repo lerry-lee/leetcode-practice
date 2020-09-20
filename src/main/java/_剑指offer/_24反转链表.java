@@ -1,6 +1,6 @@
 package _剑指offer;
 
-import _力扣每日一题.dataStructure.ListNode;
+import _数据结构.ListNode;
 
 /**
  * @author lerrylee

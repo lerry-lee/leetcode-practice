@@ -1,4 +1,4 @@
-package _力扣每日一题.dataStructure;
+package _数据结构;
 
 /**
  * @author lerrylee

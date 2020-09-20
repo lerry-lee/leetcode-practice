@@ -1,6 +1,6 @@
 package _力扣每日一题._20年7月;
 
-import _力扣每日一题.dataStructure.Trie;
+import _数据结构.Trie;
 
 import java.util.Arrays;
 import java.util.HashSet;

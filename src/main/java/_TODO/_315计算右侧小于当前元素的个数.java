@@ -1,4 +1,4 @@
-package _力扣每日一题._todo;
+package _TODO;
 
 
 import _力扣每日一题.Main;
