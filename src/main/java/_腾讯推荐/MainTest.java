@@ -20,9 +20,15 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_盛水最多的容器();
+        test_字符串相乘();
         long t2 = System.currentTimeMillis();
-        log.info("测试结束，耗时:%dms", (t2 - t1));
+        log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_字符串相乘(){
+        String str1=getString();
+        String str2=getString();
+        System.out.println(new _字符串相乘().multiply(str1,str2));
     }
 
     public static void test_盛水最多的容器(){

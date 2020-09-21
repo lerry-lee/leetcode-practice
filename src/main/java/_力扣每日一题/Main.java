@@ -27,9 +27,19 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_78();
+        test_538();
         long t2 = System.currentTimeMillis();
-        log.info("测试结束，耗时:%dms", (t2 - t1));
+        log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_538(){
+        TreeNode root=new TreeNode(5);
+        root.left=new TreeNode(2);
+        root.right=new TreeNode(13);
+//        root.left.left=new TreeNode(-4);
+//        root.left.right=new TreeNode(1);
+        display(new _538把二叉搜索树转换为累加树().convertBST_b(root));
+
     }
 
     public static ListNode getListNode(){
