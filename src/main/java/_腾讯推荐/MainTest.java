@@ -5,7 +5,6 @@ import _腾讯推荐._数组与字符串.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -20,9 +19,15 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_字符串相乘();
+        test_反转字符串中的单词3();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_反转字符串中的单词3(){
+        String s="Let's take LeetCode contest";
+        System.out.println(s);
+        System.out.println(new _反转字符串中的单词3().reverseWords(s));
     }
 
     public static void test_字符串相乘(){
