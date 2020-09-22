@@ -27,9 +27,17 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_538();
+        test_968();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_968(){
+        TreeNode root=new TreeNode(0);
+        root.left=new TreeNode(1);
+        root.left.left=new TreeNode(2);
+        root.left.right=new TreeNode(2);
+        System.out.println(new _968监控二叉树().minCameraCover(root));
     }
 
     public static void test_538(){
