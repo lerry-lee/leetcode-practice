@@ -41,4 +41,21 @@ public class _除自身以外数组的乘积 {
         }
         return res;
     }
+    /**
+     * 解法2：单数组法：记录左边的乘积，右边用一个变量存
+     */
+    public int[] productExceptSelf_improved(int[] nums) {
+        int[] res=new int[nums.length];
+        res[0]=1;
+
+        for (int i = 0; i < nums.length; i++) {
+            if(i>0) res[i]=res[i-1]*nums[i-1];
+        }
+        int r_product=1;
+        for(int i=nums.length-1;i>=0;i--){
+            res[i]=res[i]*r_product;
+            r_product*=nums[i];
+        }
+        return res;
+    }
 }
