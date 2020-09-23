@@ -1,9 +1,9 @@
-package _算法分析设计课;
+package _TODO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class _背包问题_迪杰斯特拉算法 {
 
     static List<List<Integer>> res=new ArrayList<>();
     static int[] candidates={2,3,6,7};
