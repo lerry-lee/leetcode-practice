@@ -27,9 +27,19 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_968();
+        test_501();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_501(){
+        TreeNode root=new TreeNode(2147483647);
+        TreeNode root1=new TreeNode(1);
+        root1.right=new TreeNode(2);
+        root1.right.left=new TreeNode(2);
+
+        int[] a=new _501二叉搜索树中的众数().findMode(root1);
+        display(a);
     }
 
     public static void test_968(){
