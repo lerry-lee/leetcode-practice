@@ -27,9 +27,15 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_501();
+        tet_106();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void tet_106(){
+        int[] inorder={2,1};
+        int[] postorder={2,1};
+        display(new _106从中序与后续遍历序列构造二叉树().buildTree(inorder,postorder));
     }
 
     public static void test_501(){
