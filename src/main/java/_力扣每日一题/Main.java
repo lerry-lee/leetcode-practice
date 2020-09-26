@@ -27,9 +27,24 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        tet_106();
+        test_113();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_113(){
+        TreeNode root=new TreeNode(5);
+        insertLeftAndRightChildToTreeNode(root,4,8);
+        insertLeftAndRightChildToTreeNode(root.left,11,2333);
+        insertLeftAndRightChildToTreeNode(root.left.left,7,2);
+        insertLeftAndRightChildToTreeNode(root.right,13,4);
+        insertLeftAndRightChildToTreeNode(root.right.right,5,1);
+        System.out.println(new _113路径总和2().pathSum(root,22));
+    }
+
+    public static void insertLeftAndRightChildToTreeNode(TreeNode root,int leftVal,int rightVal){
+        if(leftVal!=2333) root.left=new TreeNode(leftVal);
+        if(rightVal!=2333) root.right=new TreeNode(rightVal);
     }
 
     public static void tet_106(){
