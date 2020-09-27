@@ -27,9 +27,18 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_113();
+        test_235();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_235(){
+        TreeNode root=new TreeNode(6);
+        insertLeftAndRightChildToTreeNode(root,2,8);
+        insertLeftAndRightChildToTreeNode(root.left,0,4);
+        insertLeftAndRightChildToTreeNode(root.left.right,3,5);
+        insertLeftAndRightChildToTreeNode(root.right,7,9);
+        System.out.println(new _235二叉搜索树的最近公共祖先().lowestCommonAncestor(root,root.left.right,root.left.left).val);
     }
 
     public static void test_113(){
