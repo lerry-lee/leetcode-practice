@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author lerrylee
  * @version 1.0
  * @create 2020/09/09 19:37
- * @description TODO
+ * @description TODO 带记忆的深度优先搜索
  */
 public class _第2题最长水沟 {
     static int max_length=0;

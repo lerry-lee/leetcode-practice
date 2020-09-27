@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author lerrylee
  * @version 1.0
  * @create 2020/09/07 15:08
- * @description TODO
+ * @description
  */
 public class _第一题 {
     public static void main(String[] args) {
