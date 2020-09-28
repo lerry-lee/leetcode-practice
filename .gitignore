@@ -1,6 +1,5 @@
 .idea
 *.iml
-data/
 out/
 lib/
 log/

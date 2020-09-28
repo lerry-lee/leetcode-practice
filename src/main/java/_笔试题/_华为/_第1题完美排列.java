@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author lerrylee
  * @version 1.0
  * @create 2020/09/09 19:09
- * @description TODO
+ * @description
  */
 public class _第1题完美排列 {
     public static void main(String[] args) {
