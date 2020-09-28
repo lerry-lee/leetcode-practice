@@ -55,4 +55,76 @@ public class _117填充每个节点的下一个右侧节点 {
         }
         return root;
     }
+    /**
+     * 解法2：指针模拟队列，空间复杂度降到O(1)
+     * 利用解法一的思想，我们利用 pre 指针，然后一个一个取节点，把它连起来。解法一为什么没有像解法二那样考虑当前节点为 null 呢？因为我们没有添加为 null 的节点，就是下边的代码的作用。
+     * 所以这里是一样的，如果当前节点为null不处理就可以了。
+     * cur 指针利用 next 不停的遍历当前层。
+     *
+     * 如果 cur 的孩子不为 null 就将它接到 tail 后边，然后更新tail。
+     *
+     * 当 cur 为 null 的时候，再利用 dummy 指针得到新的一层的开始节点。
+     *
+     * dummy 指针在链表中经常用到，他只是为了处理头结点的情况，它并不属于当前链表。
+     *
+     */
+    public Node connect_pointer(Node root) {
+        Node cur = root;
+        while (cur != null) {
+            Node dummy = new Node();
+            Node tail = dummy;
+            //遍历 cur 的当前层
+            while (cur != null) {
+                if (cur.left != null) {
+                    tail.next = cur.left;
+                    tail = tail.next;
+                }
+                if (cur.right != null) {
+                    tail.next = cur.right;
+                    tail = tail.next;
+                }
+                cur = cur.next;
+            }
+            //更新 cur 到下一层
+            cur = dummy.next;
+        }
+        return root;
+    }
+
+    /**
+     * 解法3：官方题解：使用已建立的next指针
+     */
+    Node last = null, nextStart = null;
+
+    public Node connect_nextPointer(Node root) {
+        if (root == null) {
+            return null;
+        }
+        Node start = root;
+        while (start != null) {
+            last = null;
+            nextStart = null;
+            for (Node p = start; p != null; p = p.next) {
+                if (p.left != null) {
+                    handle(p.left);
+                }
+                if (p.right != null) {
+                    handle(p.right);
+                }
+            }
+            start = nextStart;
+        }
+        return root;
+    }
+
+    public void handle(Node p) {
+        if (last != null) {
+            last.next = p;
+        }
+        if (nextStart == null) {
+            nextStart = p;
+        }
+        last = p;
+    }
+
 }
