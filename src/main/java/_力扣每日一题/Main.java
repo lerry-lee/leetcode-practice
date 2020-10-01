@@ -1,6 +1,7 @@
 package _力扣每日一题;
 
 
+import _力扣每日一题._20年10月._19秋叶收藏集;
 import _力扣每日一题._20年7月.*;
 import _力扣每日一题._20年8月._43字符串相乘;
 import _力扣每日一题._20年9月.*;
@@ -27,9 +28,15 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_235();
+        test_19();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_19(){
+        String s="rrryyyrryyyrr";
+        System.out.println(s);
+        new _19秋叶收藏集().minimumOperations(s);
     }
 
     public static void test_235(){
