@@ -2,6 +2,7 @@ package _腾讯推荐;
 
 import _数据结构.ListNode;
 import _腾讯推荐._数组与字符串.*;
+import _腾讯推荐._链表._旋转链表;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,9 +21,36 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_螺旋矩阵();
+        test_旋转链表();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_旋转链表(){
+        ListNode head=new ListNode(1);
+        fillListNodeWithArray(new int[]{2},0,head);
+        display(head);
+//        display(new _旋转链表().rotateRight(head,4));
+//        display(new _旋转链表().rotateRight(head,3));
+//        display(new _旋转链表().rotateRight(head,2));
+        display(new _旋转链表().rotateRight_cicle(head,1));
+
+
+    }
+
+    public static void display(ListNode node){
+        if(node==null) {
+            System.out.println("null");
+            return;
+        }
+        System.out.print(node.val+"->");
+        display(node.next);
+    }
+
+    public static void fillListNodeWithArray(int[] nums,int t,ListNode node){
+        if(t==nums.length) return;
+        node.next=new ListNode(nums[t]);
+        fillListNodeWithArray(nums,t+1,node.next);
     }
 
     public static void test_螺旋矩阵() {
