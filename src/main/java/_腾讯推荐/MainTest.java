@@ -33,7 +33,7 @@ public class MainTest {
 //        display(new _旋转链表().rotateRight(head,4));
 //        display(new _旋转链表().rotateRight(head,3));
 //        display(new _旋转链表().rotateRight(head,2));
-        display(new _旋转链表().rotateRight_cicle(head,1));
+//        display(new _旋转链表().rotateRight_cicle(head,1));
 
 
     }
