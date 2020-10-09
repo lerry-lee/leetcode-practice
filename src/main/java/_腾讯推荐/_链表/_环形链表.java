@@ -2,6 +2,8 @@ package _腾讯推荐._链表;
 
 import _数据结构.ListNode;
 
+import java.util.List;
+
 /**
  * Created by lerry_li on 2020/10/04
  */
@@ -35,5 +37,16 @@ public class _环形链表 {
         }
         return false;
 
+    }
+    public boolean hasCycle2(ListNode head){
+        if(head==null) return false;
+        ListNode slow=head,fast=head;
+        while(true){
+            if(fast==null||fast.next==null) return false;
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast) break;
+        }
+        return true;
     }
 }
