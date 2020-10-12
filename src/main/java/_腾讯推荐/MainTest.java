@@ -1,6 +1,7 @@
 package _腾讯推荐;
 
 import _数据结构.ListNode;
+import _腾讯推荐._数学与数字._整数反转;
 import _腾讯推荐._数组与字符串.*;
 import _腾讯推荐._链表._旋转链表;
 import org.apache.logging.log4j.LogManager;
@@ -21,9 +22,14 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_旋转链表();
+        test_整数反转();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_整数反转(){
+        int n=1534236469;
+        System.out.println(new _整数反转().reverse(n));
     }
 
     public static void test_旋转链表(){
