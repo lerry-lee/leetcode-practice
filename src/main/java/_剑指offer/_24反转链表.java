@@ -14,14 +14,14 @@ public class _24反转链表 {
      * 解法1：迭代：双指针法
      */
     public ListNode reverseList(ListNode head) {
-        ListNode root = null, temp = null;
+        ListNode newHead = null, temp = null;
         while (head != null) {
             temp = new ListNode(head.val);
-            temp.next = root;
-            root = temp;
+            temp.next = newHead;
+            newHead = temp;
             head = head.next;
         }
-        return root;
+        return newHead;
     }
 
     /**
