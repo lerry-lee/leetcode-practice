@@ -29,7 +29,7 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_977();
+        test_52();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
     }
@@ -37,6 +37,10 @@ public class Main {
     public static void test_977(){
         int[] A={-7,-3,2,3,11};
         display(new _977有序数组的平方().sortedSquares(A));
+    }
+
+    public static void test_52(){
+        System.out.println(new _52N皇后2().totalNQueens(4));
     }
 
     public static void test_1002(){
