@@ -29,9 +29,17 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_52();
+        test_844();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_844(){
+        while(true){
+            String S=getString(),T=getString();
+            System.out.println(new _844比较含退格的字符串().backspaceCompare(S,T));
+        }
+
     }
 
     public static void test_977(){
