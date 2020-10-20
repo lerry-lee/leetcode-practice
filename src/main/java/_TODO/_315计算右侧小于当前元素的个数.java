@@ -1,7 +1,7 @@
 package _TODO;
 
 
-import _力扣每日一题.Main;
+import _每日一题.Main;
 
 import java.util.*;
 
