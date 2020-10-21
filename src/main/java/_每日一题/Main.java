@@ -29,9 +29,17 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_844();
+        test_925();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_925(){
+        while(true){
+            String name=getString();
+            String typed=getString();
+            System.out.println(new _925长按键入().isLongPressedName(name,typed));
+        }
     }
 
     public static void test_844(){
