@@ -29,12 +29,19 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        _test_763();
+        test_243();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
     }
 
-    public static void _test_763(){
+    public static void test_243(){
+        ListNode head=new ListNode(1);
+        head.next=new ListNode(0);
+        head.next.next=new ListNode(1);
+        System.out.println(new _243回文链表().isPalindrome(head));
+    }
+
+    public static void test_763(){
         String s="ababcbacadefegdehijhklij";
         System.out.println(new _763划分字母区间().partitionLabels(s));
     }
