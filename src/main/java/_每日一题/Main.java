@@ -29,9 +29,14 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_243();
+        test_1024();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_1024(){
+        int[][] A={{0,2},{4,8}};
+        System.out.println(new _1024视频拼接().videoStitching(A,5));
     }
 
     public static void test_243(){
