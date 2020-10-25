@@ -29,9 +29,15 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_1024();
+        test_845();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_845(){
+        int[] A={4,2,9,8,0};
+        int[] A1={2,1,4,7,3,2,5};
+        System.out.println(new _845数组中的最长山脉().longestMountain(A1));
     }
 
     public static void test_1024(){
