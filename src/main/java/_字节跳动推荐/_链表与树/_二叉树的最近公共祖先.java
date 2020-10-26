@@ -17,7 +17,7 @@ public class _二叉树的最近公共祖先 {
     /**
      * 递归：
      * 只要判断一个节点的左子树里有p，右子树里有q，那么当前节点就是最近公共祖先
-     * 可以通过画图理解
+     * 可以参考画图理解
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root==null||p==null||q==null) return null;
