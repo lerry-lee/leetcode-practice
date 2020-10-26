@@ -31,6 +31,8 @@ public class _845数组中的最长山脉 {
     }
     /**
      * 解法2：枚举山顶
+     * left[i]表示A[i]向左侧可以拓展的数量，right[i]表示A[i]向右侧可以拓展的数量
+     * 当A[i]比左右两侧的数都大时，A[i]才能作为山顶，此时长度为left[i]+right[i]+1
      */
     public int longestMountain2(int[] A) {
         if (A == null || A.length < 3) return 0;
@@ -55,7 +57,7 @@ public class _845数组中的最长山脉 {
         int res=0;
         for (int i = 1; i < A.length-1; i++) {
             if(A[i]>A[i-1]&&A[i]>A[i+1]){
-                res=Math.max(res,left[i-1]+right[i+1]+1);
+                res=Math.max(res,left[i]+right[i]+1);
             }
         }
         return res;
