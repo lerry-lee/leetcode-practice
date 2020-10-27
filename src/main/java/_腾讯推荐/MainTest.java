@@ -1,6 +1,7 @@
 package _腾讯推荐;
 
 import _数据结构.ListNode;
+import _腾讯推荐._回溯算法._括号生成;
 import _腾讯推荐._排序与搜索._数组中的第K个最大元素;
 import _腾讯推荐._数学与数字._2的幂;
 import _腾讯推荐._数学与数字._整数反转;
@@ -23,9 +24,17 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_数组中的第K个最大元素();
+        test_括号生成();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_括号生成(){
+        while(true){
+            int n=sc.nextInt();
+            System.out.println(new _括号生成().generateParenthesis(n));
+        }
+
     }
 
     public static void test_数组中的第K个最大元素(){
