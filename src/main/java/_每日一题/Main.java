@@ -29,9 +29,18 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_845();
+        test_1207();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_1207(){
+        int[] arr1={1,2,2,1,1,3};
+        int[] arr2={1,2};
+        int[] arr3={-3,0,1,-3,1,1,1,-3,10,0};
+        System.out.println(new _1207独一无二的出现次数().uniqueOccurrences(arr1));
+        System.out.println(new _1207独一无二的出现次数().uniqueOccurrences(arr2));
+        System.out.println(new _1207独一无二的出现次数().uniqueOccurrences(arr3));
     }
 
     public static void test_845(){
