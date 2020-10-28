@@ -5,12 +5,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * @author lerrylee
- * @version 1.0.0
- * @className _23
- * @date 下午6:12 20-9-11
- * @description 给定一个字符串，输出该串第一个出现3次的字符
- **/
+ * @Signature: Created by lerry_li on 2020/10/28
+ * @Description: 给定一个数组，找到第一个出现3次的字符
+ */
 public class _第一个出现3次的字符 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
