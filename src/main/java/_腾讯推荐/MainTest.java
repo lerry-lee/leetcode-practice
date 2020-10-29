@@ -26,9 +26,13 @@ public class MainTest {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_全排列();
+        test_格雷编码();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public static void test_格雷编码(){
+        System.out.println(5^1);
     }
 
     public static void test_全排列(){
