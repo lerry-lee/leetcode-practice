@@ -39,7 +39,7 @@ public class Main {
                 {1, 1, 1, 0},
                 {0, 1, 0, 0},
                 {1, 1, 0, 0}};
-        System.out.println(new _463岛屿的周长().islandPerimeter2(grid));
+        System.out.println(new _463岛屿的周长().islandPerimeter(grid));
     }
 
     public static void test_1207() {
