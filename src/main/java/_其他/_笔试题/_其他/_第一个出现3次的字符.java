@@ -1,4 +1,4 @@
-package _笔试题._其他;
+package _其他._笔试题._其他;
 
 import java.util.HashMap;
 import java.util.Map;

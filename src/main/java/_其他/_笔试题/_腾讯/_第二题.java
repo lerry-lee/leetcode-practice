@@ -1,4 +1,4 @@
-package _笔试题._腾讯;
+package _其他._笔试题._腾讯;
 
 import java.util.Arrays;
 import java.util.Scanner;

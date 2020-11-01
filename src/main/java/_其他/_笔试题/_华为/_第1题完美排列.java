@@ -1,4 +1,4 @@
-package _笔试题._华为;
+package _其他._笔试题._华为;
 
 import java.util.Scanner;
 
