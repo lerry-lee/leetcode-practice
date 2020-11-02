@@ -1,4 +1,4 @@
-package _笔试题._贝壳;
+package _其他._笔试题._贝壳;
 
 import java.util.Scanner;
 
