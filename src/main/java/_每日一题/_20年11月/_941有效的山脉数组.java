@@ -3,7 +3,7 @@ package _每日一题._20年11月;
 /**
  * @ClassName: _941有效的山脉数组
  * @Signature: Created by lerry_li on 2020/11/03
- * @Description: TODO
+ * @Description:
  */
 public class _941有效的山脉数组 {
     /**
@@ -39,11 +39,16 @@ public class _941有效的山脉数组 {
      * 最高点不能是数组的第一个位置或最后一个位置
      */
     public boolean validMountainArray2(int[] A) {
+        if (A == null || A.length < 3) {
+            return false;
+        }
+
         int N = A.length;
+
         int i = 0;
 
         // 递增扫描
-        while (i + 1 < N && A[i] < A[i + 1]) {
+        while (i < N - 1 && A[i] < A[i + 1]) {
             i++;
         }
 
@@ -53,7 +58,7 @@ public class _941有效的山脉数组 {
         }
 
         // 递减扫描
-        while (i + 1 < N && A[i] > A[i + 1]) {
+        while (i < N - 1 && A[i] > A[i + 1]) {
             i++;
         }
 
