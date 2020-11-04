@@ -1,4 +1,4 @@
-package _每日一题._20年7月;
+package _其他._TODO;
 
 import java.util.Arrays;
 
@@ -83,10 +83,10 @@ public class _410分割数组的最大值 {
      */
     public int splitArray_bSearch(int[] nums, int m) {
         int left = 0, right = 0;
-        for (int i = 0; i < nums.length; i++) {
-            right += nums[i];
-            if (left < nums[i]) {
-                left = nums[i];
+        for (int num : nums) {
+            right += num;
+            if (left < num) {
+                left = num;
             }
         }
         while (left < right) {
@@ -103,12 +103,12 @@ public class _410分割数组的最大值 {
     public boolean check(int[] nums, int x, int m) {
         int sum = 0;
         int cnt = 1;
-        for (int i = 0; i < nums.length; i++) {
-            if (sum + nums[i] > x) {
+        for (int num : nums) {
+            if (sum + num > x) {
                 cnt++;
-                sum = nums[i];
+                sum = num;
             } else {
-                sum += nums[i];
+                sum += num;
             }
         }
         return cnt <= m;
