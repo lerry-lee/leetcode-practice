@@ -25,7 +25,18 @@ public class CommonMethod {
             for (int em : arr) {
                 System.out.print(em + " ");
             }
-            System.out.println();
+        }
+    }
+
+    public static void display(boolean[] arr) {
+        if (arr == null) {
+            System.out.println("数组对象为null");
+        } else if (arr.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            for (boolean em : arr) {
+                System.out.print(em + " ");
+            }
         }
     }
 
@@ -46,7 +57,21 @@ public class CommonMethod {
                 }
                 System.out.println();
             }
-            System.out.println();
+        }
+    }
+
+    public static void display(boolean[][] arr) {
+        if (arr == null) {
+            System.out.println("数组对象为null");
+        } else if (arr.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            for (boolean[] em : arr) {
+                for (boolean emi : em) {
+                    System.out.print(emi + " ");
+                }
+                System.out.println();
+            }
         }
     }
 
