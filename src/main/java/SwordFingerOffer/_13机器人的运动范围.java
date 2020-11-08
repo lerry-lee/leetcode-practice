@@ -1,6 +1,9 @@
 package SwordFingerOffer;
 
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * @ClassName: _13机器人的运动范围
  * @Signature: Created by lerry_li on 2020/11/08
@@ -8,7 +11,7 @@ package SwordFingerOffer;
  */
 public class _13机器人的运动范围 {
     /**
-     * 解法1：巧算数位和+深度优先遍历
+     * 解法1：巧算数位和+深度优先遍历 时间O(MN) 空间O(MN)
      * 巧算数位和：设数字i的数位和为iSum，数字i的前一个数字i-1的数位和为pre_iSum
      *      1）若i为0：iSum=0
      *      2）若i%10=0，即i为10的倍数：iSum=pre_iSum-8
@@ -69,13 +72,65 @@ public class _13机器人的运动范围 {
     }
 
     /**
-     * 解法2：广度优先遍历 TODO
+     * 解法2：广度优先遍历
+     * 数据结构：双端队列deque
+     * 初始化：将单元格(0,0)加入队尾deque
+     * 迭代终止条件：deque为空
+     * 迭代工作：
+     *      1.单元格出队：将队首单元格(row,column)弹出
+     *      2.判断当前单元格可达的单元格是否可以加入队列：
+     *      【判断当前单元格的右方、下方单元格是否可以加入队列】
+     *              ①下标未越界；
+     *              ②当前位置元素未被访问过，即visited[row][column]=false；
+     *              ③当前单元格满足数位和条件，即grid[row][column]=true；
+     *      3.处理：
+     *              ①计数器+1；
+     *              ②标记当前单元格，即visited[row][column]=true；
+     *              ③当前单元格入队：将当前单元格(row,column)加入队尾
      */
+    public int movingCount2(int m, int n, int k) {
+        if (m <= 0 || n <= 0 || k < 0) {
+            return 0;
+        }
+        int iSum = 0, jSum = 0;
+        boolean[][] grid=new boolean[m][n];
+        boolean[][] visited=new boolean[m][n];
+        for (int i = 0; i < m; i++) {
+            iSum = cal(i, iSum);
+            for (int j = 0; j < n; j++) {
+                jSum = cal(j, jSum);
+                if ((iSum + jSum) <= k) {
+                    grid[i][j]=true;
+                }
+            }
+        }
+        Deque<int[]> deque=new LinkedList<>();
+        deque.offerLast(new int[]{0,0});
+        int res=1;
+        while(!deque.isEmpty()){
+            int size=deque.size();
+            for (int i = 0; i < size; i++) {
+                int[] idx=deque.pollFirst();
+                int row=idx[0];
+                int column=idx[1];
+                if(row+1>=0&&row+1<m&&!visited[row+1][column]&&grid[row+1][column]){
+                    res++;
+                    visited[row+1][column]=true;
+                    deque.offerLast(new int[]{row+1,column});
+                }
+                if(column+1>=0&&column+1<n&&!visited[row][column+1]&&grid[row][column+1]){
+                    res++;
+                    visited[row][column+1]=true;
+                    deque.offerLast(new int[]{row,column+1});
+                }
+            }
+        }
+        return res;
+    }
 
     public static void main(String[] args) {
         _13机器人的运动范围 instance = new _13机器人的运动范围();
-        System.out.println(instance.movingCount(16, 8, 4));
-        System.out.println(instance.movingCount(1, 2, 1));
+        System.out.println(instance.movingCount2(16, 8, 4));
+        System.out.println(instance.movingCount2(1, 2, 1));
     }
-
 }
