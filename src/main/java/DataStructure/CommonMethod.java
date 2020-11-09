@@ -75,6 +75,21 @@ public class CommonMethod {
         }
     }
 
+    public static void display(double[][] arr) {
+        if (arr == null) {
+            System.out.println("数组对象为null");
+        } else if (arr.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            for (double[] em : arr) {
+                for (double emi : em) {
+                    System.out.print(emi + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
     /**
      * 打印链表
      *
