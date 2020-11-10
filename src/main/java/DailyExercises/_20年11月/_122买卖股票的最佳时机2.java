@@ -32,18 +32,18 @@ public class _122买卖股票的最佳时机2 {
      *      preHasStock=hasStock;//第1天【持有股票】的最大利润
      */
     public int maxProfit(int[] prices) {
-        if(prices==null||prices.length==0){
+        if (prices == null || prices.length == 0) {
             return 0;
         }
-        int noStock=0;
-        int hasStock=-prices[0];
-        int preNoStock=noStock;
-        int preHasStock=hasStock;
+        int noStock = 0;
+        int hasStock = -prices[0];
+        int preNoStock = noStock;
+        int preHasStock = hasStock;
         for (int i = 1; i < prices.length; i++) {
-            noStock=Math.max(preNoStock,preHasStock+prices[i]);
-            hasStock=Math.max(preHasStock,preNoStock-prices[i]);
-            preNoStock=noStock;
-            preHasStock=hasStock;
+            noStock = Math.max(preNoStock, preHasStock + prices[i]);
+            hasStock = Math.max(preHasStock, preNoStock - prices[i]);
+            preNoStock = noStock;
+            preHasStock = hasStock;
         }
         return noStock;
     }
