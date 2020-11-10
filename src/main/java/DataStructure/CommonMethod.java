@@ -25,6 +25,7 @@ public class CommonMethod {
             for (int em : arr) {
                 System.out.print(em + " ");
             }
+            System.out.println();
         }
     }
 
@@ -37,6 +38,7 @@ public class CommonMethod {
             for (boolean em : arr) {
                 System.out.print(em + " ");
             }
+            System.out.println();
         }
     }
 
