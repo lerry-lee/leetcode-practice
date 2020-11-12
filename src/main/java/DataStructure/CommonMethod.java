@@ -1,9 +1,6 @@
 package DataStructure;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @ClassName: CommonMethod
@@ -11,6 +8,17 @@ import java.util.List;
  * @Description: 封装常用方法的类：打印操作、初始化操作、批量插入操作...
  */
 public class CommonMethod {
+
+    /**
+     * 获得scanner
+     *
+     * @return scanner
+     */
+    public static Scanner getScanner() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner;
+    }
+
     /**
      * 打印一维数组
      *
