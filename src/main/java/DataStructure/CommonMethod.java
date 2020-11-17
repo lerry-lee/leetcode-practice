@@ -37,6 +37,24 @@ public class CommonMethod {
         }
     }
 
+    /**
+     * 打印一维数组，指定范围
+     *
+     * @param arr 一维数组
+     */
+    public static void display(int[] arr, int start, int end) {
+        if (arr == null) {
+            System.out.println("数组对象为null");
+        } else if (arr.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            for (int i = start; i <= end; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void display(boolean[] arr) {
         if (arr == null) {
             System.out.println("数组对象为null");
