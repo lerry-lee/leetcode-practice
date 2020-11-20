@@ -205,13 +205,15 @@ public class CommonMethod {
     public static Object initialize(List<Integer> integerList, String dataStructure) {
         switch (dataStructure) {
             case "ListNode":
-                System.out.println("初始化链表");
+                System.out.print("初始化链表: ");
                 ListNode head = new ListNode(-1);
                 ListNode temp = head;
                 for (Integer integer : integerList) {
                     temp.next = new ListNode(integer);
                     temp = temp.next;
+                    System.out.print(integer+"->");
                 }
+                System.out.print("null\n");
                 return head.next;
             case "TreeNode":
                 System.out.println("初始化二叉树");
