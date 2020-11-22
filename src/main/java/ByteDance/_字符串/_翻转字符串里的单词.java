@@ -13,20 +13,21 @@ package ByteDance._字符串;
 public class _翻转字符串里的单词 {
     //按空格分割字符串，循环时加条件判断
     public String reverseWords(String s) {
-        String[] arr=s.split(" ");
-        StringBuilder res=new StringBuilder();
-        for(int i=arr.length-1;i>=0;i--){
-            if(arr[i].length()==0) continue;
-            res.append(arr[i]+" ");
+        String[] arr = s.split(" ");
+        StringBuilder res = new StringBuilder();
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i].length() == 0) continue;
+            res.append(arr[i] + " ");
         }
         return res.toString().trim();
     }
+
     //正则表达式匹配多个空格
     public String reverseWords_regularExpression(String s) {
-        String[] arr=s.split("\\s+");
-        StringBuilder res=new StringBuilder();
-        for(int i=arr.length-1;i>=0;i--){
-            res.append(arr[i]+" ");
+        String[] arr = s.split("\\s+");
+        StringBuilder res = new StringBuilder();
+        for (int i = arr.length - 1; i >= 0; i--) {
+            res.append(arr[i] + " ");
         }
         return res.toString().trim();
     }

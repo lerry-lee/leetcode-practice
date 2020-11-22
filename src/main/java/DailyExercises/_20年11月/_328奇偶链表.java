@@ -14,14 +14,14 @@ public class _328奇偶链表 {
     /**
      * 解法1：双指针 时间O(N) 空间O(1)
      * 定义：
-     *      指针p1：指向左边奇数下标的末尾节点
-     *      指针p2：指向右边偶数下标的末尾节点
+     * 指针p1：指向左边奇数下标的末尾节点
+     * 指针p2：指向右边偶数下标的末尾节点
      * 处理：p2遍历到末尾停止
-     *      p2.next的下标是奇数下标，p1.next的下标是偶数下标
-     *      用temp保存p2，p2=p2.next
-     *      然后将p2插入到p1后面
-     *      p2=temp.next
-     *      p1=p1.next
+     * p2.next的下标是奇数下标，p1.next的下标是偶数下标
+     * 用temp保存p2，p2=p2.next
+     * 然后将p2插入到p1后面
+     * p2=temp.next
+     * p1=p1.next
      */
     public ListNode oddEvenList(ListNode head) {
         if (head == null) {

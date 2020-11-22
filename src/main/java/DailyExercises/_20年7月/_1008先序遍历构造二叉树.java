@@ -69,26 +69,26 @@ public class _1008先序遍历构造二叉树 {
      */
     public TreeNode _用栈(int[] preorder) {
         if (preorder == null || preorder.length == 0) return null;
-        Stack<TreeNode> stack=new Stack<>();
-        TreeNode head=new TreeNode(preorder[0]);
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode head = new TreeNode(preorder[0]);
         stack.push(head);
-        TreeNode root=head;
-        for(int i=1;i<preorder.length;i++){
-            int val=preorder[i];
+        TreeNode root = head;
+        for (int i = 1; i < preorder.length; i++) {
+            int val = preorder[i];
             //每次创建一个临时节点，值为遍历到的节点值
-            TreeNode temp=new TreeNode(val);
+            TreeNode temp = new TreeNode(val);
             //每次操作的初始父节点为：栈顶节点
-            head=stack.peek();
+            head = stack.peek();
             //如果临时节点的值比栈顶节点的值要小，那么说明是它的左孩子
-            if(val<stack.peek().val){
-                head.left=temp;
+            if (val < stack.peek().val) {
+                head.left = temp;
             }
             //否则，一直弹出值小于临时节点值的栈顶的节点，直到栈顶节点值比临时节点值要大（或栈空了），说明上一次弹出的节点是它的父节点
-            else{
-                while(!stack.isEmpty()&&stack.peek().val<val){
-                    head=stack.pop();
+            else {
+                while (!stack.isEmpty() && stack.peek().val < val) {
+                    head = stack.pop();
                 }
-                head.right=temp;
+                head.right = temp;
             }
             //每次把临时节点入栈
             stack.push(temp);

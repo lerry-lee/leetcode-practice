@@ -10,8 +10,6 @@ import DataStructure.TreeNode;
 /**
  * 二叉搜索树的最小绝对差
  * 给你一棵所有节点为非负值的二叉搜索树，请你计算树中任意两节点的差的绝对值的最小值。
- *
- *
  */
 public class _530二叉搜索树的最小绝对差 {
     /**
@@ -46,17 +44,18 @@ public class _530二叉搜索树的最小绝对差 {
      * 在中序遍历过程中找到最小值
      * 时间O(n) 空间O(n)
      */
-    int pre=Integer.MAX_VALUE;
-    int cnt=0;
-    int res=Integer.MAX_VALUE;
-    public void inOrder(TreeNode root){
-        if(root==null) return;
+    int pre = Integer.MAX_VALUE;
+    int cnt = 0;
+    int res = Integer.MAX_VALUE;
+
+    public void inOrder(TreeNode root) {
+        if (root == null) return;
         inOrder(root.left);
-        cnt=root.val;
-        if(pre!=Integer.MAX_VALUE){
-            res=Math.min(res,Math.abs(cnt-pre));
+        cnt = root.val;
+        if (pre != Integer.MAX_VALUE) {
+            res = Math.min(res, Math.abs(cnt - pre));
         }
-        pre=cnt;
+        pre = cnt;
         inOrder(root.right);
     }
 

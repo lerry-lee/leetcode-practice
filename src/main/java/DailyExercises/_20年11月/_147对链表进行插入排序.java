@@ -30,9 +30,9 @@ public class _147对链表进行插入排序 {
         //cur遍历到链表尾时停止
         while (cur != null) {
             //若排好序的链表的尾节点tail的值已经比cur的值小了，那么更新tail=tail.next即可，不用摘出来再插入排序了
-            if(tail.val<cur.val){
-                tail=tail.next;
-            }else {
+            if (tail.val < cur.val) {
+                tail = tail.next;
+            } else {
 
                 //从链表中删除cur节点
                 pre.next = cur.next;

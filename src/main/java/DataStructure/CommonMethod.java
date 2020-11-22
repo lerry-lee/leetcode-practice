@@ -36,6 +36,7 @@ public class CommonMethod {
             System.out.println();
         }
     }
+
     public static void display(String[] arr) {
         if (arr == null) {
             System.out.println("数组对象为null");
@@ -223,7 +224,7 @@ public class CommonMethod {
                 for (Integer integer : integerList) {
                     temp.next = new ListNode(integer);
                     temp = temp.next;
-                    System.out.print(integer+"->");
+                    System.out.print(integer + "->");
                 }
                 System.out.print("null\n");
                 return head.next;

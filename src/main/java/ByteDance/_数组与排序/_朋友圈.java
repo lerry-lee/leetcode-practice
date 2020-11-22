@@ -27,7 +27,6 @@ import java.util.Arrays;
 public class _朋友圈 {
     /**
      * 并查集算法：时间复杂度O(n)，外部遍历O(n^2),总共O(n^3)，路径压缩优化可以达到O(n^2)
-     *
      */
     public int findCircleNum(int[][] M) {
         UF uf = new UF(M.length);
@@ -80,26 +79,25 @@ public class _朋友圈 {
     }
 
 
-
     //DFS/BFS O(n^2)
-    public int findCircleNum_dfs(int[][] M){
-        boolean[] can_visit=new boolean[M.length];
-        Arrays.fill(can_visit,true);
-        int count=0;
-        for(int i=0;i<M.length;i++){
-            if(can_visit[i]){
-                dfs(M,i,can_visit);
+    public int findCircleNum_dfs(int[][] M) {
+        boolean[] can_visit = new boolean[M.length];
+        Arrays.fill(can_visit, true);
+        int count = 0;
+        for (int i = 0; i < M.length; i++) {
+            if (can_visit[i]) {
+                dfs(M, i, can_visit);
                 count++;
             }
         }
         return count;
     }
 
-    public void dfs(int[][] M,int i,boolean[] can_visit){
-        for(int j=0;j<M.length;j++){
-            if(can_visit[j]&&M[i][j]==1){
-                can_visit[j]=false;
-                dfs(M,j,can_visit);
+    public void dfs(int[][] M, int i, boolean[] can_visit) {
+        for (int j = 0; j < M.length; j++) {
+            if (can_visit[j] && M[i][j] == 1) {
+                can_visit[j] = false;
+                dfs(M, j, can_visit);
             }
         }
     }

@@ -12,9 +12,9 @@
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>
         </Console>
         <!--        输出都文件中-->
-<!--        <File name="File" fileName="log/testing.log">-->
-<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>-->
-<!--        </File>-->
+        <!--        <File name="File" fileName="log/testing.log">-->
+        <!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>-->
+        <!--        </File>-->
         <!--        按时间和大小滚动日志文件-->
         <RollingRandomAccessFile name="MyFile"
                                  fileName="${LOG_HOME}/${FILE_NAME}"

@@ -14,32 +14,34 @@ public class _144二叉树的前序遍历 {
      * 解法1：递归
      */
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res=new ArrayList<>();
-        if(root==null) return res;
-        dfs(res,root);
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        dfs(res, root);
         return res;
     }
-    public void dfs(List<Integer> res,TreeNode root){
-        if(root==null) return;
+
+    public void dfs(List<Integer> res, TreeNode root) {
+        if (root == null) return;
         res.add(root.val);
-        dfs(res,root.left);
-        dfs(res,root.right);
+        dfs(res, root.left);
+        dfs(res, root.right);
     }
+
     /**
      * 解法2：迭代
      */
     public List<Integer> preorderTraversal2(TreeNode root) {
-        List<Integer> res=new ArrayList<>();
-        if(root==null) return res;
-        Stack<TreeNode> stack=new Stack<>();
-        while(!stack.isEmpty()||root!=null){
-            while(root!=null){
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
                 stack.push(root);
                 res.add(root.val);
-                root=root.left;
+                root = root.left;
             }
-            TreeNode node=stack.pop();
-            root=node.right;
+            TreeNode node = stack.pop();
+            root = node.right;
         }
         return res;
     }

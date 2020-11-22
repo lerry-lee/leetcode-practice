@@ -36,7 +36,7 @@ public class LRUCache {
     public int get(int key) {
         System.out.println("\n执行get，" + key);
         if (this.hashMap.containsKey(key)) {
-            int[] key_value=hashMap.get(key);
+            int[] key_value = hashMap.get(key);
             hashKey.remove(key_value);
             hashKey.addFirst(key_value);
             display();
@@ -50,8 +50,8 @@ public class LRUCache {
     public void put(int key, int value) {
         System.out.println("\n执行put，" + key + ":" + value);
         if (this.hashMap.containsKey(key)) {
-            int[] old_key_value=hashMap.get(key);
-            int[] key_value={key,value};
+            int[] old_key_value = hashMap.get(key);
+            int[] key_value = {key, value};
             hashMap.replace(key, key_value);
             hashKey.remove(old_key_value);
             hashKey.addFirst(key_value);
@@ -60,7 +60,7 @@ public class LRUCache {
                 int[] last = hashKey.removeLast();
                 hashMap.remove(last[0]);
             }
-            int[] key_value={key,value};
+            int[] key_value = {key, value};
             hashMap.put(key, key_value);
             hashKey.addFirst(key_value);
         }

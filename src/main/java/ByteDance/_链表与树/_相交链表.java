@@ -30,6 +30,7 @@ public class _相交链表 {
         }
         return pA;
     }
+
     //存储反转的链表节点，然后顺序遍历即可？
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         List<String> headA_strs = new ArrayList<>();

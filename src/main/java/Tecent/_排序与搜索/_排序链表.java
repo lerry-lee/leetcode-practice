@@ -9,13 +9,13 @@ import DataStructure.ListNode;
 /**
  * 排序链表
  * 在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
- *
+ * <p>
  * 示例 1:
- *
+ * <p>
  * 输入: 4->2->1->3
  * 输出: 1->2->3->4
  * 示例 2:
- *
+ * <p>
  * 输入: -1->5->3->4->0
  * 输出: -1->0->3->4->5
  */
@@ -26,10 +26,10 @@ public class _排序链表 {
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) return head;
         else {
-            ListNode fast=head.next,slow=head;
-            while(fast!=null&&fast.next!=null){
-                fast=fast.next.next;
-                slow=slow.next;
+            ListNode fast = head.next, slow = head;
+            while (fast != null && fast.next != null) {
+                fast = fast.next.next;
+                slow = slow.next;
             }
             ListNode right = slow.next;
             slow.next = null;

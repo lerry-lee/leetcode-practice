@@ -40,12 +40,12 @@ public class _搜索旋转排序数组 {
     public int search2(int[] nums, int target) {
 
         if (nums == null || nums.length == 0) return -1;
-        display(nums,0,nums.length-1);
+        display(nums, 0, nums.length - 1);
         int L = 0, R = nums.length - 1;
         while (L < R) {
             int mid = (L + R) / 2;
-            System.out.print("mid:"+nums[mid]+"\t");
-            display(nums,L,R);
+            System.out.print("mid:" + nums[mid] + "\t");
+            display(nums, L, R);
             if (target == nums[mid]) return mid;
             if (nums[L] <= nums[mid]) {
                 if (target >= nums[L] && target < nums[mid]) {
@@ -61,8 +61,8 @@ public class _搜索旋转排序数组 {
         return nums[L] == target ? L : -1;
     }
 
-    public void display(int[] nums,int s,int e) {
-        for (int i=s;i<=e;i++) System.out.print(nums[i] + " ");
+    public void display(int[] nums, int s, int e) {
+        for (int i = s; i <= e; i++) System.out.print(nums[i] + " ");
         System.out.println();
     }
 }

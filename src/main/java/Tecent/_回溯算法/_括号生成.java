@@ -17,7 +17,7 @@ public class _括号生成 {
         //用list存慢，因为后面还是需要string
 //        dfs(res, new ArrayList<>(), n, n);
         //直接用stringBuilder存快
-        dfs1(res,new StringBuilder(),n,n);
+        dfs1(res, new StringBuilder(), n, n);
         return res;
     }
 

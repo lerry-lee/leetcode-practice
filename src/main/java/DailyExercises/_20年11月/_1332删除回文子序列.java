@@ -8,10 +8,10 @@ package DailyExercises._20年11月;
 public class _1332删除回文子序列 {
     /**
      * 解法1：三种情况
-     *      1.空串→返回0
-     *      2.回文串→返回1
-     *      3.非回文串→返回2
-     *          ①先删除a；②再删除b
+     * 1.空串→返回0
+     * 2.回文串→返回1
+     * 3.非回文串→返回2
+     * ①先删除a；②再删除b
      * tips：注意是回文子序列，而且字母仅有a和b！
      */
     public int removePalindromeSub(String s) {

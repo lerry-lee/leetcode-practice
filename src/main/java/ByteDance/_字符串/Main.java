@@ -19,25 +19,25 @@ public class Main {
         log.info("执行结束");
     }
 
-    public static void test_复原IP地址(){
-        String s="25525511135";
+    public static void test_复原IP地址() {
+        String s = "25525511135";
 //        new _复原IP地址().func();
         System.out.println(new _复原IP地址().run(s));
     }
 
-    public static void test_字符串的排列(){
-        String s1 = "ab",s2 = "eidboaoo";
-        System.out.println(new _字符串的排列().mtd(s1,s2));
+    public static void test_字符串的排列() {
+        String s1 = "ab", s2 = "eidboaoo";
+        System.out.println(new _字符串的排列().mtd(s1, s2));
     }
 
-    public static void test_最长公共前缀(){
-        String[] s={"flower","flow","flight"};
-        String[] s1={"dog","racecar","car"};
+    public static void test_最长公共前缀() {
+        String[] s = {"flower", "flow", "flight"};
+        String[] s1 = {"dog", "racecar", "car"};
         System.out.println(new _最长公共前缀().longestCommonPrefix(s1));
     }
 
-    public static void test_无重复字符的最长子串(){
-        String s="abba";
+    public static void test_无重复字符的最长子串() {
+        String s = "abba";
         System.out.println(new _无重复字符的最长子串().lengthOfLongestSubstring(s));
     }
 }

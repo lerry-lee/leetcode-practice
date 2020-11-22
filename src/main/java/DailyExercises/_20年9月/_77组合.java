@@ -10,18 +10,18 @@ import java.util.List;
  * @date 上午11:34 20-9-8
  * @description 组合
  * 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
- *
+ * <p>
  * 示例:
- *
+ * <p>
  * 输入: n = 4, k = 2
  * 输出:
  * [
- *   [2,4],
- *   [3,4],
- *   [2,3],
- *   [1,2],
- *   [1,3],
- *   [1,4],
+ * [2,4],
+ * [3,4],
+ * [2,3],
+ * [1,2],
+ * [1,3],
+ * [1,4],
  * ]
  **/
 public class _77组合 {
@@ -29,13 +29,14 @@ public class _77组合 {
      * 解法1：dfs+剪枝
      */
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> combine_list=new ArrayList<>();
-        if(n<k) return combine_list;
-        List<Integer> temp=new ArrayList<>();
-        dfs(combine_list,temp,n,1,k,0);
+        List<List<Integer>> combine_list = new ArrayList<>();
+        if (n < k) return combine_list;
+        List<Integer> temp = new ArrayList<>();
+        dfs(combine_list, temp, n, 1, k, 0);
         return combine_list;
     }
-    public void dfs(List<List<Integer>> combine_list,List<Integer> temp,int n,int ni,int k,int t) {
+
+    public void dfs(List<List<Integer>> combine_list, List<Integer> temp, int n, int ni, int k, int t) {
         if (t >= k) {
             combine_list.add(new ArrayList<>(temp));
             return;

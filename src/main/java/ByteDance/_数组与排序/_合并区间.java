@@ -26,7 +26,7 @@ public class _合并区间 {
         // 遍历区间
         int[][] res = new int[intervals.length][2];
         int idx = -1;
-        for (int[] interval: intervals) {
+        for (int[] interval : intervals) {
             // 如果结果数组是空的，或者当前区间的起始位置 > 结果数组中最后区间的终止位置，
             // 则不合并，直接将当前区间加入结果数组。
             if (idx == -1 || interval[0] > res[idx][1]) {
@@ -48,12 +48,11 @@ public class _合并区间 {
         int[] sort_left = new int[intervals.length];
 
         for (int i = 0; i < intervals.length; i++) {
-            if(hashMap.containsKey(intervals[i][0])){
-                if(intervals[i][1]>hashMap.get(intervals[i][0])){
+            if (hashMap.containsKey(intervals[i][0])) {
+                if (intervals[i][1] > hashMap.get(intervals[i][0])) {
                     hashMap.put(intervals[i][0], intervals[i][1]);
                 }
-            }
-            else {
+            } else {
                 hashMap.put(intervals[i][0], intervals[i][1]);
             }
             sort_left[i] = intervals[i][0];
@@ -62,29 +61,29 @@ public class _合并区间 {
 
         display(sort_left);
         display(hashMap);
-        int[] new_sort=new int[sort_left.length];
-        int j=0;
+        int[] new_sort = new int[sort_left.length];
+        int j = 0;
         for (int i = 0; i < sort_left.length; i++) {
-            if (i > 0&&j>0 && sort_left[i] <= qujian.get(new_sort[j-1])) {
-                if(hashMap.get(sort_left[i])>qujian.get(new_sort[j-1])){
-                    qujian.replace(new_sort[j-1],hashMap.get(sort_left[i]));
+            if (i > 0 && j > 0 && sort_left[i] <= qujian.get(new_sort[j - 1])) {
+                if (hashMap.get(sort_left[i]) > qujian.get(new_sort[j - 1])) {
+                    qujian.replace(new_sort[j - 1], hashMap.get(sort_left[i]));
                 }
 //                else qujian.replace(sort_left[i - 1], hashMap.get(sort_left[i]));
             } else {
-                new_sort[j++]=sort_left[i];
+                new_sort[j++] = sort_left[i];
                 qujian.put(sort_left[i], hashMap.get(sort_left[i]));
             }
 
         }
 
         display(qujian);
-        for(Map.Entry<Integer,Integer> entry:qujian.entrySet()){
-            int[] temp={entry.getKey(),entry.getValue()};
+        for (Map.Entry<Integer, Integer> entry : qujian.entrySet()) {
+            int[] temp = {entry.getKey(), entry.getValue()};
             helper.add(temp);
         }
-        int[][] res=new int[helper.size()][];
-        for(int i=0;i<res.length;i++){
-            res[i]=helper.get(i);
+        int[][] res = new int[helper.size()][];
+        for (int i = 0; i < res.length; i++) {
+            res[i] = helper.get(i);
         }
         return res;
     }
@@ -95,7 +94,7 @@ public class _合并区间 {
 
     public void display(int[] a) {
         for (int num : a) {
-            System.out.print(num+" ");
+            System.out.print(num + " ");
         }
         System.out.println();
     }

@@ -14,12 +14,12 @@ public class _2的幂 {
      */
     public boolean isPowerOfTwo(int n) {
         //特判
-        if(n==0) return false;
+        if (n == 0) return false;
         //递归终止条件
-        if(n==1) return true;
-        if(n%2!=0) return false;
+        if (n == 1) return true;
+        if (n % 2 != 0) return false;
         //递归计算n/2
-        return isPowerOfTwo(n/2);
+        return isPowerOfTwo(n / 2);
     }
 
 }

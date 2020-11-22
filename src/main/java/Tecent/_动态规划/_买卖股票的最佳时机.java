@@ -13,16 +13,15 @@ public class _买卖股票的最佳时机 {
     /**
      * 解法1：动态规划 时间O(N) 空间O(N)
      * 状态定义：dp[i][j]：下标为 i 这一天结束的时候，手上持股状态为 j 时，我们持有的现金数。
-     *      j = 0，表示当前不持股；
-     *      j = 1，表示当前持股。
+     * j = 0，表示当前不持股；
+     * j = 1，表示当前持股。
      * 推导状态转移方程：
-     *  dp[i][0]：规定了今天不持股，有以下两种情况：
-     *      昨天不持股，今天什么都不做；
-     *      昨天持股，今天卖出股票（现金数增加），
-     *  dp[i][1]：规定了今天持股，有以下两种情况：
-     *      昨天持股，今天什么都不做（现金数增加）；
-     *      昨天不持股，今天买入股票（注意：只允许交易一次，因此手上的现金数就是当天的股价的相反数）。
-     *
+     * dp[i][0]：规定了今天不持股，有以下两种情况：
+     * 昨天不持股，今天什么都不做；
+     * 昨天持股，今天卖出股票（现金数增加），
+     * dp[i][1]：规定了今天持股，有以下两种情况：
+     * 昨天持股，今天什么都不做（现金数增加）；
+     * 昨天不持股，今天买入股票（注意：只允许交易一次，因此手上的现金数就是当天的股价的相反数）。
      */
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length == 0) {
@@ -56,11 +55,11 @@ public class _买卖股票的最佳时机 {
         if (len < 2) {
             return 0;
         }
-        int noStock=0;
-        int hasStock=-prices[0];
+        int noStock = 0;
+        int hasStock = -prices[0];
         for (int i = 1; i < len; i++) {
-            noStock=Math.max(noStock,hasStock+prices[i]);
-            hasStock=Math.max(hasStock,-prices[i]);
+            noStock = Math.max(noStock, hasStock + prices[i]);
+            hasStock = Math.max(hasStock, -prices[i]);
         }
         return noStock;
     }

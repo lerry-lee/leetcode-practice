@@ -36,19 +36,19 @@ public class _二叉搜索树的最近公共祖先 {
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return null;
         if (p == root || q == root) return root;
-        if(p==q) return p;
+        if (p == q) return p;
         hashMap = new HashMap<>();
         Set<TreeNode> hashSet = new HashSet<>();
         dfs(root);
-        while(p!=root){
+        while (p != root) {
             hashSet.add(p);
-            p=hashMap.get(p);
+            p = hashMap.get(p);
         }
-        while(q!=root){
-            if(hashSet.contains(q)){
+        while (q != root) {
+            if (hashSet.contains(q)) {
                 return q;
             }
-            q=hashMap.get(q);
+            q = hashMap.get(q);
         }
         return root;
     }
@@ -56,48 +56,50 @@ public class _二叉搜索树的最近公共祖先 {
     Map<TreeNode, TreeNode> hashMap;
 
     public void dfs(TreeNode root) {
-        if(root.left!=null){
-            hashMap.put(root.left,root);
+        if (root.left != null) {
+            hashMap.put(root.left, root);
             dfs(root.left);
         }
-        if(root.right!=null){
-            hashMap.put(root.right,root);
+        if (root.right != null) {
+            hashMap.put(root.right, root);
             dfs(root.right);
         }
     }
 
     /**
      * 解法3：一次遍历（递归版）
-     *   二叉搜索树特性：左子树比根节点小，右子树比根节点大
-     *   三种情况
-     *       第一种：p，q均在root的右子树
-     *       第二种：p，q均在root的左子树
-     *      第三种：，最近祖先只能是root
+     * 二叉搜索树特性：左子树比根节点小，右子树比根节点大
+     * 三种情况
+     * 第一种：p，q均在root的右子树
+     * 第二种：p，q均在root的左子树
+     * 第三种：，最近祖先只能是root
      */
     public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return null;
         if (p == root || q == root) return root;
-        if(p==q) return p;
-        return dfs(root,p,q);
+        if (p == q) return p;
+        return dfs(root, p, q);
     }
-    public TreeNode dfs(TreeNode root,TreeNode p,TreeNode q){
-        if(p.val<root.val&&q.val<root.val) return lowestCommonAncestor(root.left,p,q);
-        else if(p.val>root.val&&q.val>root.val) return lowestCommonAncestor(root.right,p,q);
+
+    public TreeNode dfs(TreeNode root, TreeNode p, TreeNode q) {
+        if (p.val < root.val && q.val < root.val) return lowestCommonAncestor(root.left, p, q);
+        else if (p.val > root.val && q.val > root.val) return lowestCommonAncestor(root.right, p, q);
         return root;
     }
+
     /**
      * 解法4：一次遍历（迭代版）
      */
     public TreeNode lowestCommonAncestor4(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return null;
         if (p == root || q == root) return root;
-        if(p==q) return p;
-        while(root!=null){
-            if(p.val<root.val&&q.val<root.val){
-                root=root.left;
-            }else if(p.val>root.val&&q.val>root.val){
-                root=root.right;
-            }else{
+        if (p == q) return p;
+        while (root != null) {
+            if (p.val < root.val && q.val < root.val) {
+                root = root.left;
+            } else if (p.val > root.val && q.val > root.val) {
+                root = root.right;
+            } else {
                 return root;
             }
         }

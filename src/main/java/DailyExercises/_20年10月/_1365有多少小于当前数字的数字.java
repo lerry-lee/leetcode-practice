@@ -112,10 +112,10 @@ public class _1365有多少小于当前数字的数字 {
         }
         // 最后遍历直接取，这里注意nums[i]为0的情况，放置nums[i]-1下标越界
         for (int i = 0; i < nums.length; i++) {
-            if(nums[i]==0){
-                res[i]=0;
-            }else{
-                res[i]=countNum[nums[i]-1];
+            if (nums[i] == 0) {
+                res[i] = 0;
+            } else {
+                res[i] = countNum[nums[i] - 1];
             }
         }
         return res;

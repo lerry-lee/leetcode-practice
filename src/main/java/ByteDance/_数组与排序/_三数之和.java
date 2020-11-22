@@ -34,21 +34,20 @@ public class _三数之和 {
             if (i > 0 && nums[i] == nums[i - 1]) continue;
             L = i + 1;
             R = nums.length - 1;
-            while (L<R) {
+            while (L < R) {
                 if (nums[i] + nums[L] + nums[R] == 0) {
-                    res.add(Arrays.asList(nums[i],nums[L],nums[R]));
-                    while(L<R&&nums[L]==nums[L+1]) {
+                    res.add(Arrays.asList(nums[i], nums[L], nums[R]));
+                    while (L < R && nums[L] == nums[L + 1]) {
                         L++;
                     }
-                    while(L<R&&nums[R]==nums[R-1]) {
+                    while (L < R && nums[R] == nums[R - 1]) {
                         R--;
                     }
                     L++;
                     R--;
 
-                }
-                else if(nums[i] + nums[L] + nums[R] < 0) L++;
-                else if(nums[i] + nums[L] + nums[R] > 0) R--;
+                } else if (nums[i] + nums[L] + nums[R] < 0) L++;
+                else if (nums[i] + nums[L] + nums[R] > 0) R--;
 
             }
         }

@@ -11,13 +11,14 @@ package Tecent._数组与字符串;
  */
 public class _反转字符串中的单词3 {
     public String reverseWords(String s) {
-        String[] words=s.split(" ");
+        String[] words = s.split(" ");
         for (int i = 0; i < words.length; i++) {
-            words[i]=wordsReverse(words[i]);
+            words[i] = wordsReverse(words[i]);
         }
-        return String.join(" ",words);
+        return String.join(" ", words);
     }
-    public String wordsReverse(String str){
+
+    public String wordsReverse(String str) {
         return new StringBuilder(str).reverse().toString();
     }
 }

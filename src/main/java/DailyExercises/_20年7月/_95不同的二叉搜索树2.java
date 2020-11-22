@@ -11,32 +11,32 @@ import java.util.List;
  * @create 2020/07/21 10:02
  * @description 不同的二叉搜索树 II
  * 给定一个整数 n，生成所有由 1 ... n 为节点所组成的 二叉搜索树 。
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * 示例：
- *
+ * <p>
  * 输入：3
  * 输出：
  * [
- *   [1,null,3,2],
- *   [3,2,null,1],
- *   [3,1,null,null,2],
- *   [2,1,3],
- *   [1,null,2,null,3]
+ * [1,null,3,2],
+ * [3,2,null,1],
+ * [3,1,null,null,2],
+ * [2,1,3],
+ * [1,null,2,null,3]
  * ]
  * 解释：
  * 以上的输出对应以下 5 种不同结构的二叉搜索树：
- *
- *    1         3     3      2      1
- *     \       /     /      / \      \
- *      3     2     1      1   3      2
- *     /     /       \                 \
- *    2     1         2                 3
- *
- *
+ * <p>
+ * 1         3     3      2      1
+ * \       /     /      / \      \
+ * 3     2     1      1   3      2
+ * /     /       \                 \
+ * 2     1         2                 3
+ * <p>
+ * <p>
  * 提示：
- *
+ * <p>
  * 0 <= n <= 8
  */
 public class _95不同的二叉搜索树2 {
@@ -54,23 +54,24 @@ public class _95不同的二叉搜索树2 {
      * 如果只有一个数字，那么所有可能就是一种情况，把该数字作为一棵树。而如果是 [ ]，那就返回 null。
      */
     public List<TreeNode> generateTrees(int n) {
-        if(n==0) return new ArrayList<TreeNode>();
-        return dfs(1,n);
+        if (n == 0) return new ArrayList<TreeNode>();
+        return dfs(1, n);
     }
-    public List<TreeNode> dfs(int start,int end){
-        List<TreeNode> allTrees=new ArrayList<>();
-        if(start>end){
+
+    public List<TreeNode> dfs(int start, int end) {
+        List<TreeNode> allTrees = new ArrayList<>();
+        if (start > end) {
             allTrees.add(null);
             return allTrees;
         }
-        for(int i=start;i<=end;i++){
-            List<TreeNode> leftTrees=dfs(start,i-1);
-            List<TreeNode> rightTrees=dfs(i+1,end);
-            for(TreeNode left:leftTrees){
-                for(TreeNode right:rightTrees){
-                    TreeNode root=new TreeNode(i);
-                    root.left=left;
-                    root.right=right;
+        for (int i = start; i <= end; i++) {
+            List<TreeNode> leftTrees = dfs(start, i - 1);
+            List<TreeNode> rightTrees = dfs(i + 1, end);
+            for (TreeNode left : leftTrees) {
+                for (TreeNode right : rightTrees) {
+                    TreeNode root = new TreeNode(i);
+                    root.left = left;
+                    root.right = right;
                     allTrees.add(root);
                 }
             }

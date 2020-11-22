@@ -33,24 +33,25 @@ public class _二叉树的锯齿形层次遍历 {
 
     //层次遍历使用dfs法：在对应的深度添加值
     List<List<Integer>> lists;
+
     public void m2(TreeNode root) {
         lists = new ArrayList<>();
         getLevelOrder(root, 0);
-        for (int i = 0; i <lists.size() ; i++) {
-            if(i%2!=0) Collections.reverse(lists.get(i));
+        for (int i = 0; i < lists.size(); i++) {
+            if (i % 2 != 0) Collections.reverse(lists.get(i));
         }
         System.out.println(lists);
     }
 
     public void getLevelOrder(TreeNode node, int level) {
         if (node == null) return;
-        if (lists.size()<=level){
+        if (lists.size() <= level) {
             lists.add(new ArrayList<>());
         }
-        if(level%2==0) lists.get(level).add(node.val);
-        else lists.get(level).add(0,node.val);
+        if (level % 2 == 0) lists.get(level).add(node.val);
+        else lists.get(level).add(0, node.val);
 
-        getLevelOrder(node.left,level+1);
-        getLevelOrder(node.right,level+1);
+        getLevelOrder(node.left, level + 1);
+        getLevelOrder(node.right, level + 1);
     }
 }

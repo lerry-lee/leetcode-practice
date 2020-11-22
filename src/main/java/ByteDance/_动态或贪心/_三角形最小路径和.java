@@ -43,11 +43,11 @@ public class _三角形最小路径和 {
         for (int i = 0; i < triangle.size(); i++) {
             List<Integer> row = triangle.get(i);
             for (int j = 0; j <= i; j++) {
-                current=dp[j];
+                current = dp[j];
                 if (j == 0) dp[j] = current + row.get(j);
                 else if (j == i) dp[j] = left + row.get(j);
                 else dp[j] = Math.min(left, current) + row.get(j);
-                left=current;
+                left = current;
             }
         }
         for (int dpi : dp) res = Math.min(res, dpi);

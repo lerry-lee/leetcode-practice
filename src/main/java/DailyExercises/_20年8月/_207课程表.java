@@ -11,20 +11,20 @@ import java.util.Queue;
  * @create 2020/08/04 19:59
  * @description 课程表
  * 你这个学期必须选修 numCourse 门课程，记为 0 到 numCourse-1 。
- *
+ * <p>
  * 在选修某些课程之前需要一些先修课程。 例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们：[0,1]
- *
+ * <p>
  * 给定课程总量以及它们的先决条件，请你判断是否可能完成所有课程的学习？
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * 示例 1:
- *
+ * <p>
  * 输入: 2, [[1,0]]
  * 输出: true
  * 解释: 总共有 2 门课程。学习课程 1 之前，你需要完成课程 0。所以这是可能的。
  * 示例 2:
- *
+ * <p>
  * 输入: 2, [[1,0],[0,1]]
  * 输出: false
  * 解释: 总共有 2 门课程。学习课程 1 之前，你需要先完成​课程 0；并且学习课程 0 之前，你还应先完成课程 1。这是不可能的。
@@ -45,31 +45,30 @@ public class _207课程表 {
      * 复杂度分析：
      * 时间复杂度 O(N + M)O(N+M)： 遍历一个图需要访问所有节点和所有临边，NN 和 MM 分别为节点数量和临边数量；
      * 空间复杂度 O(N + M)O(N+M)： 为建立邻接表所需额外空间，adjacency 长度为 NN ，并存储 MM 条临边的数据。
-     *
      */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        int[] inDegree=new int[numCourses];
-        List<List<Integer>> backCourses=new ArrayList<>();
-        for(int i=0;i<numCourses;i++) backCourses.add(new ArrayList<>());
-        for(int[] em:prerequisites) {
+        int[] inDegree = new int[numCourses];
+        List<List<Integer>> backCourses = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) backCourses.add(new ArrayList<>());
+        for (int[] em : prerequisites) {
             inDegree[em[0]]++;
             backCourses.get(em[1]).add(em[0]);
         }
-        Queue<Integer> que=new LinkedList<>();
-        for(int i=0;i<numCourses;i++){
-            if(inDegree[i]==0) que.offer(i);
+        Queue<Integer> que = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegree[i] == 0) que.offer(i);
         }
-        while(!que.isEmpty()){
-            int curCourse=que.poll();
+        while (!que.isEmpty()) {
+            int curCourse = que.poll();
             numCourses--;
-            List<Integer> curCourse_backCourse=backCourses.get(curCourse);
-            for(int i=0;i<curCourse_backCourse.size();i++){
-                int preCourse=curCourse_backCourse.get(i);
+            List<Integer> curCourse_backCourse = backCourses.get(curCourse);
+            for (int i = 0; i < curCourse_backCourse.size(); i++) {
+                int preCourse = curCourse_backCourse.get(i);
                 inDegree[preCourse]--;
-                if(inDegree[preCourse]==0) que.offer(preCourse);
+                if (inDegree[preCourse] == 0) que.offer(preCourse);
             }
         }
-        return numCourses==0;
+        return numCourses == 0;
 
     }
 }

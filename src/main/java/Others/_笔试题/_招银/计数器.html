@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript">
-            var c = 0
-            var t
+        var c = 0
+        var t
 
-            function timedCount() {
-                document.getElementById('txt').value = c;
-                c = c + 1;
-                //创建计时器，在指定周期内循环执行
-                t = setTimeout("timedCount()", 1000);
-            }
+        function timedCount() {
+            document.getElementById('txt').value = c;
+            c = c + 1;
+            //创建计时器，在指定周期内循环执行
+            t = setTimeout("timedCount()", 1000);
+        }
 
-            function stopCount() {
-                //清除计时器
-                clearTimeout(t);
-            }
-        </script>
+        function stopCount() {
+            //清除计时器
+            clearTimeout(t);
+        }
+    </script>
 </head>
 
 <body>

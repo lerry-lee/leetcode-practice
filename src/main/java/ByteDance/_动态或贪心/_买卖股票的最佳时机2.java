@@ -36,14 +36,14 @@ public class _买卖股票的最佳时机2 {
          * hold：持有股票
          * 状态转移：cash → hold → cash → hold → cash → hold → cash
          */
-        if(prices==null||prices.length<2) return 0;
-        int cash=0,hold=-prices[0];
-        int precash=0,prehold=hold;
-        for(int i=1;i<prices.length;i++){
-            cash=Math.max(precash,prehold+prices[i]);
-            hold=Math.max(prehold,precash-prices[i]);
-            precash=cash;
-            prehold=hold;
+        if (prices == null || prices.length < 2) return 0;
+        int cash = 0, hold = -prices[0];
+        int precash = 0, prehold = hold;
+        for (int i = 1; i < prices.length; i++) {
+            cash = Math.max(precash, prehold + prices[i]);
+            hold = Math.max(prehold, precash - prices[i]);
+            precash = cash;
+            prehold = hold;
         }
         return cash;
     }

@@ -5,13 +5,12 @@ import DataStructure.TreeNode;
 /**
  * @ClassName: _129求根到叶子节点数字之和
  * @Signature: Created by lerry_li on 2020/10/29
- * @Description:
- * 示例 1:
- *
+ * @Description: 示例 1:
+ * <p>
  * 输入: [1,2,3]
- *     1
- *    / \
- *   2   3
+ * 1
+ * / \
+ * 2   3
  * 输出: 25
  * 解释:
  * 从根到叶子节点路径 1->2 代表数字 12.

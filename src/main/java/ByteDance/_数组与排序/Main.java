@@ -17,12 +17,12 @@ public class Main {
         log.info("执行耗时：" + (t2 - t1) + "ms");
     }
 
-    public static void test_(){
-        int[][] a={{1,2},{4,5},{2,3}};
+    public static void test_() {
+        int[][] a = {{1, 2}, {4, 5}, {2, 3}};
         Arrays.sort(a, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
-                return o1[0]-o2[0];
+                return o1[0] - o2[0];
             }
         });
         display(a);

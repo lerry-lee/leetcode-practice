@@ -7,21 +7,21 @@ package Tecent._数学与数字;
 /**
  * 整数反转
  * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
- *
+ * <p>
  * 示例 1:
- *
+ * <p>
  * 输入: 123
  * 输出: 321
- *  示例 2:
- *
+ * 示例 2:
+ * <p>
  * 输入: -123
  * 输出: -321
  * 示例 3:
- *
+ * <p>
  * 输入: 120
  * 输出: 21
  * 注意:
- *
+ * <p>
  * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。
  */
 public class _整数反转 {
@@ -52,6 +52,7 @@ public class _整数反转 {
         }
         return neg ? -(int) y : (int) y;
     }
+
     /**
      * 解法2：数学
      * 溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，下一位为pop。
@@ -63,14 +64,14 @@ public class _整数反转 {
      * 当出现 ans == MIN_VALUE / 10 且 pop < -8 时，则一定溢出，8是-2^31的个位数
      */
     public int reverse2(int x) {
-        int MAX_div_10=Integer.MAX_VALUE/10,MIN_div_10=Integer.MIN_VALUE/10;
-        int res=0;
-        while(x!=0){
-            int num=x%10;
-            if(res>MAX_div_10||(res==MAX_div_10&&num==7)) return 0;
-            if(res<MIN_div_10||(res==MIN_div_10&&num==-8)) return 0;
-            res=res*10+num;
-            x/=10;
+        int MAX_div_10 = Integer.MAX_VALUE / 10, MIN_div_10 = Integer.MIN_VALUE / 10;
+        int res = 0;
+        while (x != 0) {
+            int num = x % 10;
+            if (res > MAX_div_10 || (res == MAX_div_10 && num == 7)) return 0;
+            if (res < MIN_div_10 || (res == MIN_div_10 && num == -8)) return 0;
+            res = res * 10 + num;
+            x /= 10;
         }
         return res;
     }

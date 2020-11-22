@@ -25,7 +25,7 @@ public class _UTF8编码验证 {
                 //如果开头没有1，表示是1字节的字符
                 if (byte_nums == 0) continue;
                 //如果大于4个字节，退出;如果是1字节，并且开头还有1个1，退出
-                if (byte_nums > 4||byte_nums==1) return false;
+                if (byte_nums > 4 || byte_nums == 1) return false;
             } else {
                 if (!((mask1 & datum) != 0 && (mask2 & datum) == 0)) return false;
             }

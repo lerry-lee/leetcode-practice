@@ -9,7 +9,7 @@ import java.util.Stack;
 /**
  * 比较含退格的字符串
  * 给定 S 和 T 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 # 代表退格字符。
- *
+ * <p>
  * 注意：如果对空文本输入退格字符，文本继续为空。
  */
 public class _844比较含退格的字符串 {
@@ -23,24 +23,26 @@ public class _844比较含退格的字符串 {
         return helper(S).equals(helper(T));
 
     }
-    public String helper(String S){
-        Stack<Character> s=new Stack<>();
+
+    public String helper(String S) {
+        Stack<Character> s = new Stack<>();
         for (int i = 0; i < S.length(); i++) {
-            char c=S.charAt(i);
-            if(c=='#'){
-                if(!s.isEmpty()){
+            char c = S.charAt(i);
+            if (c == '#') {
+                if (!s.isEmpty()) {
                     s.pop();
                 }
-            }else{
+            } else {
                 s.push(c);
             }
         }
-        StringBuilder newS=new StringBuilder();
-        while(!s.isEmpty()){
+        StringBuilder newS = new StringBuilder();
+        while (!s.isEmpty()) {
             newS.append(s.pop());
         }
         return newS.toString();
     }
+
     /**
      * 解法2：逆序遍历
      * 一个字符是否会被删掉，只取决于该字符后面的退格符，

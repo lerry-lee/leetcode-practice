@@ -13,19 +13,19 @@ public class _第1题完美排列 {
         Scanner sc = new Scanner(System.in);
         int k = sc.nextInt();
         int[][] perfect_array = new int[k][2];
-        for (int i = 0; i <2 ; i++) {
+        for (int i = 0; i < 2; i++) {
             for (int j = 0; j < k; j++) {
-                perfect_array[i][j]=sc.nextInt();
+                perfect_array[i][j] = sc.nextInt();
             }
         }
-        int n=sc.nextInt();
-        int[][] array=new int[n][2];
-        for (int i = 0; i <2 ; i++) {
+        int n = sc.nextInt();
+        int[][] array = new int[n][2];
+        for (int i = 0; i < 2; i++) {
             for (int j = 0; j < n; j++) {
-                array[i][j]=sc.nextInt();
+                array[i][j] = sc.nextInt();
             }
         }
-        System.out.println(perfectOrder(perfect_array,k,array,n));
+        System.out.println(perfectOrder(perfect_array, k, array, n));
     }
 
     public static int perfectOrder(int[][] perfect_array, int k, int[][] array, int n) {

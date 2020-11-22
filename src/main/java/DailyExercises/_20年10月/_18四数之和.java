@@ -72,10 +72,10 @@ public class _18四数之和 {
                 l = j + 1;
                 r = nums.length - 1;
                 while (l < r) {
-                    while (l<r&&l > j + 1 && nums[l] == nums[l - 1]) l++;
-                    while (l<r&&r < nums.length - 1 && nums[r] == nums[r + 1]) r--;
+                    while (l < r && l > j + 1 && nums[l] == nums[l - 1]) l++;
+                    while (l < r && r < nums.length - 1 && nums[r] == nums[r + 1]) r--;
                     int temp = nums[i] + nums[j] + nums[l] + nums[r];
-                    if (l<r&&temp == target) {
+                    if (l < r && temp == target) {
                         res.add(new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[l], nums[r])));
                         l++;
                         r--;

@@ -39,7 +39,7 @@ public class _最接近的三数之和 {
                     min_dif = temp_dif;
                     System.out.println(nums[i] + " " + nums[l] + " " + nums[r] + " :" + sum);
                     res_target = sum;
-                    if(sum>target) r--;
+                    if (sum > target) r--;
                     else l++;
                 } else if (sum > target) r--;
                 else l++;

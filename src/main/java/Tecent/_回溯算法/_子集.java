@@ -6,8 +6,7 @@ import java.util.List;
 /**
  * @ClassName: _子集
  * @Signature: Created by lerry_li on 2020/10/28
- * @Description:
- * 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+ * @Description: 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
  * 说明：解集不能包含重复的子集。
  */
 public class _子集 {

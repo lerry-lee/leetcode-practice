@@ -41,22 +41,20 @@ public class _字符串的排列 {
             char tempC = s1.charAt(i);
             if (map.containsKey(tempC)) {
                 map.put(tempC, map.get(tempC) + 1);
-            }
-            else map.put(tempC, 1);
+            } else map.put(tempC, 1);
         }
         System.out.println(map);
-        for(int i=0;i<s2.length()-s1.length()+1;i++){
+        for (int i = 0; i < s2.length() - s1.length() + 1; i++) {
             HashMap<Character, Integer> tempMap = new HashMap<>(map);
-            for (int j = i; j <i+s1.length() ; j++) {
-                char tempC=s2.charAt(j);
-                System.out.println("i: "+i+" tempC:"+tempC);
-                if(tempMap.containsKey(tempC)){
-                    if(tempMap.get(tempC)<=1) tempMap.remove(tempC);
-                    else tempMap.put(tempC,tempMap.get(tempC)-1);
-                }
-                else break;
+            for (int j = i; j < i + s1.length(); j++) {
+                char tempC = s2.charAt(j);
+                System.out.println("i: " + i + " tempC:" + tempC);
+                if (tempMap.containsKey(tempC)) {
+                    if (tempMap.get(tempC) <= 1) tempMap.remove(tempC);
+                    else tempMap.put(tempC, tempMap.get(tempC) - 1);
+                } else break;
             }
-            if(tempMap.isEmpty()) return true;
+            if (tempMap.isEmpty()) return true;
         }
         return false;
     }

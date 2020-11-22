@@ -11,7 +11,7 @@ package ByteDance._数组与排序;
  * <p>
  * 输入: [0,1,0,2,1,0,1,3,2,1,2,1]
  * 输出: 6
- *
+ * <p>
  * 双指针法、栈：待看
  */
 public class _接雨水 {
@@ -47,13 +47,13 @@ public class _接雨水 {
             else max_l[i] = Math.max(max_l[i - 1], height[i]);
         }
         //max_r数组，第i位存储i到末尾的最高柱子高度
-        for (int i = height.length-1; i >=0 ; i--) {
-            if(i==height.length-1) max_r[i]=height[i];
-            else max_r[i]=Math.max(max_r[i+1],height[i]);
+        for (int i = height.length - 1; i >= 0; i--) {
+            if (i == height.length - 1) max_r[i] = height[i];
+            else max_r[i] = Math.max(max_r[i + 1], height[i]);
         }
 
         for (int i = 0; i < height.length; i++) {
-            count+=Math.min(max_l[i],max_r[i])-height[i];
+            count += Math.min(max_l[i], max_r[i]) - height[i];
         }
         return count;
     }

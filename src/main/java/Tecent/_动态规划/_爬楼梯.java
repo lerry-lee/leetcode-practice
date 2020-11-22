@@ -3,11 +3,10 @@ package Tecent._动态规划;
 /**
  * @ClassName: _爬楼梯
  * @Signature: Created by lerry_li on 2020/10/30
- * @Description:
- * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
- *
+ * @Description: 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+ * <p>
  * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
- *
+ * <p>
  * 注意：给定 n 是一个正整数。
  */
 public class _爬楼梯 {
@@ -47,8 +46,8 @@ public class _爬楼梯 {
      * 初始化：dp[0]=1,dp[1]=1
      * 状态转移：dp[i]=dp[i-2]+dp[i-1]
      * 到达n阶=（1）+（2）
-     *  （1）最后为1阶的方式，即到达n-1阶的个数
-     *  （2）最后为2阶的方式，即到达n-2阶的个数
+     * （1）最后为1阶的方式，即到达n-1阶的个数
+     * （2）最后为2阶的方式，即到达n-2阶的个数
      */
     public int climbStairs2(int n) {
         if (n < 2) {

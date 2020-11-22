@@ -16,14 +16,14 @@ public class _相交链表 {
      * 解法2：双指针（一个走到尾后去指向另一个链表的头）
      */
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if(headA==null||headB==null) return null;
-        ListNode tempA=headA,tempB=headB;
-        while(true){
-            if(tempA==tempB) return tempA;
-            if(tempA==null) tempA=headB;
-            else tempA=tempA.next;
-            if(tempB==null) tempB=headA;
-            else tempB=tempB.next;
+        if (headA == null || headB == null) return null;
+        ListNode tempA = headA, tempB = headB;
+        while (true) {
+            if (tempA == tempB) return tempA;
+            if (tempA == null) tempA = headB;
+            else tempA = tempA.next;
+            if (tempB == null) tempB = headA;
+            else tempB = tempB.next;
         }
 
     }

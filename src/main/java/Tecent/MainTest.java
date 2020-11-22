@@ -31,48 +31,48 @@ public class MainTest {
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
     }
 
-    public static void test_格雷编码(){
-        System.out.println(5^1);
+    public static void test_格雷编码() {
+        System.out.println(5 ^ 1);
     }
 
-    public static void test_全排列(){
-        int[] nums={1,2,3};
+    public static void test_全排列() {
+        int[] nums = {1, 2, 3};
         System.out.println(new _全排列().permute(nums));
     }
 
-    public static void test_子集(){
-        int[] nums={1,2,3};
+    public static void test_子集() {
+        int[] nums = {1, 2, 3};
         System.out.println(new _子集().subsets(nums));
     }
 
-    public static void test_括号生成(){
-        while(true){
-            int n=sc.nextInt();
+    public static void test_括号生成() {
+        while (true) {
+            int n = sc.nextInt();
             System.out.println(new _括号生成().generateParenthesis(n));
         }
 
     }
 
-    public static void test_数组中的第K个最大元素(){
-        int[] nums={3,2,1,5,6,4};
-        System.out.println(new _数组中的第K个最大元素().findKthLargest2(nums,2));
+    public static void test_数组中的第K个最大元素() {
+        int[] nums = {3, 2, 1, 5, 6, 4};
+        System.out.println(new _数组中的第K个最大元素().findKthLargest2(nums, 2));
     }
 
-    public static void test_2的幂(){
-        while(true){
-            int num=sc.nextInt();
+    public static void test_2的幂() {
+        while (true) {
+            int num = sc.nextInt();
             System.out.println(new _2的幂().isPowerOfTwo(num));
         }
     }
 
-    public static void test_整数反转(){
-        int n=1534236469;
+    public static void test_整数反转() {
+        int n = 1534236469;
         System.out.println(new _整数反转().reverse(n));
     }
 
-    public static void test_旋转链表(){
-        ListNode head=new ListNode(1);
-        fillListNodeWithArray(new int[]{2},0,head);
+    public static void test_旋转链表() {
+        ListNode head = new ListNode(1);
+        fillListNodeWithArray(new int[]{2}, 0, head);
         display(head);
 //        display(new _旋转链表().rotateRight(head,4));
 //        display(new _旋转链表().rotateRight(head,3));
@@ -82,19 +82,19 @@ public class MainTest {
 
     }
 
-    public static void display(ListNode node){
-        if(node==null) {
+    public static void display(ListNode node) {
+        if (node == null) {
             System.out.println("null");
             return;
         }
-        System.out.print(node.val+"->");
+        System.out.print(node.val + "->");
         display(node.next);
     }
 
-    public static void fillListNodeWithArray(int[] nums,int t,ListNode node){
-        if(t==nums.length) return;
-        node.next=new ListNode(nums[t]);
-        fillListNodeWithArray(nums,t+1,node.next);
+    public static void fillListNodeWithArray(int[] nums, int t, ListNode node) {
+        if (t == nums.length) return;
+        node.next = new ListNode(nums[t]);
+        fillListNodeWithArray(nums, t + 1, node.next);
     }
 
     public static void test_螺旋矩阵() {

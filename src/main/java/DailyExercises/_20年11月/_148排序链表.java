@@ -61,7 +61,7 @@ public class _148排序链表 {
         //设置一个虚拟的头结点，next指向head
         ListNode dummyHead = new ListNode(0, head);
         //从有序链表只有1个节点开始归并排序，直到有序链表的长度subLength大于等于原链表的长度length
-        for (int subLength = 1; subLength < length; subLength *=2) {
+        for (int subLength = 1; subLength < length; subLength *= 2) {
             //prev表示前驱节点，curr表示当前节点
             ListNode prev = dummyHead, curr = dummyHead.next;
             //遍历链表，找到若干个subLength长度的子链表
@@ -98,12 +98,13 @@ public class _148排序链表 {
         return dummyHead.next;
 
     }
+
     private ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
         ListNode sentry = new ListNode(-1);
         ListNode curr = sentry;
 
-        while(l1 != null && l2 != null) {
-            if(l1.val < l2.val) {
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
                 curr.next = l1;
                 l1 = l1.next;
             } else {
@@ -120,7 +121,7 @@ public class _148排序链表 {
 
     public static void main(String[] args) {
         _148排序链表 instance = new _148排序链表();
-        ListNode head = (ListNode) CommonMethod.initialize(Arrays.asList(2,0), "ListNode");
+        ListNode head = (ListNode) CommonMethod.initialize(Arrays.asList(2, 0), "ListNode");
         ListNode newHead = instance.sortList(head);
         CommonMethod.display(newHead);
     }

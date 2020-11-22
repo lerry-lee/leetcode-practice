@@ -8,49 +8,51 @@ import DataStructure.ListNode;
  * @create 2020/06/16 08:16
  * @description 排序链表
  * 在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
- *
+ * <p>
  * 示例 1:
- *
+ * <p>
  * 输入: 4->2->1->3
  * 输出: 1->2->3->4
  * 示例 2:
- *
+ * <p>
  * 输入: -1->5->3->4->0
  * 输出: -1->0->3->4->5
  */
 public class _排序链表 {
     /**
      * 二路归并排序，还不能用递归
+     *
      * @param head
      * @return
      */
     //递归版
     public ListNode sortList_(ListNode head) {
-        if(head==null||head.next==null) return head;
-        ListNode slow=head;
-        ListNode fast=head.next;
-        while(fast.next!=null&&fast.next.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
+        if (head == null || head.next == null) return head;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        ListNode right=slow.next;
-        slow.next=null;
-        ListNode L=sortList_(head);
-        ListNode R=sortList_(right);
-        return merge_(L,R);
+        ListNode right = slow.next;
+        slow.next = null;
+        ListNode L = sortList_(head);
+        ListNode R = sortList_(right);
+        return merge_(L, R);
     }
-    public ListNode merge_(ListNode n1,ListNode n2){
-        if(n1==null) return n2;
-        if(n2==null) return n1;
-        if(n1.val<n2.val) {
+
+    public ListNode merge_(ListNode n1, ListNode n2) {
+        if (n1 == null) return n2;
+        if (n2 == null) return n1;
+        if (n1.val < n2.val) {
             n1.next = merge_(n1.next, n2);
             return n1;
-        }
-        else {
+        } else {
             n2.next = merge_(n1, n2.next);
             return n2;
         }
     }
+
     //迭代版
     public ListNode sortList(ListNode head) {
         // 确定链表长度
@@ -110,7 +112,7 @@ public class _排序链表 {
     private ListNode merge(ListNode a, ListNode b) {
         ListNode pre = new ListNode(0);
         ListNode cur = pre;
-        while (a != null && b != null ) {
+        while (a != null && b != null) {
             if (a.val < b.val) {
                 cur.next = a;
                 cur = cur.next;

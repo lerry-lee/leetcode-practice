@@ -42,8 +42,8 @@ public class _52N皇后2 {
     public boolean check(boolean[][] chessboard, int n, int k, int j) {
         for (int row = 0; row < k; row++) {
             for (int column = 0; column < n; column++) {
-                if(chessboard[row][column]){
-                    if (j==column || Math.abs(k - row) == Math.abs(j - column)) {
+                if (chessboard[row][column]) {
+                    if (j == column || Math.abs(k - row) == Math.abs(j - column)) {
                         return false;
                     }
                 }
@@ -52,12 +52,12 @@ public class _52N皇后2 {
         return true;
     }
 
-    public void display(boolean[][] chessboard){
-        for(boolean[] array:chessboard){
-            for(boolean a:array){
-                if(a){
+    public void display(boolean[][] chessboard) {
+        for (boolean[] array : chessboard) {
+            for (boolean a : array) {
+                if (a) {
                     System.out.print("Q");
-                }else{
+                } else {
                     System.out.print(".");
                 }
             }

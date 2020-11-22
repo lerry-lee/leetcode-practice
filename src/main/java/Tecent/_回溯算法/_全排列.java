@@ -68,7 +68,7 @@ public class _全排列 {
             temp.add(nums[i]);
             visited[i] = true;
             dfs2(res, nums, visited, temp);
-            temp.remove(temp.size()-1);
+            temp.remove(temp.size() - 1);
             visited[i] = false;
         }
     }

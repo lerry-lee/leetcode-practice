@@ -17,7 +17,7 @@ public class _数组中的第K个最大元素 {
 //            System.out.print(num+" ");
 //        }
 //        System.out.println();
-        quickSort(nums, 0, nums.length - 1,k);
+        quickSort(nums, 0, nums.length - 1, k);
 //        for(int num:nums){
 //            System.out.print(num+" ");
 //        }
@@ -25,14 +25,14 @@ public class _数组中的第K个最大元素 {
         return nums[k - 1];
     }
 
-    public void quickSort(int[] nums, int l, int r,int k) {
+    public void quickSort(int[] nums, int l, int r, int k) {
         if (l >= r) return;
         int p = partition(nums, l, r);
-        if(p==k-1) return;
-        if(p>k-1){
-            quickSort(nums, l, p - 1,k);
-        }else{
-            quickSort(nums, p + 1, r,k);
+        if (p == k - 1) return;
+        if (p > k - 1) {
+            quickSort(nums, l, p - 1, k);
+        } else {
+            quickSort(nums, p + 1, r, k);
         }
     }
 
@@ -60,22 +60,23 @@ public class _数组中的第K个最大元素 {
         nums[i] = nums[j];
         nums[j] = temp;
     }
+
     /**
      * 解法2：最大堆（优先队列实现） 时间O(n) 空间O(k)
      * 维护一个容量为k的最大堆，然后遍历一遍数组即可
      */
     public int findKthLargest2(int[] nums, int k) {
-        PriorityQueue<Integer> bigHeap=new PriorityQueue<>(new Comparator<Integer>() {
+        PriorityQueue<Integer> bigHeap = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 //降序
-                return o1-o2;
+                return o1 - o2;
             }
         });
-        for(int num:nums){
-            if(bigHeap.size()<k){
+        for (int num : nums) {
+            if (bigHeap.size() < k) {
                 bigHeap.offer(num);
-            }else{
+            } else {
                 bigHeap.offer(num);
                 bigHeap.poll();
             }

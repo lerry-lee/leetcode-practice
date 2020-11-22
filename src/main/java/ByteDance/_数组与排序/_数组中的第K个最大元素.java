@@ -27,16 +27,16 @@ public class _数组中的第K个最大元素 {
     //堆版本：用队列实现
     public int findKthLargest_heap(int[] nums, int k) {
 //        PriorityQueue<Integer> heap1=new PriorityQueue<>(1);
-        PriorityQueue<Integer> heap=new PriorityQueue<>(new Comparator<Integer>() {
+        PriorityQueue<Integer> heap = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 //最大堆,降序
-                return o1-o2;
+                return o1 - o2;
             }
         });
-        for(int n:nums){
+        for (int n : nums) {
             heap.add(n);
-            if(heap.size()>k) heap.poll();
+            if (heap.size() > k) heap.poll();
         }
 //        while(!heap.isEmpty()) System.out.println(heap.poll());
         return heap.peek();

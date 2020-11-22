@@ -16,7 +16,7 @@ import DataStructure.TreeNode;
 public class _968监控二叉树 {
     public int minCameraCover(TreeNode root) {
         //若root的状态是1，即未被监控，那么需要安装一个摄像头，计数器+1
-        if(dfs(root)==1) cnt++;
+        if (dfs(root) == 1) cnt++;
         return cnt;
     }
 
@@ -50,11 +50,11 @@ public class _968监控二叉树 {
         }
         //如果左子结点、右子节点的状态都是已被监控（未安装摄像头）
         //那么它们的父节点（当前节点）的状态为未被监控，直接返回状态1
-        if(left==2&&right==2){
+        if (left == 2 && right == 2) {
             return 1;
         }
         //否则(包含左子结点和右子节点至少一个未被监控的情况)，当前节点需要安装摄像头，计数器+1，返回状态3
-        else{
+        else {
             cnt++;
             return 3;
         }

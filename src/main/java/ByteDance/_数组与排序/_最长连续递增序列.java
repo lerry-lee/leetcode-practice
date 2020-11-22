@@ -11,7 +11,7 @@ package ByteDance._数组与排序;
  * 输入: [2,2,2,2,2]
  * 输出: 1
  * 解释: 最长连续递增序列是 [2], 长度为1。
- *
+ * <p>
  * 解法：暴力循环O(n^2)，优化O(n)
  */
 public class _最长连续递增序列 {
@@ -37,7 +37,7 @@ public class _最长连续递增序列 {
         int max = 0;
         int temp = 0;
         for (int i = 0; i < nums.length; i++) {
-            if(i==0) temp=1;
+            if (i == 0) temp = 1;
             else if (nums[i] > nums[i - 1]) {
                 temp++;
             } else {

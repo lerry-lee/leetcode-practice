@@ -7,18 +7,18 @@ package Tecent._数学与数字;
 /**
  * 回文数
  * 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
- *
+ * <p>
  * 示例 1:
- *
+ * <p>
  * 输入: 121
  * 输出: true
  * 示例 2:
- *
+ * <p>
  * 输入: -121
  * 输出: false
  * 解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
  * 示例 3:
- *
+ * <p>
  * 输入: 10
  * 输出: false
  * 解释: 从右向左读, 为 01 。因此它不是一个回文数。
@@ -28,16 +28,17 @@ public class _回文数 {
      * 解法1：反转后再判断
      */
     public boolean isPalindrome(int x) {
-        if(x<0) return false;
-        long y=0;
-        int x_=x;
-        while(x_>0){
-            int num=x_%10;
-            x_=x_/10;
-            y=y*10+num;
+        if (x < 0) return false;
+        long y = 0;
+        int x_ = x;
+        while (x_ > 0) {
+            int num = x_ % 10;
+            x_ = x_ / 10;
+            y = y * 10 + num;
         }
-        return y==x;
+        return y == x;
     }
+
     /**
      * 解法2：反转一半，判断和另一部分是否相同
      * 特判：负数false，个位数为0的false

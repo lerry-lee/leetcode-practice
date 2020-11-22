@@ -20,16 +20,15 @@ public class _二叉树的最近公共祖先 {
      * 可以参考画图理解
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(root==null||p==null||q==null) return null;
-        if(root==p) return p;
-        if(root==q) return q;
-        TreeNode left=lowestCommonAncestor(root.left,p,q);
-        TreeNode right=lowestCommonAncestor(root.right,p,q);
-        if(left==null) return right;
-        if(right==null) return left;
+        if (root == null || p == null || q == null) return null;
+        if (root == p) return p;
+        if (root == q) return q;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if (left == null) return right;
+        if (right == null) return left;
         return root;
     }
-
 
 
     /**

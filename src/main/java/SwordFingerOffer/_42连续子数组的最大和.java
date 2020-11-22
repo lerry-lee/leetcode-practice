@@ -28,13 +28,13 @@ public class _42连续子数组的最大和 {
     /**
      * 解法2：分治法
      * 思路：
-     *      将数组分成两部分，最大值要么在左边，要么在右边，要么横跨两边
+     * 将数组分成两部分，最大值要么在左边，要么在右边，要么横跨两边
      */
     public int maxSubArray2(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        return cal(nums,0,nums.length-1);
+        return cal(nums, 0, nums.length - 1);
     }
 
     public int cal(int[] nums, int l, int r) {
@@ -51,7 +51,7 @@ public class _42连续子数组的最大和 {
             temp += nums[i];
             leftSum = Math.max(leftSum, temp);
         }
-        temp=0;
+        temp = 0;
         for (int i = mid + 1; i <= r; i++) {
             temp += nums[i];
             rightSum = Math.max(rightSum, temp);
@@ -61,7 +61,7 @@ public class _42连续子数组的最大和 {
 
     public static void main(String[] args) {
         _42连续子数组的最大和 instance = new _42连续子数组的最大和();
-        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         System.out.println(instance.maxSubArray2(nums));
     }
 }

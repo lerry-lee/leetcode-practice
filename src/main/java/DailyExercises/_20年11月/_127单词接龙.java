@@ -6,17 +6,16 @@ import java.util.*;
  * @ClassName: _127单词接龙
  * @Signature: Created by lerry_li on 2020/11/05
  * @Description: 给定两个单词（beginWord和 endWord）和一个字典，找到从beginWord 到endWord 的最短转换序列的长度。转换需遵循如下规则：
- *
+ * <p>
  * 每次转换只能改变一个字母。
  * 转换过程中的中间单词必须是字典中的单词。
  * 说明:
- *
+ * <p>
  * 如果不存在这样的转换序列，返回 0。
  * 所有单词具有相同的长度。
  * 所有单词只由小写字母组成。
  * 字典中不存在重复的单词。
  * 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。
- *
  */
 public class _127单词接龙 {
     /**
@@ -61,7 +60,7 @@ public class _127单词接龙 {
                         if (wordSet.contains(currentWordStr) && !visited.contains(currentWordStr)) {
                             //若该单词就是endWord，那么可以完成“单词接龙”，返回步数+1
                             if (currentWordStr.equals(endWord)) {
-                                return res+1;
+                                return res + 1;
                             }
                             //否则，visited设置访问过该单词
                             visited.add(currentWordStr);
@@ -70,7 +69,7 @@ public class _127单词接龙 {
                         }
                     }
                     //还原当前位置的字母为原字母
-                    currentWord[j]=originLetter;
+                    currentWord[j] = originLetter;
                 }
             }
             //队列每次对size个节点进行操作，相当于BFS的一层，因此步数+1

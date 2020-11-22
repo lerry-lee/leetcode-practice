@@ -44,16 +44,15 @@ public class _三数之和 {
     }
 
     public void findTwoNum(List<List<Integer>> res, int target, int[] nums, int start) {
-        int l=start,r=nums.length-1;
-        while(l<r){
-            if(l>start&&nums[l]==nums[l-1]) l++;
-            else if(r<nums.length-1&&nums[r]==nums[r+1]) r--;
-            else if(nums[l]+nums[r]+target==0) {
+        int l = start, r = nums.length - 1;
+        while (l < r) {
+            if (l > start && nums[l] == nums[l - 1]) l++;
+            else if (r < nums.length - 1 && nums[r] == nums[r + 1]) r--;
+            else if (nums[l] + nums[r] + target == 0) {
                 res.add(Arrays.asList(target, nums[l], nums[r]));
                 l++;
                 r--;
-            }
-            else if(nums[l]+nums[r]+target<0) l++;
+            } else if (nums[l] + nums[r] + target < 0) l++;
             else r--;
         }
     }

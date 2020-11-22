@@ -31,16 +31,16 @@ public class _62圆圈中最后剩下的数字 {
      */
     public int lastRemaining2(int n, int m) {
         //只有1个数字0时，最终剩下的就是这个数字0
-        int res=0;
+        int res = 0;
         //从增加第2个数字1开始反推，每次往后增加一个数字
         for (int i = 1; i < n; i++) {
-            res=(res+m)%(i+1);
+            res = (res + m) % (i + 1);
         }
         return res;
     }
 
     public static void main(String[] args) {
-        _62圆圈中最后剩下的数字 instance=new _62圆圈中最后剩下的数字();
-        System.out.println(instance.lastRemaining2(5,3));
+        _62圆圈中最后剩下的数字 instance = new _62圆圈中最后剩下的数字();
+        System.out.println(instance.lastRemaining2(5, 3));
     }
 }

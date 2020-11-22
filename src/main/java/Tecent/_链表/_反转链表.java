@@ -34,12 +34,12 @@ public class _反转链表 {
      * 具体可看图解
      */
     public ListNode reverseList_(ListNode head) {
-        ListNode newHead=null,current;
-        while(head!=null){
-            current=new ListNode(head.val);
-            current.next=newHead;
-            newHead=current;
-            head=head.next;
+        ListNode newHead = null, current;
+        while (head != null) {
+            current = new ListNode(head.val);
+            current.next = newHead;
+            newHead = current;
+            head = head.next;
         }
         return newHead;
     }

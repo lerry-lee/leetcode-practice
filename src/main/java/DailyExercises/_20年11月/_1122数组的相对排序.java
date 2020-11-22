@@ -92,11 +92,11 @@ public class _1122数组的相对排序 {
     /**
      * 解法3：自定义排序
      * 一种容易想到的方法是使用排序并自定义比较函数。
-     *      由于数组arr2规定了比较顺序，因此我们可以使用哈希表对该顺序进行映射：hashMap<arr2[i],i>
+     * 由于数组arr2规定了比较顺序，因此我们可以使用哈希表对该顺序进行映射：hashMap<arr2[i],i>
      * 比较函数的写法有很多种，例如我们可以使用最基础的比较方法，对于元素 x 和 y：
-     *      如果 x 和 y 都出现在哈希表中，那么比较它们对应的值 hashMap.get(x),hashMap.get(y)；
-     *      如果 x 和 y 都没有出现在哈希表中，那么比较它们本身；
-     *      对于剩余的情况，出现在哈希表中的那个元素较小。
+     * 如果 x 和 y 都出现在哈希表中，那么比较它们对应的值 hashMap.get(x),hashMap.get(y)；
+     * 如果 x 和 y 都没有出现在哈希表中，那么比较它们本身；
+     * 对于剩余的情况，出现在哈希表中的那个元素较小。
      */
     public int[] relativeSortArray3(int[] arr1, int[] arr2) {
         Map<Integer, Integer> map = new HashMap<>();

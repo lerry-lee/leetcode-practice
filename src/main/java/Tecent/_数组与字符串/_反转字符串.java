@@ -8,17 +8,18 @@ package Tecent._数组与字符串;
  */
 public class _反转字符串 {
     public void reverseString(char[] s) {
-        if(s==null||s.length==0) return;
-        int l=0,r=s.length-1;
-        while(l<r){
-            swap(s,l,r);
+        if (s == null || s.length == 0) return;
+        int l = 0, r = s.length - 1;
+        while (l < r) {
+            swap(s, l, r);
             l++;
             r--;
         }
     }
-    public void swap(char[] s,int l,int r){
-        char temp=s[l];
-        s[l]=s[r];
-        s[r]=temp;
+
+    public void swap(char[] s, int l, int r) {
+        char temp = s[l];
+        s[l] = s[r];
+        s[r] = temp;
     }
 }

@@ -25,7 +25,7 @@ public class _1356根据数字二进制下1的数目排序 {
         for (int i = 0; i < arr.length; i++) {
 //            String binaryI = Integer.toBinaryString(arr[i]);
 //            int binaryI_1nums = cal1numsByString(binaryI);
-            int binaryI_1nums=cal1numsByInt(arr[i]);
+            int binaryI_1nums = cal1numsByInt(arr[i]);
             helper[i][0] = arr[i];
             helper[i][1] = binaryI_1nums;
         }

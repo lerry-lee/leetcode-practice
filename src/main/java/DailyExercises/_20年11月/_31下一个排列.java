@@ -12,10 +12,10 @@ import java.util.Arrays;
 public class _31下一个排列 {
     /**
      * 解法1：时间O(N) 空间O(1)
-     *      从后往前遍历，
-     *      找不满足升序的第一个元素i，
-     *      然后从[i,n]中找大于等于i的最小的元素j，
-     *      然后交换i和j，并把i后面的元素升序排列.
+     * 从后往前遍历，
+     * 找不满足升序的第一个元素i，
+     * 然后从[i,n]中找大于等于i的最小的元素j，
+     * 然后交换i和j，并把i后面的元素升序排列.
      */
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length < 2) {

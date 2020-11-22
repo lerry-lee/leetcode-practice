@@ -18,7 +18,7 @@ public class _复原IP地址 {
 
     public List<String> run(String s) {
         res = new ArrayList<>();
-        if (s.length() < 4||s.length()>12) return res;
+        if (s.length() < 4 || s.length() > 12) return res;
         addr = s;
         temp = new ArrayList<>();
 //        System.out.println("start dfs");
@@ -34,13 +34,13 @@ public class _复原IP地址 {
             }
             return;
         }
-        if(r-l>t*3||r-l<t) return;
+        if (r - l > t * 3 || r - l < t) return;
         for (int i = l; i < r && i < l + 3; i++) {
 
             String tempS = addr.substring(l, i + 1);
             int tempI = Integer.parseInt(tempS);
             if (tempI < 0 || tempI > 255) break;
-            if(tempS.length()!=String.valueOf(tempI).length()) break;
+            if (tempS.length() != String.valueOf(tempI).length()) break;
             temp.add(tempS);
             dfs(i + 1, r, t - 1);
             temp.remove(temp.size() - 1);

@@ -16,23 +16,25 @@ public class _第三题 {
      * 暴力法
      */
     public static void main(String[] args) {
-        int maxVal=t3(35);
+        int maxVal = t3(35);
         System.out.println(maxVal);
     }
-    public static int t3(int a){
-        int maxVal=0;
-        for(int m=1;m<=a/2;m++){
-            int n=a-m;
-            maxVal=Math.max(maxVal,calVal(m)+calVal(n));
+
+    public static int t3(int a) {
+        int maxVal = 0;
+        for (int m = 1; m <= a / 2; m++) {
+            int n = a - m;
+            maxVal = Math.max(maxVal, calVal(m) + calVal(n));
         }
         return maxVal;
     }
-    public static int calVal(int num){
-        int res=0,wei;
-        while(num>0){
-            wei=num%10;
-            res+=wei;
-            num/=10;
+
+    public static int calVal(int num) {
+        int res = 0, wei;
+        while (num > 0) {
+            wei = num % 10;
+            res += wei;
+            num /= 10;
         }
         return res;
     }
