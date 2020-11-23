@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.Arrays;
 
@@ -50,8 +50,8 @@ public class _31下一个排列 {
     public static void main(String[] args) {
         _31下一个排列 instance = new _31下一个排列();
         int[] nums = {5, 6, 4, 3, 2, 1};
-        CommonMethod.display(nums);
+        CustomMethod.display(nums);
         instance.nextPermutation(nums);
-        CommonMethod.display(nums);
+        CustomMethod.display(nums);
     }
 }

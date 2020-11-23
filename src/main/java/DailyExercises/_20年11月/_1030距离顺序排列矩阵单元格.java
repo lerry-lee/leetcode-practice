@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -105,10 +105,10 @@ public class _1030距离顺序排列矩阵单元格 {
 
     public static void main(String[] args) {
         _1030距离顺序排列矩阵单元格 instance = new _1030距离顺序排列矩阵单元格();
-        CommonMethod.display(instance.allCellsDistOrder2(1, 2, 0, 0));
+        CustomMethod.display(instance.allCellsDistOrder2(1, 2, 0, 0));
         System.out.println();
-        CommonMethod.display(instance.allCellsDistOrder2(2, 2, 0, 1));
+        CustomMethod.display(instance.allCellsDistOrder2(2, 2, 0, 1));
         System.out.println();
-        CommonMethod.display(instance.allCellsDistOrder2(2, 3, 1, 2));
+        CustomMethod.display(instance.allCellsDistOrder2(2, 3, 1, 2));
     }
 }

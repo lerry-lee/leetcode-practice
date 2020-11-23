@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.*;
 
@@ -115,8 +115,8 @@ public class _1122数组的相对排序 {
         _1122数组的相对排序 instance = new _1122数组的相对排序();
         int[] arr1 = {2, 21, 43, 38, 0, 42, 33, 7, 24, 13, 12, 27, 12, 24, 5, 23, 29, 48, 30, 31};
         int[] arr2 = {2, 42, 38, 0, 43, 21};
-        CommonMethod.display(arr1);
-        CommonMethod.display(instance.relativeSortArray2(arr1, arr2));
-        CommonMethod.display(new int[]{2, 42, 38, 0, 43, 21, 5, 7, 12, 12, 13, 23, 24, 24, 27, 29, 30, 31, 33, 48});
+        CustomMethod.display(arr1);
+        CustomMethod.display(instance.relativeSortArray2(arr1, arr2));
+        CustomMethod.display(new int[]{2, 42, 38, 0, 43, 21, 5, 7, 12, 12, 13, 23, 24, 24, 27, 29, 30, 31, 33, 48});
     }
 }

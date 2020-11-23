@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 /**
  * @ClassName: _922按奇偶排序数组2
@@ -45,7 +45,7 @@ public class _922按奇偶排序数组2 {
     public static void main(String[] args) {
         _922按奇偶排序数组2 instance = new _922按奇偶排序数组2();
         int[] A = {1, 2, 3, 4};
-        CommonMethod.display(A);
-        CommonMethod.display(instance.sortArrayByParityII(A));
+        CustomMethod.display(A);
+        CustomMethod.display(instance.sortArrayByParityII(A));
     }
 }

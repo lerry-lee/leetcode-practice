@@ -1,9 +1,8 @@
 package SwordFingerOffer;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -68,7 +67,7 @@ public class _44数字序列中某一位的数字 {
     public static void main(String[] args) {
         _44数字序列中某一位的数字 instance = new _44数字序列中某一位的数字();
         while (true) {
-            int n = CommonMethod.getScanner().nextInt();
+            int n = CustomMethod.getScanner().nextInt();
             System.out.println(instance.findNthDigit(n));
         }
     }

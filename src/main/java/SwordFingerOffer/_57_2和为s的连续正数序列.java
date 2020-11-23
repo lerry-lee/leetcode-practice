@@ -1,6 +1,6 @@
 package SwordFingerOffer;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +90,6 @@ public class _57_2和为s的连续正数序列 {
     public static void main(String[] args) {
         _57_2和为s的连续正数序列 instance = new _57_2和为s的连续正数序列();
         int[][] a = instance.findContinuousSequence2(15);
-        CommonMethod.display(a);
+        CustomMethod.display(a);
     }
 }

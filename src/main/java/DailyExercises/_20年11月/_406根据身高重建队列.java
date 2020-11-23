@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,6 +58,6 @@ public class _406根据身高重建队列 {
     public static void main(String[] args) {
         _406根据身高重建队列 instance = new _406根据身高重建队列();
         int[][] people = {{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {6, 2}};
-        CommonMethod.display(instance.reconstructQueue(people));
+        CustomMethod.display(instance.reconstructQueue(people));
     }
 }

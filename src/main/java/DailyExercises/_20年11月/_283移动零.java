@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 /**
  * @ClassName: _283移动零
@@ -49,8 +49,8 @@ public class _283移动零 {
     public static void main(String[] args) {
         _283移动零 instance = new _283移动零();
         int[] nums = {0};
-        CommonMethod.display(nums);
+        CustomMethod.display(nums);
         instance.moveZeroes(nums);
-        CommonMethod.display(nums);
+        CustomMethod.display(nums);
     }
 }

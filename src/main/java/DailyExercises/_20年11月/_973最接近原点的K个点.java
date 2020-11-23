@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.*;
 
@@ -23,7 +23,7 @@ public class _973最接近原点的K个点 {
             distance_idx[i][1] = i;
         }
         Arrays.sort(distance_idx, (o1, o2) -> (int) (100 * (o1[0] - o2[0])));
-        CommonMethod.display(distance_idx);
+        CustomMethod.display(distance_idx);
         int[][] res = new int[K][2];
         for (int i = 0; i < K; i++) {
             res[i] = points[(int) distance_idx[i][1]];
@@ -125,6 +125,6 @@ public class _973最接近原点的K个点 {
 //        int[][] points = {{1, 3}, {-2, -2}};
 //        int[][] points = {{0, 1}, {1, 0}};
         int[][] points = {{3, 3}, {5, -1}, {-2, 4}};
-        CommonMethod.display(instance.kClosest2(points, 2));
+        CustomMethod.display(instance.kClosest2(points, 2));
     }
 }

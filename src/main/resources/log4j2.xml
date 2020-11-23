@@ -2,7 +2,7 @@
 <Configuration status="WARN" monitorInterval="300">
     <!--    配置log的输出目录-->
     <properties>
-        <property name="LOG_HOME">log</property>
+        <property name="LOG_HOME">logs</property>
         <property name="FILE_NAME">myTest</property>
     </properties>
     <!--    自定义log输出-->
@@ -11,14 +11,11 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>
         </Console>
-        <!--        输出都文件中-->
-        <!--        <File name="File" fileName="log/testing.log">-->
-        <!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>-->
-        <!--        </File>-->
+
         <!--        按时间和大小滚动日志文件-->
-        <RollingRandomAccessFile name="MyFile"
-                                 fileName="${LOG_HOME}/${FILE_NAME}"
-                                 filePattern="${LOG_HOME}/$$${date:yyyy-MM-dd}/${FILE_NAME}-%d{HH-mm}-%i.log">
+        <RollingFile name="MyFile"
+                                 fileName="${LOG_HOME}/${FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout
                     pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36}(%F:%L) - %msg%n"/>
             <Policies>
@@ -26,7 +23,7 @@
                 <SizeBasedTriggeringPolicy size="10 MB"/>
             </Policies>
             <DefaultRolloverStrategy max="20"/>
-        </RollingRandomAccessFile>
+        </RollingFile>
     </Appenders>
     <Loggers>
         <Root level="error">

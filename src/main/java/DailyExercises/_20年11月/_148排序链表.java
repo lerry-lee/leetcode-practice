@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 import DataStructure.ListNode;
 
 import java.util.Arrays;
@@ -121,8 +121,8 @@ public class _148排序链表 {
 
     public static void main(String[] args) {
         _148排序链表 instance = new _148排序链表();
-        ListNode head = (ListNode) CommonMethod.initialize(Arrays.asList(2, 0), "ListNode");
+        ListNode head = (ListNode) CustomMethod.initialize(Arrays.asList(2, 0), "ListNode");
         ListNode newHead = instance.sortList(head);
-        CommonMethod.display(newHead);
+        CustomMethod.display(newHead);
     }
 }

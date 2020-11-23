@@ -1,6 +1,6 @@
 package SwordFingerOffer;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 import DataStructure.TreeNode;
 
 /**
@@ -66,7 +66,7 @@ public class _07重建二叉树 {
         int[] preorder = {5, 1, 2, 4, 3};
         int[] inorder = {1, 2, 3, 4, 5};
         TreeNode root = instance.buildTree(preorder, inorder);
-        CommonMethod.display(root, "preorder");
-        CommonMethod.display(root, "inorder");
+        CustomMethod.display(root, "preorder");
+        CustomMethod.display(root, "inorder");
     }
 }

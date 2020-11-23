@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class _279完全平方数 {
                 dp[i] = temp;
             }
         }
-        CommonMethod.display(dp);
+        CustomMethod.display(dp);
         return dp[n];
     }
 

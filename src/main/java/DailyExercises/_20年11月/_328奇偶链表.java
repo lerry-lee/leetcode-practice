@@ -1,6 +1,6 @@
 package DailyExercises._20年11月;
 
-import DataStructure.CommonMethod;
+import DataStructure.CustomMethod;
 import DataStructure.ListNode;
 
 import java.util.Arrays;
@@ -42,8 +42,8 @@ public class _328奇偶链表 {
 
     public static void main(String[] args) {
         _328奇偶链表 instance = new _328奇偶链表();
-        ListNode head = (ListNode) CommonMethod.initialize(Arrays.asList(2, 1, 3, 5, 6, 4, 7), "ListNode");
-        CommonMethod.display(head);
-        CommonMethod.display(instance.oddEvenList(head));
+        ListNode head = (ListNode) CustomMethod.initialize(Arrays.asList(2, 1, 3, 5, 6, 4, 7), "ListNode");
+        CustomMethod.display(head);
+        CustomMethod.display(instance.oddEvenList(head));
     }
 }

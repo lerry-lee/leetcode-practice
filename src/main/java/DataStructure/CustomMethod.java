@@ -1,5 +1,8 @@
 package DataStructure;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 
 /**
@@ -7,7 +10,17 @@ import java.util.*;
  * @Signature: Created by lerry_li on 2020/11/07
  * @Description: 封装常用方法的类：打印操作、初始化操作、批量插入操作...
  */
-public class CommonMethod {
+public class CustomMethod {
+
+    /**
+     * 获得logger
+     * @param loggerName
+     * @return
+     */
+    public static Logger getLogger(String loggerName) {
+        return LogManager.getLogger(loggerName);
+    }
+
 
     /**
      * 获得scanner
@@ -15,8 +28,7 @@ public class CommonMethod {
      * @return scanner
      */
     public static Scanner getScanner() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner;
+        return new Scanner(System.in);
     }
 
     /**
@@ -113,7 +125,7 @@ public class CommonMethod {
                 System.out.print("[");
                 for (int[] em : arr) {
                     for (int emi : em) {
-                        System.out.print(" "+emi + " ");
+                        System.out.print(" " + emi + " ");
                     }
                     System.out.println("]");
                 }
