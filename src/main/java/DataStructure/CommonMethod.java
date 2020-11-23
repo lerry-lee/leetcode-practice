@@ -87,6 +87,7 @@ public class CommonMethod {
      * @param arr 二维数组
      */
     public static void display(int[][] arr) {
+
         if (arr == null) {
             System.out.println("数组对象为null");
         } else if (arr.length == 0) {
@@ -98,6 +99,31 @@ public class CommonMethod {
                 }
                 System.out.println();
             }
+        }
+
+    }
+
+    public static void display(int[][] arr, String type) {
+        if (type.equals("matrix")) {
+            if (arr == null) {
+                System.out.println("数组对象为null");
+            } else if (arr.length == 0) {
+                System.out.println("数组内容为空");
+            } else {
+                System.out.print("[");
+                for (int[] em : arr) {
+                    for (int emi : em) {
+                        System.out.print(" "+emi + " ");
+                    }
+                    System.out.println("]");
+                }
+            }
+        } else {
+            System.out.print("[");
+            for (int[] em : arr) {
+                System.out.print("[" + em[0] + " " + em[1] + "]");
+            }
+            System.out.println("]");
         }
     }
 
