@@ -10,7 +10,7 @@ import java.util.*;
  * @CreateDate: 2020/11/23
  * @Description
  */
-public class _68_1_二叉树的最近公共祖先 {
+public class _68_2_二叉树的最近公共祖先 {
     /**
      * 解法1：哈希表法 时间O(N) 空间O(N)
      */

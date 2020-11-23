@@ -21,9 +21,7 @@ public class _68_1_二叉搜索树的最近公共祖先 {
         }
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        if (left == null && right == null) {
-            return null;
-        }
+
         if (left == null) {
             return right;
         }
