@@ -1,7 +1,7 @@
 package Others._TODO;
 
 
-import DailyExercises.Main;
+import DailyProblem.Main;
 
 import java.util.*;
 
