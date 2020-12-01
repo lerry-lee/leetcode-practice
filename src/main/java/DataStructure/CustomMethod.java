@@ -14,8 +14,8 @@ public class CustomMethod {
 
     /**
      * 获得logger
-     * @param loggerName
-     * @return
+     * @param loggerName logger name
+     * @return logger
      */
     public static Logger getLogger(String loggerName) {
         return LogManager.getLogger(loggerName);
