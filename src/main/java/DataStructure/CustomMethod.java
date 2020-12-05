@@ -49,6 +49,19 @@ public class CustomMethod {
         }
     }
 
+    public static void display(char[] arr) {
+        if (arr == null) {
+            System.out.println("数组对象为null");
+        } else if (arr.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            for (char em : arr) {
+                System.out.print(em + " ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void display(String[] arr) {
         if (arr == null) {
             System.out.println("数组对象为null");
