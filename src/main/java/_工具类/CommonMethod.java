@@ -103,17 +103,17 @@ public class CommonMethod {
     }
 
 
-    public Logger getLogger(String loggerName) {
+    public static Logger getLogger(String loggerName) {
         return LogManager.getLogger(loggerName);
     }
 
 
-    public Scanner getScannerInput() {
+    public static Scanner getScannerInput() {
         return new Scanner(System.in);
     }
 
 
-    public ListNode initListNode(List<Integer> list) {
+    public static ListNode initListNode(List<Integer> list) {
         System.out.print("初始化链表: ");
         ListNode dummyHead = new ListNode(-1);
         ListNode temp = dummyHead;
