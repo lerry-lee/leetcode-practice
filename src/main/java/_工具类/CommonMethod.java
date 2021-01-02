@@ -15,6 +15,35 @@ import java.util.Scanner;
  * @Description
  */
 public class CommonMethod {
+
+    public static  void display(int[] array) {
+        if (array == null) {
+            System.out.println("数组对象为null");
+        } else if (array.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            System.out.print("[ ");
+            for (Object em : array) {
+                System.out.print(em + " ");
+            }
+            System.out.println("]");
+        }
+    }
+
+    public static  void display(char[] array) {
+        if (array == null) {
+            System.out.println("数组对象为null");
+        } else if (array.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            System.out.print("[ ");
+            for (Object em : array) {
+                System.out.print(em + " ");
+            }
+            System.out.println("]");
+        }
+    }
+
     public static <T> void display(T[] array) {
         if (array == null) {
             System.out.println("数组对象为null");
