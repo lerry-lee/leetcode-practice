@@ -13,6 +13,7 @@ public class UnionFind {
 
     private int count;
 
+
     public UnionFind(int n) {
         this.count = n;
         this.parent = new int[n];
