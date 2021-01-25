@@ -26,6 +26,8 @@ public class UnionFind {
 
     public int find(int x) {
         while (x != parent[x]) {
+            //路径压缩
+            parent[x] = parent[parent[x]];
             x = parent[x];
         }
         return x;
@@ -37,6 +39,7 @@ public class UnionFind {
         if (rootX == rootY) {
             return;
         }
+        //按秩合并
         if (size[rootX] > size[rootY]) {
             parent[rootY] = rootX;
             size[rootX] += size[rootY];
