@@ -43,6 +43,7 @@ public class UnionFind {
             parent[rootX] = rootY;
             size[rootY] += size[rootX];
         }
+        count--;
     }
 
     public int getCount() {
