@@ -53,4 +53,8 @@ public class UnionFind {
     public int getCount() {
         return this.count;
     }
+
+    public int getSize(int index) {
+        return size[index];
+    }
 }
