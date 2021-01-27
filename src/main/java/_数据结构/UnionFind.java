@@ -57,4 +57,8 @@ public class UnionFind {
     public int getSize(int index) {
         return size[index];
     }
+
+    public boolean isConnect(int x, int y) {
+        return find(x) == find(y);
+    }
 }
