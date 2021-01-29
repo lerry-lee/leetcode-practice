@@ -185,13 +185,13 @@ public class _1631最小体力消耗路径 {
 //                }
                 //当前节点和下边节点的边
                 if (i < rows - 1) {
-                    int up = (i + 1) * cols + j;
-                    edges.add(new int[]{up, index, Math.abs(heights[i][j] - heights[i + 1][j])});
+                    int down = (i + 1) * cols + j;
+                    edges.add(new int[]{down, index, Math.abs(heights[i][j] - heights[i + 1][j])});
                 }
                 //当前节点和右边节点的边
                 if (j < cols - 1) {
-                    int left = i * cols + j + 1;
-                    edges.add(new int[]{left, index, Math.abs(heights[i][j] - heights[i][j + 1])});
+                    int right = i * cols + j + 1;
+                    edges.add(new int[]{right, index, Math.abs(heights[i][j] - heights[i][j + 1])});
                 }
             }
         }
