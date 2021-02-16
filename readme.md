@@ -1,4 +1,4 @@
-# Leetcode 练习
+# leetcode 练习
 
 ## 腾讯推荐题目
 
