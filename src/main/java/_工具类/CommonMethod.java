@@ -30,6 +30,24 @@ public class CommonMethod {
         }
     }
 
+    public static void display(int[][] array) {
+        if (array == null) {
+            System.out.println("数组对象为null");
+        } else if (array.length == 0) {
+            System.out.println("数组内容为空");
+        } else {
+            System.out.print("[ ");
+            for (int[] em : array) {
+                System.out.print("[ ");
+                for(int emi:em){
+                    System.out.print(emi+" ");
+                }
+                System.out.print("] ");
+            }
+            System.out.println("]");
+        }
+    }
+
     public static void display(char[] array) {
         if (array == null) {
             System.out.println("数组对象为null");
