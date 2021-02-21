@@ -49,18 +49,28 @@ public class _1438绝对差不超过限制的最长连续子数组 {
             hashMap.put(nums[right], hashMap.getOrDefault(nums[right], 0) + 1);
             right++;
 
-            //判断窗口是否满足要求，满足则记录窗口长度，否则left窗口右移
-            if (maxHeap.peek() - minHeap.peek() <= limit) {
-                maxSubLen = right - left;
-            } else {
+            //v1.0
+//            //判断窗口是否满足要求，满足则记录窗口长度，否则left窗口右移
+//            if (maxHeap.peek() - minHeap.peek() <= limit) {
+//                maxSubLen = right - left;
+//            } else {
+//                //否则，延迟弹出left窗口的值
+//                int count = hashMap.get(nums[left]);
+//                hashMap.put(nums[left], count - 1);
+//                left++;
+//            }
+
+            //v2.0
+            //由于我隐式的维护了窗口的大小递增，所以可以不用记录窗口的最大长度，最后返回窗口长度即可
+            if (maxHeap.peek() - minHeap.peek() > limit) {
                 //否则，延迟弹出left窗口的值
                 int count = hashMap.get(nums[left]);
                 hashMap.put(nums[left], count - 1);
                 left++;
             }
-
         }
-        return maxSubLen;
+//        return maxSubLen;
+        return right - left;
     }
 
     public void prune(PriorityQueue<Integer> heap, Map<Integer, Integer> hashMap) {
@@ -89,12 +99,27 @@ public class _1438绝对差不超过限制的最长连续子数组 {
             //添加右窗口
             treeMap.put(nums[right], treeMap.getOrDefault(nums[right], 0) + 1);
             right++;
+
+            //v1.0
+//            //判断窗口是否满足要求
+//            if (treeMap.lastKey() - treeMap.firstKey() <= limit) {
+//                maxSubLen = right - left;
+//            }
+//            //否则，左窗口右移一位
+//            else {
+//                int count = treeMap.get(nums[left]);
+//                if (count == 1) {
+//                    treeMap.remove(nums[left]);
+//                } else {
+//                    treeMap.put(nums[left], count - 1);
+//                }
+//                left++;
+//            }
+
+            //v2.0
             //判断窗口是否满足要求
-            if (treeMap.lastKey() - treeMap.firstKey() <= limit) {
-                maxSubLen = right - left;
-            }
-            //否则，左窗口右移一位
-            else {
+            //由于我隐式的维护了窗口的大小递增，所以可以不用记录窗口的最大长度，最后返回窗口长度即可
+            if (treeMap.lastKey() - treeMap.firstKey() > limit) {
                 int count = treeMap.get(nums[left]);
                 if (count == 1) {
                     treeMap.remove(nums[left]);
@@ -103,8 +128,10 @@ public class _1438绝对差不超过限制的最长连续子数组 {
                 }
                 left++;
             }
+
         }
-        return maxSubLen;
+//        return maxSubLen;
+        return right - left;
     }
 
     /**
@@ -133,10 +160,24 @@ public class _1438绝对差不超过限制的最长连续子数组 {
             }
             minQue.offerLast(nums[right]);
             right++;
-            //判断窗口是否满足要求
-            if (maxQue.peekFirst() - minQue.peekFirst() <= limit) {
-                maxSubLen = right - left;
-            } else {
+
+            //v1.0
+//            //判断窗口是否满足要求
+//            if (maxQue.peekFirst() - minQue.peekFirst() <= limit) {
+//                maxSubLen = right - left;
+//            } else {
+//                if (maxQue.peekFirst() == nums[left]) {
+//                    maxQue.pollFirst();
+//                }
+//                if (minQue.peekFirst() == nums[left]) {
+//                    minQue.pollFirst();
+//                }
+//                left++;
+//            }
+
+            //v2.0
+            //由于我隐式的维护了窗口的大小递增，所以可以不用记录窗口的最大长度，最后返回窗口长度即可
+            if (maxQue.peekFirst() - minQue.peekFirst() > limit) {
                 if (maxQue.peekFirst() == nums[left]) {
                     maxQue.pollFirst();
                 }
@@ -145,9 +186,9 @@ public class _1438绝对差不超过限制的最长连续子数组 {
                 }
                 left++;
             }
-
         }
-        return maxSubLen;
+//        return maxSubLen;
+        return right - left;
     }
 
     public static void main(String[] args) {
