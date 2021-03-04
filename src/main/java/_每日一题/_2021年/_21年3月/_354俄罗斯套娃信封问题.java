@@ -28,6 +28,7 @@ public class _354俄罗斯套娃信封问题 {
         });
         int len = envelopes.length;
         int[] dp = new int[len];
+
         for (int i = 1; i < len; i++) {
             int w = envelopes[i][0], h = envelopes[i][1];
             int count = 0;
@@ -59,7 +60,8 @@ public class _354俄罗斯套娃信封问题 {
             @Override
             public int compare(int[] o1, int[] o2) {
                 if (o1[0] == o2[0]) {
-                    return Integer.compare(o1[1], o2[1]);
+                    //第0列相等，第1列要降序，这样排除第0列相等但第1列递增的情况
+                    return Integer.compare(o2[1], o1[1]);
                 }
                 return Integer.compare(o1[0], o2[0]);
             }
@@ -67,7 +69,7 @@ public class _354俄罗斯套娃信封问题 {
         int len = envelopes.length;
         //2.然后对第1列求最长递增子序列
         int[] dp = new int[len];
-        dp[0] = envelopes[0][0];
+        dp[0] = envelopes[0][1];
         int res = 1;
         for (int i = 1; i < len; i++) {
             int target = envelopes[i][1];
@@ -99,6 +101,8 @@ public class _354俄罗斯套娃信封问题 {
     public static void main(String[] args) {
         _354俄罗斯套娃信封问题 instance = new _354俄罗斯套娃信封问题();
         int[][] envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
+        int[][] envelopes1={{4,5},{4,6},{6,7},{2,3},{1,1}};
         System.out.println(instance.maxEnvelopes2(envelopes));
+        System.out.println(instance.maxEnvelopes2(envelopes1));
     }
 }
