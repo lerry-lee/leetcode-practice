@@ -2,19 +2,20 @@ package _每日一题;
 
 
 import _其他._TODO.*;
-import _每日一题._2020年._20年10月.*;
-import _每日一题._2020年._20年7月.*;
-import _每日一题._2020年._20年8月._43字符串相乘;
-import _每日一题._2020年._20年9月.*;
 import _数据结构.ListNode;
 import _数据结构.TreeNode;
+import _每日一题._2020年._20年10月.*;
+import _每日一题._2020年._20年7月._1008先序遍历构造二叉树;
+import _每日一题._2020年._20年7月._105从前序与中序遍历序列构造二叉树;
+import _每日一题._2020年._20年7月._17dot06数字2出现的次数;
+import _每日一题._2020年._20年7月._44通配符匹配;
+import _每日一题._2020年._20年8月._43字符串相乘;
+import _每日一题._2020年._20年9月.*;
 import _腾讯推荐._数组与字符串._最长回文子串;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 
 /**
@@ -32,6 +33,10 @@ public class Main {
         test_463();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
+    }
+
+    public void demo1(){
+        Map<Integer,Integer> hashMap=new HashMap<>();
     }
 
     public static void test_463() {
