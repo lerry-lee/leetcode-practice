@@ -20,23 +20,29 @@ public class _31下一个排列 {
         if (nums == null || nums.length < 2) {
             return;
         }
+        //1.从右向左遍历，找到第一个不满足降序的元素，其下标为i
         int i = nums.length - 2;
         for (; i >= 0; i--) {
             if (nums[i] < nums[i + 1]) {
                 break;
             }
         }
+        //若整个数组是降序的，则对数组进行升序排列，并返回
         if (i < 0) {
             Arrays.sort(nums);
             return;
         }
+        //2.找到i之后的元素中，刚好比nums[i]大的元素，
+        // 由于i之后的元素是满足降序的，因此找到第一个比nums[i]小的元素，它之前的元素即为所找
         int j = i + 1;
         for (; j < nums.length; j++) {
             if (nums[j] <= nums[i]) {
                 break;
             }
         }
+        //3.交换i和j-1
         swap(nums, i, j - 1);
+        //4.将i之后的元素升序排列（反转即可，因为i之后的元素满足降序）
         Arrays.sort(nums, i + 1, nums.length);
     }
 

@@ -8,10 +8,10 @@ package _字节推荐._数组与排序;
  */
 public class _下一个排列 {
     /**
-     * 时间复杂度：O(n)O(n)，在最坏的情况下，只需要对整个数组进行两次扫描。
-     * 空间复杂度：O(1)O(1)，没有使用额外的空间，原地替换足以做到。
+     * 时间复杂度：O(n)，在最坏的情况下，只需要对整个数组进行两次扫描。
      *
-     * @param nums
+     *
+     *
      */
     public void nextPermutation(int[] nums) {
         int i = nums.length - 2;
