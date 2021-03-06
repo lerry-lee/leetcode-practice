@@ -10,7 +10,7 @@ public class _567字符串的排列 {
     /**
      * 解法1：计数数组+滑动窗口 时间O(M+N*S) 空间O(S) S为字符集的大小
      * 思路：
-     * 1.用一个技术数组维护窗口的元素及个数，初始化为s1
+     * 1.用一个计数数组维护窗口的元素及个数，初始化为s1
      * 2.在遍历s2的过程中，每次判断窗口是否满足要求
      */
     public boolean checkInclusion(String s1, String s2) {
@@ -96,7 +96,7 @@ public class _567字符串的排列 {
                 dif--;
             }
 
-            //left进入字符同理
+            //right进入字符同理
             if(freq[c2-'a']==0){
                 dif++;
             }

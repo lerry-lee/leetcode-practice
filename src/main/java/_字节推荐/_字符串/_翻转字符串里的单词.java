@@ -17,7 +17,7 @@ public class _翻转字符串里的单词 {
         StringBuilder res = new StringBuilder();
         for (int i = arr.length - 1; i >= 0; i--) {
             if (arr[i].length() == 0) continue;
-            res.append(arr[i] + " ");
+            res.append(arr[i]).append(" ");
         }
         return res.toString().trim();
     }
@@ -27,7 +27,7 @@ public class _翻转字符串里的单词 {
         String[] arr = s.split("\\s+");
         StringBuilder res = new StringBuilder();
         for (int i = arr.length - 1; i >= 0; i--) {
-            res.append(arr[i] + " ");
+            res.append(arr[i]).append(" ");
         }
         return res.toString().trim();
     }

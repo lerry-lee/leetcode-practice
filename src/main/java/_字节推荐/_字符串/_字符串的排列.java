@@ -11,8 +11,9 @@ import java.util.HashMap;
  * 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
  */
 public class _字符串的排列 {
-
-    //hashmap
+    /**
+     * 解法1：哈希表
+     */
     public boolean mtd(String s1, String s2) {
         if (s1 == null || s2 == null) return false;
         if (s1.length() == 0 || s2.length() == 0) return false;
@@ -40,7 +41,9 @@ public class _字符串的排列 {
     }
 
 
-    //滑动窗口+排序
+    /**
+     * 滑动窗口+排序
+     */
     public boolean checkInclusion(String s1, String s2) {
         int len1 = s1.length(), len2 = s2.length();
         char[] s1_arr = s1.toCharArray();
