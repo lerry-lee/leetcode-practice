@@ -6,34 +6,12 @@ import java.util.List;
 /**
  * 第K个排列
  * 给出集合 [1,2,3,…,n]，其所有元素共有 n! 种排列。
- * <p>
- * 按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：
- * <p>
- * "123"
- * "132"
- * "213"
- * "231"
- * "312"
- * "321"
- * 给定 n 和 k，返回第 k 个排列。
- * <p>
- * 说明：
- * <p>
- * 给定 n 的范围是 [1, 9]。
- * 给定 k 的范围是[1,  n!]。
- * 示例 1:
- * <p>
- * 输入: n = 3, k = 3
- * 输出: "213"
- * 示例 2:
- * <p>
- * 输入: n = 4, k = 9
- * 输出: "2314"
  */
 public class _第K个排列 {
 
     /**
      * 解法：dfs+剪枝：时间复杂度O（n^2） 空间复杂度O（n）
+     * 有图解参考
      */
     int[] factorial;
     String res;
@@ -43,8 +21,7 @@ public class _第K个排列 {
         factorial[0] = 1;
         for (int i = 1; i < n; i++) factorial[i] = i * factorial[i - 1];
         boolean[] visited = new boolean[n + 1];
-        List<String> pai = new ArrayList<>();
-        dfs(n, k, 0, visited, pai);
+        dfs(n, k, 0, visited, new ArrayList<>());
         return res;
     }
 
@@ -53,6 +30,7 @@ public class _第K个排列 {
             res = String.join("", pai);
             return;
         }
+        // 计算还未确定的数字的全排列的个数，第 1 次进入的时候是 n - 1
         int x = factorial[n - 1 - t];
         for (int i = 1; i <= n; i++) {
             if (visited[i]) continue;
@@ -63,6 +41,8 @@ public class _第K个排列 {
             pai.add(i + "");
             visited[i] = true;
             dfs(n, k, t + 1, visited, pai);
+            // 注意 1：不可以回溯（重置变量），算法设计是「一下子来到叶子结点」，没有回头的过程
+            // 注意 2：这里要加 return，后面的数没有必要遍历去尝试了
             return;
         }
     }
