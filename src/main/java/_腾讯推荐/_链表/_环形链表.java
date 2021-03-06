@@ -27,11 +27,11 @@ public class _环形链表 {
      */
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) return false;
-        ListNode low = head, fast = head.next;
+        ListNode slow = head, fast = head.next;
         while (fast.next != null && fast.next.next != null) {
-            if (low == fast) return true;
+            if (slow == fast) return true;
             fast = fast.next.next;
-            low = low.next;
+            slow = slow.next;
         }
         return false;
 
