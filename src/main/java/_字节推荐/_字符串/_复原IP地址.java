@@ -12,66 +12,54 @@ import java.util.List;
  * 回溯？
  */
 public class _复原IP地址 {
-    static String addr;
-    static List<String> res;
-    static List<String> temp;
+    /**
+     * 解法1：回溯+剪枝
+     */
 
     public List<String> run(String s) {
-        res = new ArrayList<>();
-        if (s.length() < 4 || s.length() > 12) return res;
-        addr = s;
-        temp = new ArrayList<>();
-//        System.out.println("start dfs");
-        dfs(0, s.length(), 4);
+        List<String> res = new ArrayList<>();
+        // 特判
+        if (s == null || s.length() < 4 || s.length() > 12) {
+            return res;
+        }
+        dfs(res, new ArrayList<>(), s, 0, s.length() - 1, 0);
         return res;
     }
 
-    public void dfs(int l, int r, int t) {
-        if (t == 0) {
-
-            if (l == r) {
-                res.add(String.join(".", temp));
+    public void dfs(List<String> res, List<String> cur, String s, int l, int r, int t) {
+        //字符串s已经分出了4个部分，进入递归出口的判断
+        if (t == 4) {
+            //字符串s全部遍历完，则添加合法的ip
+            if (l > r) {
+                res.add(String.join(".", cur));
             }
             return;
         }
-        if (r - l > t * 3 || r - l < t) return;
-        for (int i = l; i < r && i < l + 3; i++) {
 
-            String tempS = addr.substring(l, i + 1);
-            int tempI = Integer.parseInt(tempS);
-            if (tempI < 0 || tempI > 255) break;
-            if (tempS.length() != String.valueOf(tempI).length()) break;
-            temp.add(tempS);
-            dfs(i + 1, r, t - 1);
-            temp.remove(temp.size() - 1);
-        }
-    }
-
-    public void func() {
-        addr = "25525511135";
-//        addr = "010010";
-        res = new ArrayList();
-        temp = new ArrayList();
-        backtrack(0, addr.length(), 4);
-        System.out.println(res);
-    }
-
-    public void backtrack(int l, int h, int k) {
-        if (k == 0 && l == h) {
-            res.add(String.join(".", temp));
+        //剪枝2：未遍历的字符串不能太短或者太长了，得刚好能够分的
+        if (r - l+1 < 4 - t || r - l+1 > (4 - t) * 3) {
             return;
         }
-        for (int i = l; i < h && i < 3 + l; i++) {
-            if (h < k + l || h > k * 3 + l) break;
-            String substr = addr.substring(l, i + 1);
-            Integer subip = Integer.parseInt(substr);
-            if (substr.length() == Integer.toString(subip).length() && subip < 256) {
-                temp.add(substr);
-                backtrack(i + 1, h, k - 1);
-                temp.remove(temp.size() - 1);
+
+        for (int i = l; i <= r; i++) {
+            //剪枝1：每部分0~255，所以长度不能超过3
+            if (i - l >= 3) {
+                break;
             }
-
+            String ipStr = s.substring(l, i + 1);
+            int ipInt = Integer.parseInt(ipStr);
+            //有效值判断，0~255
+            if (ipInt < 0 || ipInt > 255) {
+                break;
+            }
+            //0开头的数字判断，0开头的数字无效(0除外)
+            if (ipStr.length() > String.valueOf(ipInt).length()) {
+                break;
+            }
+            cur.add(ipStr);
+            dfs(res, cur, s, i + 1, r, t + 1);
+            cur.remove(cur.size() - 1);
         }
-
     }
+
 }
