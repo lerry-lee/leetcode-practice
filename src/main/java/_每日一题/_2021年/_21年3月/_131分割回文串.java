@@ -1,6 +1,7 @@
 package _每日一题._2021年._21年3月;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -96,6 +97,7 @@ public class _131分割回文串 {
             cur.remove(cur.size() - 1);
         }
     }
+
 
     public static void main(String[] args) {
         _131分割回文串 instance=new _131分割回文串();
