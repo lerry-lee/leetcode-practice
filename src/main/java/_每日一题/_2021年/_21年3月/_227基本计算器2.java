@@ -69,13 +69,68 @@ public class _227基本计算器2 {
     }
 
 
+    /**
+     * 解法2：单栈 符号位记录正负，转换为加法，遇到乘除先计算  时间O(N) 空间O(N)
+     */
+    public int calculate2(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        int sign = 1;
+        char preOperation = '+';
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                continue;
+            }
+            if (Character.isDigit(c)) {
+                int j = i;
+                int num = 0;
+                for (; j < s.length(); j++) {
+                    char cj = s.charAt(j);
+                    if (!Character.isDigit(cj)) {
+                        break;
+                    }
+                    num = num * 10 + (cj - '0');
+                }
+                num = num * sign;
+//                int num = sign * Integer.parseInt(s.substring(i, j));
+                sign = 1;
+                i = j - 1;
+                if (preOperation == '*') {
+                    stack.push(stack.pop() * num);
+                } else if (preOperation == '/') {
+                    stack.push(stack.pop() / num);
+                } else {
+                    stack.push(num);
+                }
+            } else {
+                if (c == '-') {
+                    sign = -1;
+                } else if (c == '+') {
+                    sign = 1;
+                }
+                preOperation = c;
+            }
+        }
+        int res = 0;
+        while (!stack.isEmpty()) {
+            res += stack.pop();
+        }
+        return res;
+    }
+
 
     public static void main(String[] args) {
         _227基本计算器2 instance = new _227基本计算器2();
-        System.out.println(instance.calculate("3+2*2"));//7
-        System.out.println(instance.calculate(" 3/2 "));//1
-        System.out.println(instance.calculate(" 3+5 / 2 "));//5
-        System.out.println(instance.calculate("1-1+1"));//1
-        System.out.println(instance.calculate("2+3-4"));//1
+        System.out.println(instance.calculate2("3+2*2"));//7
+        System.out.println(instance.calculate2(" 3/2 "));//1
+        System.out.println(instance.calculate2(" 3+5 / 2 "));//5
+        System.out.println(instance.calculate2("1-1+1"));//1
+        System.out.println(instance.calculate2("2+3-4"));//1
+        System.out.println(instance.calculate2("42"));//42
+        System.out.println(instance.calculate2("12-3*4"));//0
     }
 }
