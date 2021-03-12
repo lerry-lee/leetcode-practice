@@ -1,5 +1,9 @@
 package _每日一题._2021年._21年3月;
 
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Stack;
+
 /**
  * @ClassName: _331验证二叉树的前序序列化
  * @Author: lerry_li
@@ -9,7 +13,7 @@ package _每日一题._2021年._21年3月;
 public class _331验证二叉树的前序序列化 {
 
     /**
-     * 解法1：回溯 超时...
+     * 解法1：回溯 超时... （+保存已经计算过的结果，超时...）
      * 思路：
      *      根节点合法+左右子树合法
      *      1.判断根节点：
@@ -76,13 +80,100 @@ public class _331验证二叉树的前序序列化 {
         return false;
     }
 
+    /**
+     * 解法2：栈 时间O(N) 空间O(N)
+     */
+    public boolean isValidSerialization2(String preorder) {
+        int n = preorder.length();
+        int i = 0;
+        Deque<Integer> stack = new LinkedList<Integer>();
+        stack.push(1);
+        while (i < n) {
+            if (stack.isEmpty()) {
+                return false;
+            }
+            if (preorder.charAt(i) == ',') {
+                i++;
+            } else if (preorder.charAt(i) == '#') {
+                int top = stack.pop() - 1;
+                if (top > 0) {
+                    stack.push(top);
+                }
+                i++;
+            } else {
+                // 读一个数字
+                while (i < n && preorder.charAt(i) != ',') {
+                    i++;
+                }
+                int top = stack.pop() - 1;
+                if (top > 0) {
+                    stack.push(top);
+                }
+                stack.push(2);
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    /**
+     * 解法3：解法2空间优化 时间O(N) 空间O(1)
+     */
+    public boolean isValidSerialization3(String preorder) {
+        int n = preorder.length();
+        int i = 0;
+        int slots = 1;
+        while (i < n) {
+            if (slots == 0) {
+                return false;
+            }
+            if (preorder.charAt(i) == ',') {
+                i++;
+            } else if (preorder.charAt(i) == '#') {
+                slots--;
+                i++;
+            } else {
+                // 读一个数字
+                while (i < n && preorder.charAt(i) != ',') {
+                    i++;
+                }
+                slots++; // slots = slots - 1 + 2
+            }
+        }
+        return slots == 0;
+    }
+
+    /**
+     * 解法4：栈+叶节点变“#” 时间O(N) 空间O(1)
+     * 思路：
+     *      叶节点的左右子节点都为“#”，则可以将该叶节点替换为“#”
+     *      在字符串中，数字后面跟2个“#”，则该数字只能是叶节点
+     */
+    public boolean isValidSerialization4(String preorder) {
+        String[] node = preorder.split(",");
+        Stack<String> stack = new Stack<>();
+        for (String s : node) {
+            stack.push(s);
+            int size = stack.size();
+            //要用while做
+            while (size >= 3 && stack.get(size - 1).equals("#") && stack.get(size - 2).equals("#") && !stack.get(size - 3).equals("#")) {
+                stack.pop();
+                stack.pop();
+                stack.pop();
+                stack.push("#");
+                size = stack.size();
+            }
+        }
+        return stack.size() == 1 && stack.peek().equals("#");
+    }
+
+
     public static void main(String[] args) {
         _331验证二叉树的前序序列化 instance = new _331验证二叉树的前序序列化();
-        System.out.println(instance.isValidSerialization("9,3,4,#,#,1,#,#,2,#,6,#,#"));//ture
-        System.out.println(instance.isValidSerialization("1,#"));//false
-        System.out.println(instance.isValidSerialization("9,#,#,1"));//false
-        System.out.println(instance.isValidSerialization("1"));//false
-        System.out.println(instance.isValidSerialization("1,#,#"));//ture
-        System.out.println(instance.isValidSerialization("1,#,#,#,#"));//false
+        System.out.println(instance.isValidSerialization4("9,3,4,#,#,1,#,#,2,#,6,#,#"));//ture
+        System.out.println(instance.isValidSerialization4("1,#"));//false
+        System.out.println(instance.isValidSerialization4("9,#,#,1"));//false
+        System.out.println(instance.isValidSerialization4("1"));//false
+        System.out.println(instance.isValidSerialization4("1,#,#"));//ture
+        System.out.println(instance.isValidSerialization4("1,#,#,#,#"));//false
     }
 }
