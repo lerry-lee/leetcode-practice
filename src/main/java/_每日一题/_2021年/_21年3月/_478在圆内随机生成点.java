@@ -1,5 +1,7 @@
 package _每日一题._2021年._21年3月;
 
+import java.util.Random;
+
 /**
  * @ClassName: _478在圆内随机生成点
  * @Author: lerry_li
@@ -32,5 +34,32 @@ public class _478在圆内随机生成点 {
                 return new double[]{xg, yg};
         }
 
+    }
+
+    public static int random7() {
+        Random random = new Random();
+        return random.nextInt(7) + 1;
+    }
+
+    static int[][] seed7 = {
+            {1, 2, 3, 4, 5, 6, 7},
+            {8, 9, 10, 1, 2, 3, 4},
+            {5, 6, 7, 8, 9, 10, 1},
+            {2, 3, 4, 5, 6, 7, 8},
+            {9, 10, 1, 2, 3, 4, 5},
+            {6, 7, 8, 9, 10, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0}
+    };
+
+    public static void main(String[] args) {
+        //解放1：随机生成1～49，然后选1～40的数，在%10
+        for (int i = 0; i < 10; i++) {
+            int x = 7 * (random7() - 1) + (random7());
+            if (x <= 40) {
+                System.out.println(x % 10 + 1);
+            }
+        }
+        //解法2：随机抽seed7中的一行一列，seed7中1～10的元素是均匀的
+        int x = seed7[random7() - 1][random7() - 1];
     }
 }
