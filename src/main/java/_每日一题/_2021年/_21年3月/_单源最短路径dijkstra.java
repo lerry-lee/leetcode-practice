@@ -14,7 +14,7 @@ public class _单源最短路径dijkstra {
      * @param n       节点个数
      * @param v       节点（从0开始编号，即1～n-1）
      * @param aMatrix 邻接矩阵，aMatrix[i][j]表示节点i到节点j的距离，用INF表示不可达
-     * @param dist    最短路径数组，如果已经访问过的节点，那么就是最短路径，否则是初始化的值（邻接矩阵存的距离）
+     * @param dist    最短路径数组，如果已经访问过的节点，那么就是最短路径，否则是初始化的值（邻接矩阵存的距离)
      * @param prev    最短路径上的该节点的前驱节点
      */
     public static void dijkstra(int vStart, int n, char[] v, int[][] aMatrix, int[] dist, int[] prev) {
