@@ -123,6 +123,35 @@
 
 #### 2021年3月
 
+##### 705.设计哈希集合
+
+- 数组+链表
+
+- 一个boolean数组搞定
+
+```java
+class MyHashSet {
+    private boolean[] exist;
+    /** Initialize your data structure here. */
+    public MyHashSet() {
+        exist=new boolean[1000001];
+    }
+    
+    public void add(int key) {
+        exist[key]=true;
+    }
+    
+    public void remove(int key) {
+        exist[key]=false;
+    }
+    
+    /** Returns true if this set contains the specified element */
+    public boolean contains(int key) {
+        return exist[key];
+    }
+}
+```
+
 ##### 331.验证二叉树的前序序列化
 
 - 回溯超时
