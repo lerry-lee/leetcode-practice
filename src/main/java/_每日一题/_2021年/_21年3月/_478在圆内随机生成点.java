@@ -23,7 +23,7 @@ public class _478在圆内随机生成点 {
     }
 
     public double[] randPoint() {
-        //圆心
+        //外接正方形左下角的点（x0,y0）
         double x0 = x_center - radius;
         double y0 = y_center - radius;
 
