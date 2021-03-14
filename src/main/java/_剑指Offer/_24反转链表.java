@@ -14,12 +14,12 @@ public class _24反转链表 {
      * 解法1：迭代：双指针法
      */
     public ListNode reverseList(ListNode head) {
-        ListNode newHead = null, temp = null;
-        while (head != null) {
-            temp = new ListNode(head.val);
-            temp.next = newHead;
-            newHead = temp;
-            head = head.next;
+        ListNode newHead = null, cur=head;
+        while (cur != null) {
+            ListNode next=cur.next;
+            cur.next=newHead;
+            newHead=cur;
+            cur=next;
         }
         return newHead;
     }
@@ -33,8 +33,13 @@ public class _24反转链表 {
      */
     public ListNode reverseList_recursive(ListNode head) {
         if (head == null || head.next == null) return head;
+        //head的next递归实现反转
+        //反转前，head.next是后面链表的头结点
         ListNode newHead = reverseList_recursive(head.next);
-        head.next.next = head;//当前节点和下一个节点反转：head的下一个节点指向head
+        //反转后,head.next是后面链表的尾结点了
+        ListNode headNext=head.next;
+        //将反转后的链表的尾结点.next指向head即可
+        headNext.next = head;//当前节点和下一个节点反转：head的下一个节点指向head
         head.next = null;
         return newHead;
     }
