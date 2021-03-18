@@ -41,8 +41,9 @@ public class _115不同的子序列 {
                 }
                 //否则，递归计算
                 else {
+
                     int temp = dfs(memory, s, t, i + 1, ti + 1);
-                    //存入备忘录
+//                    //存入备忘录
                     memory[i + 1][ti + 1] = temp;
                     //temp大于0说明后面可以组成，这时才加和
                     if (temp > 0) {
@@ -76,7 +77,7 @@ public class _115不同的子序列 {
         if (lenS < lenT) {
             return 0;
         }
-        int[][] dp = new int[lenS + 1][lenT+1];
+        int[][] dp = new int[lenS + 1][lenT + 1];
         for (int j = 0; j <= lenT; j++) {
             dp[0][j] = 0;
         }
@@ -87,10 +88,10 @@ public class _115不同的子序列 {
         for (int i = 1; i <= lenS; i++) {
             for (int j = 1; j <= lenT; j++) {
                 //状态转移，t的字符是一定要匹配上的!
-                if (s.charAt(i-1) == t.charAt(j-1)) {
-                    dp[i][j] = dp[i - 1][j - 1] + dp[i-1][j];
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
                 } else {
-                    dp[i][j] = dp[i-1][j];
+                    dp[i][j] = dp[i - 1][j];
                 }
             }
         }
@@ -99,7 +100,7 @@ public class _115不同的子序列 {
 
     public static void main(String[] args) {
         _115不同的子序列 instance = new _115不同的子序列();
-        System.out.println(instance.numDistinct2("rabbbit", "rabbit"));
-        System.out.println(instance.numDistinct2("babgbag", "bag"));
+        System.out.println(instance.numDistinct("rabbbit", "rabbit"));
+        System.out.println(instance.numDistinct("babgbag", "bag"));
     }
 }

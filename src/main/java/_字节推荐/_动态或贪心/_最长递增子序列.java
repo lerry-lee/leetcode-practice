@@ -28,7 +28,9 @@ public class _最长递增子序列 {
             dp[i] = tar;
         }
         int mid = (i + j) / 2;
+        //此时dp[mid]>tar，区间缩至[l,mid]
         if (dp[mid] > tar) bSearch(dp, i, mid, tar);
+        //此时dp[mid]<tar，区间缩至[mid+1,r]
         else if (dp[mid] < tar) bSearch(dp, mid + 1, j, tar);
     }
 }
