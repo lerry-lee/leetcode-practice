@@ -8,39 +8,11 @@ import java.util.*;
  * Created by lerry_li on 2020/09/29
  */
 
-/**
- * 二叉树的后序遍历
- * 给定一个二叉树，返回它的 后序 遍历。
- * <p>
- * 示例:
- * <p>
- * 输入: [1,null,2,3]
- * 1
- * \
- * 2
- * /
- * 3
- * <p>
- * 输出: [3,2,1]
- * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
- */
 public class _145二叉树的后序遍历 {
 
     /**
      * 解法1：递归（简单略）
-     * 解法2：迭代:用栈模拟递归
-     */
-    /**
-     * 前序遍历的迭代算法：
-     * 核心思想为：
-     * <p>
-     * 每拿到一个 节点 就把它保存在 栈 中
-     * <p>
-     * 继续对这个节点的 左子树 重复 过程1，直到左子树为 空
-     * <p>
-     * 因为保存在 栈 中的节点都遍历了 左子树 但是没有遍历 右子树，所以对栈中节点 出栈 并对它的 右子树 重复 过程1
-     * <p>
-     * 直到遍历完所有节点
+     * 解法2：迭代: 根右左→反转
      */
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
@@ -60,5 +32,38 @@ public class _145二叉树的后序遍历 {
             res_.add(res.get(i));
         }
         return res_;
+    }
+
+    /**
+     * 解法3：真正 解法2并不是真正意义上的后序遍历
+     */
+    public List<Integer> postorderTraversal3(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        //记录上一次遍历的节点
+        TreeNode prev = null;
+        while (root != null || !stack.isEmpty()) {
+            //只要有左子节点，就入栈
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            //取出栈顶元素
+            root = stack.pop();
+            //后序遍历：左→右→根
+            //1.若root的right节点为空，则可以遍历root节点
+            //2.若root的right节点已经遍历过了，则可以遍历root节点
+            if (root.right == null || root.right == prev) {
+                res.add(root.val);
+                prev = root;
+                root = null;
+            }
+            //否则，需要遍历root的right节点，遍历前将root再次入栈
+            else {
+                stack.push(root);
+                root = root.right;
+            }
+        }
+        return res;
     }
 }
