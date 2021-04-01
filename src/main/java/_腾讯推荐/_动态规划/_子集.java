@@ -44,24 +44,24 @@ public class _子集 {
      * 状态转移：
      * dp[i]=dp[i-1]+dp[i-1]每个子集的末尾追加第i个元素
      * 初始化：
-     * dp[0]={},{nums[i]}   #数组元素只有nums[0]时的子集有2个
+     * dp[0]={},{nums[0]}   #数组元素只有nums[0]时的子集有2个
      */
     public List<List<Integer>> subsets2(int[] nums) {
-        List<List<Integer>> res2 = new ArrayList<>();
+        List<List<Integer>> dp = new ArrayList<>();
         if (nums == null || nums.length == 0) {
-            return res2;
+            return dp;
         }
-        res2.add(new ArrayList<>());
-        res2.add(Collections.singletonList(nums[0]));
+        dp.add(new ArrayList<>());
+        dp.add(Collections.singletonList(nums[0]));
         for (int i = 1; i < nums.length; i++) {
-            int size = res2.size();
+            int size = dp.size();
             for (int j = 0; j < size; j++) {
-                List<Integer> temp = new ArrayList<>(res2.get(j));
+                List<Integer> temp = new ArrayList<>(dp.get(j));
                 temp.add(nums[i]);
-                res2.add(temp);
+                dp.add(temp);
             }
         }
-        return res2;
+        return dp;
     }
 
     public static void main(String[] args) {
