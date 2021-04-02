@@ -10,7 +10,7 @@ import java.util.Stack;
  */
 public class _09用两个栈实现队列 {
     /**
-     * 解法1：时间复杂度O(N^2)
+     * 解法1：数据栈+辅助栈 插入操作_时间O(N) 删除操作_时间O(1) 空间O(N)
      */
     class CQueue {
 
@@ -26,17 +26,48 @@ public class _09用两个栈实现队列 {
             while (!values.isEmpty()) {
                 helper.push(values.pop());
             }
-            helper.push(value);
+            values.push(value);
             while (!helper.isEmpty()) {
                 values.push(helper.pop());
             }
         }
 
         public int deleteHead() {
-            if(values.isEmpty()){
+            if (values.isEmpty()) {
                 return -1;
             }
             return values.pop();
+        }
+    }
+
+    /**
+     * 解法2：插入栈(push)+删除栈(pop) 插入操作_时间O(1) 删除操作_时间O(N) 空间O(N)
+     */
+    class CQueue2 {
+
+        private Stack<Integer> stack1;
+        private Stack<Integer> stack2;
+
+        public CQueue2() {
+            stack1 = new Stack<>();
+            stack2 = new Stack<>();
+        }
+
+        public void appendTail(int value) {
+            stack1.push(value);
+        }
+
+        public int deleteHead() {
+            if (!stack2.isEmpty()) {
+                return stack2.pop();
+            }
+            if(stack1.isEmpty()){
+                return -1;
+            }
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+            return stack2.pop();
         }
     }
 }
