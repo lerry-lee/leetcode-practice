@@ -30,6 +30,22 @@ public class _11旋转数组的最小数字 {
         return numbers[left];
     }
 
+    /**
+     * 解法2：暴力 时间O(N) 空间O(1)
+     * 思路：找到旋转点，它后面的第一个元素就是最小元素
+     */
+    public int minArray2(int[] numbers) {
+        for(int i=1;i<numbers.length;i++){
+            //升序数组，如果遇到当前元素比上一个元素要小，那么当前元素就是最小元素
+            if(numbers[i]<numbers[i-1]){
+                return numbers[i];
+            }
+        }
+        //这种情况是数组的元素都相同
+        return numbers[0];
+    }
+
+
     public static void main(String[] args) {
         _11旋转数组的最小数字 instance=new _11旋转数组的最小数字();
         System.out.println(instance.minArray(new int[]{3,4,5,1,2}));
