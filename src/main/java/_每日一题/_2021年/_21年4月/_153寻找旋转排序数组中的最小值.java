@@ -8,7 +8,7 @@ package _每日一题._2021年._21年4月;
  */
 public class _153寻找旋转排序数组中的最小值 {
     /**
-     * 解法1：二分搜索（递归） 时间O(logN) 空间O(1)
+     * 解法1：二分搜索（递归）最坏时间O(N) 空间O(1)
      */
     public int findMin(int[] nums) {
         int left = 0, right = nums.length - 1;
