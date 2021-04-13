@@ -1,5 +1,11 @@
 # 剑指Offer
 
+### [32.1.从上到下打印二叉树](../src/main/java/_剑指Offer/_32_1_从上到下打印二叉树.java)
+
+- dfs
+
+- bfs
+
 ### [31.栈的压入、弹出序列](../src/main/java/_剑指Offer/_31栈的压入_弹出序列.java)
 
 - 用栈
