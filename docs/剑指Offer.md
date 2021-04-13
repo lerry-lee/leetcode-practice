@@ -1,5 +1,11 @@
 # 剑指Offer
 
+### [32.2.从上到下打印二叉树2](../src/main/java/_剑指Offer/_32_2_从上到下打印二叉树2.java)
+
+- dfs
+
+- bfs
+
 ### [32.1.从上到下打印二叉树](../src/main/java/_剑指Offer/_32_1_从上到下打印二叉树.java)
 
 - dfs
