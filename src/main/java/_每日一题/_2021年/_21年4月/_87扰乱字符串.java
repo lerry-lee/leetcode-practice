@@ -1,13 +1,13 @@
 package _每日一题._2021年._21年4月;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * @ClassName: _87扰乱字符串
  * @Author: lerry_li
  * @CreateDate: 2021/04/16
  * @Description
+ * 解法1：记忆化递归
  */
 public class _87扰乱字符串 {
 
@@ -17,10 +17,10 @@ public class _87扰乱字符串 {
         System.out.println(instance.isScramble("abcde", "caebd"));//false
     }
 
-    HashMap<String, Boolean> memo = new HashMap<>();
+    HashMap<String, HashMap<String, Boolean>> memo = new HashMap<>();
 
     /**
-     * 解法2：记忆化递归
+     * 解法1：记忆化递归
      */
     public boolean isScramble(String s1, String s2) {
         // 长度不等，必定不能变换
@@ -46,25 +46,28 @@ public class _87扰乱字符串 {
             }
         }
 
+        //是否重复计算过
+        if (memo.containsKey(s1) && memo.get(s1).containsKey(s2)) {
+            return memo.get(s1).get(s2);
+        }
+
+
         // 相同的话，开始判断判断，满足一个就能 return true
         for (int i = 1; i < n; i++) {
-
-            //是否重复计算过
-            if (memo.containsKey(s1.substring(0, i))) {
-                return memo.get(s1.substring(0, i));
-            }
 
             // S1 -> T1，S2 -> T2
             // S1 -> T2，S2 -> T1
             boolean flag = (isScramble(s1.substring(0, i), s2.substring(0, i)) && isScramble(s1.substring(i), s2.substring(i))) ||
                     (isScramble(s1.substring(0, i), s2.substring(n - i)) && isScramble(s1.substring(i), s2.substring(0, s2.length() - i)));
 
-            memo.put(s1.substring(0, i), flag);
 
             if (flag) {
                 return true;
             }
         }
+        HashMap<String, Boolean> temp = new HashMap<>();
+        temp.put(s2, false);
+        memo.put(s1, temp);
         return false;
     }
 
