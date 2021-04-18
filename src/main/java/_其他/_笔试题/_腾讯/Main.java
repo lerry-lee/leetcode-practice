@@ -78,8 +78,8 @@ public class Main {
             double b2 = k * a2 + b;
             //判断(a1,b1)和(a2,b2)两点中，距离(X3,Y3)较远的点
             R2 = (R1 + Math.sqrt((Math.pow(X3 - X1, 2) + Math.pow(Y3 - Y1, 2)))) / 2;
-            double dis1 = Math.pow((a1 - X3), 2) + Math.pow((b1 - Y3), 2);
-            double dis2 = Math.pow((a2 - X3), 2) + Math.pow((b2 - Y3), 2);
+            double dis1 = Math.abs(a1 - X3);
+            double dis2 = Math.abs(a2 - X3);
             //返回较远的点和(X3,Y3)的中点(X2,Y2)，半径为(X2,Y2)和(X3,Y3)的距离
             if (dis1 > dis2) {
                 if (X3 > a1) {
@@ -101,5 +101,6 @@ public class Main {
             }
         }
         System.out.println(X2 + " " + Y2 + " " + R2);
+        System.out.println(Math.sqrt(0.25));
     }
 }
