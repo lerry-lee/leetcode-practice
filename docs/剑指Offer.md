@@ -1,5 +1,9 @@
 # 剑指Offer
 
+### [36.二叉搜索树与双向链表](../src/main/java/_剑指Offer/_36二叉搜索树与双向链表.java)
+
+- dfs
+
 ### [34.二叉树中和为某一值的路径](../src/main/java/_剑指Offer/_34二叉树中和为某一值的路径.java)
 
 - 回溯（注意添加path后 return前，remove最后一个元素）
