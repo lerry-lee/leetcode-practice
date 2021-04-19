@@ -1,5 +1,9 @@
 # 剑指Offer
 
+### [37.序列化二叉树](../src/main/java/_剑指Offer/_37序列化二叉树.java)
+
+- bfs
+
 ### [36.二叉搜索树与双向链表](../src/main/java/_剑指Offer/_36二叉搜索树与双向链表.java)
 
 - dfs
