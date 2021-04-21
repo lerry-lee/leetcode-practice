@@ -9,12 +9,13 @@ import java.util.HashMap;
  * @Description
  * 解法1：dfs
  * 解法2：动态规划
+ * 解法3：记忆化回溯
  */
 public class _91解码方法 {
 
     public static void main(String[] args) {
         _91解码方法 instance = new _91解码方法();
-        System.out.println(instance.numDecodings("11106"));
+        System.out.println(instance.numDecodings("11106"));//2
         System.out.println(instance.numDecodings("12"));//2
         System.out.println(instance.numDecodings("226"));//3
         System.out.println(instance.numDecodings("0"));//0
@@ -24,13 +25,12 @@ public class _91解码方法 {
     /**
      * 解法1：dfs
      */
-    public int numDecodings(String s) {
+    public int numDecodings3(String s) {
         if (s == null || s.length() == 0 || s.charAt(0) == '0') {
             return 0;
         }
         char[] chars = s.toCharArray();
         res = 0;
-        memo = new HashMap<>();
         dfs(chars, 0);
         return res;
     }
@@ -101,5 +101,39 @@ public class _91解码方法 {
     }
 
     int res;
-    HashMap<String, Integer> memo;
+    HashMap<Integer, Integer> memo;
+
+    /**
+     * 解法3：记忆化回溯
+     */
+    public int numDecodings(String s) {
+        if (s == null || s.length() == 0 || s.charAt(0) == '0') {
+            return 0;
+        }
+        char[] chars = s.toCharArray();
+        memo = new HashMap<>();
+        return dfs3(chars, 0);
+    }
+
+    private int dfs3(char[] chars, int i) {
+        if (i == chars.length) {
+            return 1;
+        }
+        if (chars[i] == '0') {
+            return 0;
+        }
+        if (memo.containsKey(i)) {
+            return memo.get(i);
+        }
+        int res = 0;
+        res += dfs3(chars, i + 1);
+        if (i < chars.length - 1 && chars[i] <= '2') {
+            int num = (chars[i] - '0') * 10 + (chars[i + 1] - '0');
+            if (num <= 26) {
+                res += dfs3(chars, i + 2);
+            }
+        }
+        memo.put(i, res);
+        return res;
+    }
 }
