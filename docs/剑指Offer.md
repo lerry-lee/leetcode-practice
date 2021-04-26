@@ -1,5 +1,9 @@
 # 剑指Offer
 
+### [41.数据流中的中位数](../src/main/java/_剑指Offer/_41数据流中的中位数.java)
+
+- 优先队列
+
 ### [40.最小的k个数](../src/main/java/_剑指Offer/_40最小的k个数.java)
 
 - 基于快排
