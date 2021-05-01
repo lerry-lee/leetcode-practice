@@ -8,7 +8,8 @@ import java.util.List;
  * @Author: lerry_li
  * @CreateDate: 2021/05/01
  * @Description
- * 解法1：递归
+ * 解法1：dfs
+ * 解法2：bfs
  */
 public class _690员工的重要性 {
 
@@ -19,7 +20,7 @@ public class _690员工的重要性 {
     }
 
     /**
-     * 解法1：递归
+     * 解法1：dfs
      */
     public int getImportance(List<Employee> employees, int id) {
         hashMap = new HashMap<>();
