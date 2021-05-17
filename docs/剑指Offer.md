@@ -1,6 +1,12 @@
 # 剑指Offer
 
+### [56-1.数组中数字出现的次数](../src/main/java/_剑指Offer/_56_1_数组中数字出现的次数.java)
+
+- 分组异或
+
 ### [55-1.二叉树的深度](../src/main/java/_剑指Offer/_55_1_二叉树的深度.java)
+
+- 递归
 
 ### [49.丑数](../src/main/java/_剑指Offer/_49丑数.java)
 
