@@ -2,6 +2,9 @@ package _每日一题._2021年._21年5月;
 
 import _数据结构.TreeNode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * @ClassName: _993二叉树的堂兄弟节点
  * @Author: lerry_li
@@ -18,6 +21,7 @@ public class _993二叉树的堂兄弟节点 {
         root.right = new TreeNode(3);
         root.left.left = new TreeNode(4);
         System.out.println(instance.isCousins(root, 4, 3));
+
     }
 
     /**
