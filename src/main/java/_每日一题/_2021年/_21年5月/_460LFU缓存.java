@@ -34,7 +34,17 @@ public class _460LFU缓存 {
             if (!key_table.containsKey(key)) {
                 return -1;
             }
-            return addKeyVal(key,-1,false);
+            //接下来的操作可以描述为：
+            //1.根据key找到对应的node
+            //2.获得node的freq和val
+            //3.根据freqMap找到对应的list
+            //4.删除原node
+            //5.若list的size==0，则删除对应的entry
+            //5-1.考虑是否更新minFreq(删除node后list的size==0,并且该node所在的freq恰好==minFreq)
+            //若更新，则更新minFreq+1(因为该key被访问了，freq+1)
+            //6.将新node(key,val,freq+1)插入list的头部，然后freqMap和key_node分别执行put操作
+            //7.最终返回val
+            return addKeyVal(key, -1, false);
         }
 
         public void put(int key, int value) {
@@ -61,7 +71,7 @@ public class _460LFU缓存 {
             //否则，缓存中已有该key
             else {
                 // 与 get 操作基本一致，除了需要更新缓存的值
-                addKeyVal(key,value,true);
+                addKeyVal(key, value, true);
             }
         }
 
@@ -84,7 +94,7 @@ public class _460LFU缓存 {
             //没有对应的list则创建
             LinkedList<Node> list = freq_table.getOrDefault(freq + 1, new LinkedList<Node>());
             //node插入list头部
-            Node cur=new Node(key, val, freq + 1);
+            Node cur = new Node(key, val, freq + 1);
             list.offerFirst(cur);
             //(freq,list)插入到freq_table
             freq_table.put(freq + 1, list);
