@@ -116,6 +116,40 @@ public class _494目标和 {
         return dp[T];
     }
 
+    public int findTargetSumWays3c(int[] nums, int target) {
+        //特判
+        if (nums == null || nums.length == 0) return 0;
+        int sum = 0;
+        for (int num : nums) sum += num;
+        //sum(P)符号为+的子集，sum(N)符号为-的子集
+        //sum(P) - sum(N) == target
+        //sum(P) + sum(N) + sum(P) - sum(N) == target + sum(P) + sum(N)
+        //即2 * sum(P) == target + sum(nums)
+        //则问题转换为：存在多少个子集P，使sum(P) == (target + sum(nums))/2。
+        if ((target + sum) % 2 != 0) return 0;
+        int sumP = (target + sum) / 2;
+        //dp定义,dp[i][j]表示在前i个元素中，取若干个元素，使得和为j，一共有多少个不同的取法
+        //即：相当于0-1背包问题，有i个物品，在容量为j的情况下，有多少种不同的装法
+        int n = nums.length;
+        int[][] dp = new int[n + 1][sumP + 1];
+        //初始化
+        //0个元素，只有sumP为0时，才有1种子集（空集），其它情况都没有元素来组成和为sumP
+        dp[0][0]=1;
+        //状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j <= sumP; j++) {
+                //若当前元素的大小超过了容量j的大小，则状态由前一个元素转移得到
+                if (nums[i - 1] > j) dp[i][j] = dp[i - 1][j];
+                    //否则，当前元素可以选择取/不取，其状态由这两种情况求和得到
+                else {
+                    dp[i][j] = dp[i - 1][j] + dp[i - 1][j - nums[i - 1]];
+                }
+            }
+        }
+        //返回dp[n][sumP]
+        return dp[n][sumP];
+    }
+
 
     private int dfs(int[] nums, int t, int target, int sum) {
         if (t == nums.length) {
