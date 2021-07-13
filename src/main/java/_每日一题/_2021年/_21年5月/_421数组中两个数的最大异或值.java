@@ -4,7 +4,8 @@ package _每日一题._2021年._21年5月;
  * @ClassName: _421数组中两个数的最大异或值
  * @Author: lerry_li
  * @CreateDate: 2021/05/16
- * @Description 解法1：暴力枚举
+ * @Description
+ * 解法1：暴力枚举
  * 解法2：字典树
  */
 public class _421数组中两个数的最大异或值 {
