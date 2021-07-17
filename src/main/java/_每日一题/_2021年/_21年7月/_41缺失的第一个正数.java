@@ -24,8 +24,7 @@ public class _41缺失的第一个正数 {
         //原地计数置换，每个数num放到下标为num-1的位置
         int n = nums.length;
         for (int i = 0; i < n; i++) {
-            int num = nums[i];
-            if (nums[i] <= n && nums[i] > 0 && nums[nums[i] - 1] != nums[i]) {
+            while (nums[i] <= n && nums[i] > 0 && nums[nums[i] - 1] != nums[i]) {
                 int temp = nums[nums[i] - 1];
                 nums[nums[i] - 1] = nums[i];
                 nums[i] = temp;
