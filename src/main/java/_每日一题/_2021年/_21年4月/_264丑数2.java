@@ -6,7 +6,7 @@ package _每日一题._2021年._21年4月;
  * @CreateTime: 2021/04/11
  * @Description
  */
-public class _264丑数2 {
+class _264丑数2 {
     /**
      * 解法1：动态规划 时间O(N) 空间O(N)
      * 状态定义：

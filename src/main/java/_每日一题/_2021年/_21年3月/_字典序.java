@@ -35,10 +35,10 @@ public class _字典序 {
                 m--;
                 if (m == 0)
                     break;
-                ans *= 10;
+                ans *= 10;//go right
             } else {
                 m -= cnt;
-                ans++;
+                ans++;//go down
             }
         }
         return ans;
