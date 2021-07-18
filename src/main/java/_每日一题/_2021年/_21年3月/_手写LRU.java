@@ -3,6 +3,7 @@ package _每日一题._2021年._21年3月;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @ClassName: _手写LRU
@@ -11,6 +12,20 @@ import java.util.LinkedHashMap;
  * @Description
  */
 public class _手写LRU {
+
+    static final int size=5;
+
+    /**
+     * 解法0：使用LinkedHashMap实现
+     */
+    public static void main(String[] args) {
+        Map<String, String> map = new LinkedHashMap<String, String>(size, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
+                return size() > size;
+            }
+        };
+    }
 
     /**
      * 解法1：使用LinkedHashMap实现
@@ -27,9 +42,7 @@ public class _手写LRU {
         //访问一个元素，有就放到最近访问的位置（头部/尾部），没有就插入
         public void visit(K key, V val) {
             //如果已存在，就先删除
-            if (cache.containsKey(key)) {
-                cache.remove(key);
-            }
+            cache.remove(key);
             //不存在，首先看是否需要执行LRU算法，即删除最近最久未访问的
             if (cache.size() == capacity) {
                 Iterator<K> iterator = cache.keySet().iterator();
