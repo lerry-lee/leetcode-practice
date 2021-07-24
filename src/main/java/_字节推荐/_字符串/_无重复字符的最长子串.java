@@ -67,4 +67,31 @@ public class _无重复字符的最长子串 {
         }
         return max;
     }
+
+    /**
+     * 解法2：滑动窗口+set
+     */
+    public int method_hash_windows3(String s) {
+        HashSet<Character> set = new HashSet<>();
+        int i = 0, j = 0;
+        int max = 0;
+        char[] arr = s.toCharArray();
+        while (j < arr.length) {
+            //窗口是否右移
+            if (!set.contains(arr[j])) {
+                set.add(arr[j]);
+                j++;
+            }
+            //否则，左窗口移动
+            else {
+                while (set.contains(arr[j])) {
+                    set.remove(arr[i]);
+                    i++;
+                }
+            }
+            //更新最大值
+            max=Math.max(max, set.size());
+        }
+        return max;
+    }
 }
