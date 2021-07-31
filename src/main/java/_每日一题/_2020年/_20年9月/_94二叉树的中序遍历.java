@@ -49,6 +49,7 @@ public class _94二叉树的中序遍历 {
                 root = root.left;
             }
             root = stack.pop();
+            //中根遍历
             res.add(root.val);
             root = root.right;
         }

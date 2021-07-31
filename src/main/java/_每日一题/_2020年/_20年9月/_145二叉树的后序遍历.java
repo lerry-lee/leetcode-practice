@@ -19,19 +19,15 @@ public class _145二叉树的后序遍历 {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode node = root;
         while (node != null || !stack.isEmpty()) {
-            if (node != null) {
+            while (node != null) {
                 res.add(node.val);
                 stack.push(node);
                 node = node.right;
-            } else {
-                node = stack.pop().left;
             }
+            node = stack.pop().left;
         }
-        List<Integer> res_ = new ArrayList<>(res.size());
-        for (int i = res.size() - 1; i >= 0; i--) {
-            res_.add(res.get(i));
-        }
-        return res_;
+        Collections.reverse(res);
+        return res;
     }
 
     /**

@@ -37,6 +37,7 @@ public class _144二叉树的前序遍历 {
         while (!stack.isEmpty() || root != null) {
             while (root != null) {
                 stack.push(root);
+                //先根遍历
                 res.add(root.val);
                 root = root.left;
             }
