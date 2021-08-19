@@ -4,7 +4,7 @@ package _每日一题._2021年._21年8月;
  * @ClassName: _552学生出勤记录2
  * @Author: lerry_li
  * @CreateDate: 2021/08/18
- * @Description todo
+ * @Description
  */
 public class _552学生出勤记录2 {
 
