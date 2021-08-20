@@ -20,6 +20,8 @@ public class _541反转字符串2 {
         if (s == null || s.length() == 0) return "";
         char[] arr = s.toCharArray();
         int len = arr.length;
+        //交换窗口的双指针[left,right]
+        //cursor标识每2k个元素的首位下标
         int left = 0, right = left + k - 1, cursor = left + 2 * k;
         while (cursor < len) {
             while (left < right) {
@@ -31,7 +33,7 @@ public class _541反转字符串2 {
             right = left + k - 1;
             cursor = left + 2 * k;
         }
-        //最终不够2k个的反转前k个或所有
+        //最终不够2k个的反转前k个或所有(不够k个的所有)
         right=Math.min(len-1,right);
         while (left < right) {
             swap(arr, left, right);
