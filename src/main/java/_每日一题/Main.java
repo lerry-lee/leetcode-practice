@@ -30,13 +30,13 @@ public class Main {
     public static void main(String[] args) {
         log.info("开始测试");
         long t1 = System.currentTimeMillis();
-        test_463();
+        demo1();
         long t2 = System.currentTimeMillis();
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
     }
 
-    public void demo1(){
-        Map<Integer,Integer> hashMap=new HashMap<>();
+    public static void demo1(){
+
     }
 
     public static void test_463() {
