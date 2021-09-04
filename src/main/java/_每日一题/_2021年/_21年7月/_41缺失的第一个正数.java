@@ -18,7 +18,7 @@ public class _41缺失的第一个正数 {
     /**
      * 解法1：计数置换
      */
-    public int firstMissingPositive1(int[] nums) {
+    public int firstMissingPositive(int[] nums) {
         //特判
         if (nums == null || nums.length == 0) return 1;
         //原地计数置换，每个数num放到下标为num-1的位置
@@ -40,7 +40,7 @@ public class _41缺失的第一个正数 {
     /**
      * 解法2：原地哈希
      */
-    public int firstMissingPositive(int[] nums) {
+    public int firstMissingPositive2(int[] nums) {
         //特判
         if (nums == null || nums.length == 0) return 1;
         //负数变正
