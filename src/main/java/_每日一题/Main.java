@@ -35,8 +35,49 @@ public class Main {
         log.info(String.format("测试结束，耗时:%dms", (t2 - t1)));
     }
 
-    public static void demo1(){
-
+    public static void demo1() {
+        Scanner sc = new Scanner(System.in);
+        int n = 1;
+        while (n > 0) {
+            n = sc.nextInt();
+            if (n == 0) break;
+            //dp[i][j]表示长度为i的仅有ab组成的字符串(不含aba或bab)，当状态为j时的组合总数
+            //      j=0:以aa结尾
+            //      j=1:以ab结尾
+            //      j=2:以ba结尾
+            //      j=3:以bb结尾
+            //最终返回dp[n][0:3]求和
+            int[][] dp = new int[n + 1][4];
+            //初始化
+            //n<=2直接返回
+            //dp[2][]=1
+            if (n <= 2) {
+                if (n == 1) System.out.println(2);
+                else System.out.println(4);
+            } else {
+                for (int i = 0; i < 4; i++) {
+                    dp[2][i] = 1;
+                }
+                //状态转移
+                for (int i = 3; i <= n; i++) {
+                    //当前字符可以为a或者b
+                    //当为a时，只能从上一个状态的aa,ba,bb转移得到
+                    //  即：aaa,baa,bba
+                    //  得到两类j=0:aa和j=2:ba
+                    dp[i][0] += dp[i - 1][0] + dp[i - 1][2];//由前一状态的aa,ba得到
+                    dp[i][2] += dp[i - 1][3];//由前一状态的bb得到
+                    //当为b时，只能从上一个状态的aa,ab,bb转移得到
+                    //  即：aab,abb,bbb
+                    dp[i][1] += dp[i - 1][0];//ab由前一状态的aa得到
+                    dp[i][3] += dp[i - 1][1] + dp[i - 1][3];//bb由前一状态的ab,bb得到
+                }
+                int res = 0;
+                for (int i = 0; i < 4; i++) {
+                    res += dp[n][i];
+                }
+                System.out.println(res);
+            }
+        }
     }
 
     public static void test_463() {
