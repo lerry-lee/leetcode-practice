@@ -46,18 +46,18 @@ public class _最大子序和 {
         int right = method2(nums, mid + 1, r);
         //计算跨左右区间的最大值
         //至少包含左区间的最右边一个元素
-        int left_ = 0, left_max = nums[mid];
+        int leftSum = 0, leftMaxSum = nums[mid];
         for (int i = mid; i >= l; i--) {
-            left_ += nums[i];
-            left_max = Math.max(left_max, left_);
+            leftSum += nums[i];
+            leftMaxSum = Math.max(leftMaxSum, leftSum);
         }
         //至少包含右区间的最左边一个元素
-        int right_ = 0, right_max = nums[mid + 1];
+        int rightSum = 0, rightMaxSum = nums[mid + 1];
         for (int i = mid + 1; i <= r; i++) {
-            right_ += nums[i];
-            right_max = Math.max(right_max, right_);
+            rightSum += nums[i];
+            rightMaxSum = Math.max(rightMaxSum, rightSum);
         }
-        return max3(left, right, left_max + right_max);
+        return max3(left, right, leftMaxSum + rightMaxSum);
     }
 
     public int max3(int a, int b, int c) {
