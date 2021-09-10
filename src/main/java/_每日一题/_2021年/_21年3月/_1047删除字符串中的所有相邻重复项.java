@@ -38,7 +38,7 @@ public class _1047删除字符串中的所有相邻重复项 {
      * 解法2：用栈 时间O(N) 空间O(1)
      */
     public String removeDuplicates2(String S) {
-        StringBuffer stack = new StringBuffer();
+        StringBuilder stack = new StringBuilder();
         int top = -1;
         for (int i = 0; i < S.length(); ++i) {
             char ch = S.charAt(i);
