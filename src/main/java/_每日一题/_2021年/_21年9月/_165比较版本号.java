@@ -25,19 +25,19 @@ public class _165比较版本号 {
         if (version1 == null || version1.length() == 0 || version2 == null || version2.length() == 0) return 0;
         String[] v1 = version1.split("\\.");
         String[] v2 = version2.split("\\.");
-        int maxLen=Math.max(v1.length,v2.length);
+        int maxLen = Math.max(v1.length, v2.length);
         for (int i = 0; i < maxLen; i++) {
             String str1 = "0", str2 = "0";
             if (v1.length > i) str1 = v1[i];
             if (v2.length > i) str2 = v2[i];
-            int checkRes = check(str1, str2);
+            int checkRes = compare(str1, str2);
             if (checkRes == 1) return 1;
             if (checkRes == -1) return -1;
         }
         return 0;
     }
 
-    private int check(String str1, String str2) {
+    private int compare(String str1, String str2) {
         int i = 0, j = 0;
         //去掉前导0
         while (i < str1.length() && str1.charAt(i) == '0') i++;
@@ -50,7 +50,7 @@ public class _165比较版本号 {
         if (len1 > len2) return 1;
         else if (len2 > len1) return -1;
         //长度相等，挨个字符比较
-        while (i < str1.length() && j < str2.length()) {
+        while (i < str1.length()) {
             if (str1.charAt(i) > str2.charAt(j)) return 1;
             else if (str1.charAt(i) < str2.charAt(j)) return -1;
             i++;
