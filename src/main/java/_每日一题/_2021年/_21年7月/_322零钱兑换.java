@@ -16,6 +16,8 @@ public class _322零钱兑换 {
 
     /**
      * 解法1：二维dp
+     * coins:硬币->物品，币值就是物品的重量
+     * amount:总金额->背包容量
      */
     public int coinChange(int[] coins, int amount) {
         //特判:若无硬币或总金额<0，则返回-1
