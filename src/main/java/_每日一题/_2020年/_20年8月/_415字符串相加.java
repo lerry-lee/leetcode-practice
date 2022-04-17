@@ -37,4 +37,39 @@ public class _415字符串相加 {
         if (jin > 0) res.insert(0, String.valueOf(jin));
         return res.toString();
     }
+
+    /**
+     * 接法2：
+     *      char转int，char-'0'即可
+     */
+    public String addStrings2(String num1, String num2) {
+        char[] arr1=num1.toCharArray();
+        char[] arr2=num2.toCharArray();
+        StringBuilder sb=new StringBuilder();
+        int i=arr1.length-1,j=arr2.length-1;
+        int jin=0,val=0;
+        while(i>=0&&j>=0){
+            val=(arr1[i]-'0')+(arr2[j]-'0')+jin;
+            jin=val/10;
+            sb.append(val%=10);
+            i--;
+            j--;
+        }
+        while(i>=0){
+            val=(arr1[i]-'0')+jin;
+            jin=val/10;
+            sb.append(val%=10);
+            i--;
+        }
+        while(j>=0){
+            val=(arr2[j]-'0')+jin;
+            jin=val/10;
+            sb.append(val%=10);
+            j--;
+        }
+        if(jin>0){
+            sb.append(jin);
+        }
+        return sb.reverse().toString();
+    }
 }
