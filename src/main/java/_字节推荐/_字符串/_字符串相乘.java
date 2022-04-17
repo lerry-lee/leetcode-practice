@@ -7,6 +7,70 @@ package _字节推荐._字符串;
  * 输出: "6"
  */
 public class _字符串相乘 {
+
+    static class Test{
+
+        public static void main(String[] args) {
+            Test instance=new Test();
+            instance.multiply("3","2");
+        }
+        public String multiply(String num1, String num2) {
+            if(num1.equals("0")||num2.equals("0")){
+                return "0";
+            }
+            String res="0";
+            for(int i=num2.length()-1;i>=0;i--){
+                String prod=stringMulti(num1,num2.charAt(i),num2.length()-1-i);
+                res=stringAdd(res,prod);
+            }
+            return res;
+        }
+        public String stringMulti(String num1,char n2,int k){
+            StringBuilder sb=new StringBuilder();
+            for(int i=0;i<k;i++){
+                sb.append("0");
+            }
+            int prod=0,jin=0;
+            for(int i=num1.length()-1;i>=0;i--){
+                prod=(n2-'0')*(num1.charAt(i)-'0')+jin;
+                jin=prod/10;
+                sb.append(prod%10);
+            }
+            if(jin>0){
+                sb.append(jin);
+            }
+            return sb.reverse().toString();
+        }
+        public String stringAdd(String num1,String num2){
+            StringBuilder sb=new StringBuilder();
+            int i=num1.length()-1,j=num2.length()-1;
+            int sum=0,jin=0;
+            while(i>=0&&j>=0){
+                sum=(num1.charAt(i)-'0')+(num2.charAt(j)-'0')+jin;
+                jin=sum/10;
+                sb.append(sum%10);
+                i--;
+                j--;
+            }
+            while(i>=0){
+                sum=(num1.charAt(i)-'0')+jin;
+                jin=sum/10;
+                sb.append(sum%10);
+                i--;
+            }
+            while(j>=0){
+                sum=(num2.charAt(j)-'0')+jin;
+                jin=sum/10;
+                sb.append(sum%10);
+                j--;
+            }
+            if(jin>0){
+                sb.append(jin);
+            }
+            return sb.reverse().toString();
+        }
+    }
+
     public String multiply(String num1, String num2) {
         if (num1.equals("0") || num2.equals("0")) return "0";
         String res = "";
