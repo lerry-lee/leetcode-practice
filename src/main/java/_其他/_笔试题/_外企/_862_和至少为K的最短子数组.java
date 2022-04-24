@@ -10,8 +10,14 @@ import java.util.LinkedList;
  */
 public class _862_和至少为K的最短子数组 {
 
+    public static void main(String[] args) {
+        int[] nums=new int[]{2,-1,2};
+        int k=3;
+        System.out.println(new _862_和至少为K的最短子数组().shortestSubarray2(nums,k));
+    }
+
     /**
-     * 解法1：前缀和+单调队列
+     * 解法1：前缀和+单调队列 时间O(N) 空间O(N)
      */
     public int shortestSubarray(int[] A, int K) {
         int N = A.length;
@@ -47,4 +53,25 @@ public class _862_和至少为K的最短子数组 {
         return ans < N + 1 ? ans : -1;
     }
 
+    public int shortestSubarray2(int[] nums, int k) {
+        if(nums==null||nums.length==0) return -1;
+        int n=nums.length;
+        long[] preSum=new long[n+1];
+        for(int i=1;i<=n;i++){
+            if(nums[i-1]>=k) return 1;
+            preSum[i]=preSum[i-1]+nums[i-1];
+        }
+        Deque<Integer> deque=new LinkedList();
+        int res=n+1;
+        for(int i=0;i<n;i++){
+            while(!deque.isEmpty()&&preSum[deque.peekLast()]>preSum[i]){
+                deque.removeLast();
+            }
+            while(!deque.isEmpty()&&preSum[i]-preSum[deque.peekFirst()]>=k){
+                res=Math.min(res,i-deque.removeFirst());
+            }
+            deque.addLast(i);
+        }
+        return res==n+1?-1:res;
+    }
 }
