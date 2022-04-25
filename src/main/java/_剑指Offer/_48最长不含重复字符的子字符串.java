@@ -1,6 +1,7 @@
 package _剑指Offer;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @ClassName: _48最长不含重复字符的子字符串
@@ -17,6 +18,7 @@ public class _48最长不含重复字符的子字符串 {
         System.out.println(instance.lengthOfLongestSubstring("abcabcbb"));//3
         System.out.println(instance.lengthOfLongestSubstring("bbbbb"));//1
         System.out.println(instance.lengthOfLongestSubstring("pwwkew"));//3
+        instance.new Solution().lengthOfLongestSubstring("tmmzuxt");
     }
 
     /**
@@ -81,5 +83,37 @@ public class _48最长不含重复字符的子字符串 {
             res = Math.max(res, dp[i]);
         }
         return res;
+    }
+
+    /**
+     * 解法：滑动窗口 时间O(N) 空间O(1)
+     */
+    class Solution {
+        public int lengthOfLongestSubstring(String s) {
+            if(s==null||s.length()==0) return 0;
+            // boolean[] freq=new boolean[26];
+            Set<Character> hashSet=new HashSet();
+            char[] arr=s.toCharArray();
+            int l=0,r=0;
+            int maxWindow=0;
+            while(r<arr.length){
+                //如果右窗口即将添加的元素和窗口中的元素重复，左窗口调整
+                if(hashSet.contains(arr[r])){
+                    while(arr[l]!=arr[r]){
+                        hashSet.remove(arr[l]);
+                        l++;
+                        // freq[arr[l]-'a']=false
+                    }
+                    l++;
+                }
+                //右窗口移动一位
+                // freq[arr[r]-'a']=true;
+                hashSet.add(arr[r]);
+                r++;
+                //更新窗口大小
+                maxWindow=Math.max(maxWindow,r-l);
+            }
+            return maxWindow;
+        }
     }
 }
