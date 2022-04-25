@@ -22,19 +22,19 @@ public class _68_2_二叉树的最近公共祖先 {
             return p;
         }
         Map<TreeNode, TreeNode> parentNode = new HashMap<>();
-        Deque<TreeNode> deque = new LinkedList<>();
-        deque.offerLast(root);
-        while (!deque.isEmpty()) {
-            int size = deque.size();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode currNode = deque.pollFirst();
+                TreeNode currNode = queue.remove();
                 if (currNode.left != null) {
                     parentNode.put(currNode.left, currNode);
-                    deque.offerLast(currNode.left);
+                    queue.add(currNode.left);
                 }
                 if (currNode.right != null) {
                     parentNode.put(currNode.right, currNode);
-                    deque.offerLast(currNode.right);
+                    queue.add(currNode.right);
                 }
             }
         }
