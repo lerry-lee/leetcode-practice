@@ -26,6 +26,11 @@ import java.util.List;
  */
 public class _三数之和 {
 
+    public static void main(String[] args) {
+        _三数之和 instance = new _三数之和();
+        System.out.println(instance.new Solution().threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+    }
+
     /**
      * 解法1：转化为求两数之和
      * 求两数之和：排序+头尾指针
@@ -54,6 +59,31 @@ public class _三数之和 {
                 r--;
             } else if (nums[l] + nums[r] + target < 0) l++;
             else r--;
+        }
+    }
+
+    class Solution {
+        public List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> res = new ArrayList();
+            if (nums == null || nums.length == 0) return res;
+            Arrays.sort(nums);
+            for (int i = 0; i < nums.length - 2; i++) {
+                if (i > 0 && nums[i] == nums[i - 1]) continue;
+                int j = i + 1, k = nums.length - 1;
+//                int left=nums[j],right=nums[k];
+                while (j < k) {
+                    int sum = nums[i] + nums[j] + nums[k];
+                    if (sum == 0) {
+                        res.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                        j++;
+                        k--;
+                        while (j < k && nums[j] == nums[j - 1]) j++;
+                        while (j < k && nums[k] == nums[k + 1]) k--;
+                    } else if (sum < 0) j++;
+                    else k--;
+                }
+            }
+            return res;
         }
     }
 }
