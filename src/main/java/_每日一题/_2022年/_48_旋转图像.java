@@ -15,7 +15,7 @@ public class _48_旋转图像 {
     /**
      * 解法1：原地置换 时间O(N^2) 空间O(1)
      * 思路：
-     *      按圈遍历，每次遍历一行，圈逐渐缩小
+     *      按圈遍历，每次遍历一行，利用坐标关系换数字，圈逐渐缩小
      */
     class Solution {
         public void rotate(int[][] matrix) {
@@ -31,6 +31,28 @@ public class _48_旋转图像 {
                     matrix[n-1-j][i]=matrix[n-1-i][n-1-j];
                     matrix[n-1-i][n-1-j]=matrix[j][n-1-i];
                     matrix[j][n-1-i]=temp;
+                }
+            }
+        }
+    }
+
+    /**
+     * 解法2：先水平翻转，再按对角线翻转 时间O(N^2) 空间O(1)
+     */
+    class Solution2 {
+        public void rotate(int[][] matrix) {
+            if(matrix==null||matrix.length==0) return;
+            int n=matrix.length;
+            for(int i=0;i<n/2;i++){
+                int[] temp=matrix[i];
+                matrix[i]=matrix[n-1-i];
+                matrix[n-1-i]=temp;
+            }
+            for(int i=0;i<n;i++){
+                for(int j=i+1;j<n;j++){
+                    int temp=matrix[i][j];
+                    matrix[i][j]=matrix[j][i];
+                    matrix[j][i]=temp;
                 }
             }
         }
