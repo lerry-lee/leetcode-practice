@@ -1,4 +1,4 @@
-package _每日一题._2022年._5moth1day;
+package _每日一题._2022年._5月1日;
 
 import _数据结构.ListNode;
 
