@@ -1,8 +1,6 @@
 package _每日一题._2022年._5月2日;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Author: lerry_li
@@ -20,17 +18,21 @@ public class _1233_删除子文件夹 {
             if (folder == null || folder.length == 0) return res;
             //sort
             Arrays.sort(folder);
+            Set<String> visited = new HashSet<>();
             //遍历
             for (String file : folder) {
                 //如果当前file的前缀已经有了，那么当前file是子文件夹，需要删除（即不添加到res中）
                 for (int i = 1; i < file.length(); i++) {
                     if (file.charAt(i) == '/') {
                         String prefix = file.substring(0, i);
-                        if (res.contains(prefix)) {
+                        if (visited.contains(prefix)) {
                             break;
                         }
                     }
-                    if (i == file.length() - 1) res.add(file);
+                    if (i == file.length() - 1) {
+                        res.add(file);
+                        visited.add(file);
+                    }
                 }
             }
             return res;
