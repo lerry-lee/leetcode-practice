@@ -1,6 +1,5 @@
 package _剑指Offer;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -20,12 +19,7 @@ public class _41数据流中的中位数 {
 
         /** initialize your data structure here. */
         public MedianFinder() {
-            leftQueue = new PriorityQueue<>(new Comparator<Integer>() {
-                @Override
-                public int compare(Integer o1, Integer o2) {
-                    return o2 - o1;
-                }
-            });
+            leftQueue = new PriorityQueue<>((o1, o2) -> o2 - o1);
             rightQueue = new PriorityQueue<>();
         }
 
