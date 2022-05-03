@@ -6,6 +6,9 @@ package _每日一题._2022年._5月3日;
  * @Description
  */
 public class _706_设计哈希映射 {
+    /**
+     * 解法1：链地址法
+     */
     static class MyHashMap {
         static class Node {
             int key, value;
