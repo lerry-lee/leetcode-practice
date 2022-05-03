@@ -7,6 +7,9 @@ package _每日一题._2022年._5月3日;
  */
 public class _287_寻找重复数 {
     /**
+     * 解法3：快慢指针（类比环形链表找入口节点）https://leetcode-cn.com/problems/find-the-duplicate-number/solution/xun-zhao-zhong-fu-shu-by-leetcode-solution/
+     */
+    /**
      * 解法1：计数置换
      * 思路：
      *      每个下标i的数字为i，遇到重复的停止，否则，最后下标0处为重复数字
