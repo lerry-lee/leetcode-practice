@@ -66,7 +66,7 @@ public class _224_基本计算器 {
                 }
             }
         }
-        //最终计算栈内剩余元素
+        //最终计算栈内剩余元素，这种写法有问题，要从底向上计算
         while (!opsStack.isEmpty()) {
             int a = valStack.pop();
             int b = valStack.pop();
@@ -77,4 +77,5 @@ public class _224_基本计算器 {
         //返回valStack元素
         return valStack.pop();
     }
+
 }
