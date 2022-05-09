@@ -23,13 +23,13 @@ import java.util.Map;
 public class LRUCache {
     private int capacity;
     private Map<Integer, int[]> hashMap;
-    private Deque<int[]> hashKey;
+    private Deque<int[]> deque;
 
     public LRUCache(int capacity) {
         System.out.println("LRUCache初始化，容量为" + capacity);
         this.capacity = capacity;
         this.hashMap = new HashMap<>(capacity);
-        this.hashKey = new LinkedList<>();
+        this.deque = new LinkedList<>();
         display();
     }
 
@@ -37,8 +37,8 @@ public class LRUCache {
         System.out.println("\n执行get，" + key);
         if (this.hashMap.containsKey(key)) {
             int[] key_value = hashMap.get(key);
-            hashKey.remove(key_value);
-            hashKey.addFirst(key_value);
+            deque.remove(key_value);
+            deque.addFirst(key_value);
             display();
             return key_value[1];
         } else {
@@ -53,16 +53,16 @@ public class LRUCache {
             int[] old_key_value = hashMap.get(key);
             int[] key_value = {key, value};
             hashMap.replace(key, key_value);
-            hashKey.remove(old_key_value);
-            hashKey.addFirst(key_value);
+            deque.remove(old_key_value);
+            deque.addFirst(key_value);
         } else {
             if (hashMap.size() >= capacity) {
-                int[] last = hashKey.removeLast();
+                int[] last = deque.removeLast();
                 hashMap.remove(last[0]);
             }
             int[] key_value = {key, value};
             hashMap.put(key, key_value);
-            hashKey.addFirst(key_value);
+            deque.addFirst(key_value);
         }
 
 
@@ -71,6 +71,6 @@ public class LRUCache {
 
     public void display() {
         System.out.println("cache数据：" + hashMap);
-        System.out.println("最近使用序列：" + hashKey);
+        System.out.println("最近使用序列：" + deque);
     }
 }
