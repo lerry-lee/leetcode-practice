@@ -27,6 +27,7 @@ public class _767_重构字符串 {
             //例如：3个元素不能超过2；4个不能超过2
             if (maxCnt > (arr.length + 1) / 2) return "";
             //大顶堆，按频次排序
+            //【注意】：这里用到了外部变量freq[]，如何实现的？还有一种写法，新建一个数据结构{char,int}表示字符及它的频次，这样就可以用自身属性排序了。
             PriorityQueue<Character> maxHeap = new PriorityQueue<>(((o1, o2) -> Integer.compare(freq[o2 - 'a'], freq[o1 - 'a'])));
             //将元素按字母加入大顶堆
             for (char c = 'a'; c <= 'z'; c++) {
