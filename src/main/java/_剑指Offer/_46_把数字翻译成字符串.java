@@ -61,7 +61,6 @@ public class _46_把数字翻译成字符串 {
             dp[0] = 1;
             for (int i = 1; i < dp.length; i++) {
                 dp[i] = dp[i - 1];
-                int n = numDigit.get(i - 1);
                 if (i > 1 && numDigit.get(i - 2) > 0 && numDigit.get(i - 1) + numDigit.get(i - 2) * 10 <= 25) {
                     dp[i] += dp[i - 2];
                 }
