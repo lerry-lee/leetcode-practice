@@ -10,7 +10,7 @@ public class _224_基本计算器 {
 
     public static void main(String[] args) {
         _224_基本计算器 instance = new _224_基本计算器();
-        instance.calculate("(1+(4+5+2)-3)+(6+8)");
+        instance.calculate("1+(1-2+3)");
         //"(1+(4+5+2)-3)+(6+8)"
     }
 
@@ -51,7 +51,7 @@ public class _224_基本计算器 {
             else if (c == '+' || c == '-' || c == '(') {
                 opsStack.push(c);
                 //如果是-，看当作运算符还是负号，若当作负号，前面补一个0
-                if(i>0&&arr[i-1]=='(') valStack.push(0);
+                if (i > 0 && arr[i - 1] == '(') valStack.push(0);
             }
             //如果是)，弹出(，并计算前面积累的结果
             else {

@@ -12,7 +12,7 @@ public class _227_基本计算器2 {
 
     public static void main(String[] args) {
         _227_基本计算器2 instance = new _227_基本计算器2();
-        instance.new Solution().calculate("1-1+1");
+        instance.new Solution().calculate("2-4-(8+2-6+(8+4-(1)+8-10))");
     }
 
     /**
@@ -47,27 +47,7 @@ public class _227_基本计算器2 {
                     // num入栈
                     vals.addLast(num);
                 }
-                // 如果是)，需要计算（）内部的值
-                else if (arr[i] == ')') {
-                    // 循环到ops栈顶元素为（
-                    while (ops.peekLast() != '(') {
-                        // 获取运算符
-                        char op = ops.pollLast();
-                        // 获取数值
-                        int a = vals.pollLast(), b = vals.pollLast();
-                        // 根据不同运算符进行计算，只可能是+或-
-                        if (op == '+') {
-                            a = b + a;
-                        } else {
-                            a = b - a;
-                        }
-                        // 结果入栈
-                        vals.addLast(a);
-                    }
-                    // 弹出（
-                    ops.pollLast();
-                }
-                // 否则，为（或者运算符，直接入栈
+                // 否则，为运算符，直接入栈
                 else {
                     ops.addLast(arr[i]);
                 }
@@ -75,8 +55,8 @@ public class _227_基本计算器2 {
             // 最后计算栈中结果
             if (ops.isEmpty()) return vals.pollLast();
 
-            if (ops.size() > vals.size() / 2 && ops.peekFirst() == '-') {
-                vals.addLast(0);// 防止-3+1这种
+            if (ops.size() > vals.size()-1 && ops.peekFirst() == '-') {
+                vals.addFirst(0);// 防止-3+1这种
             }
             while (!ops.isEmpty()) {
                 // 获取运算符
