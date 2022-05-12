@@ -46,7 +46,7 @@ public class _剑指Offer_59_1_滑动窗口的最大值 {
     }
 
     /**
-     * 解法2：滑动窗口+单调队列 时间O(K) 空间O(K)
+     * 解法2：滑动窗口+单调队列 时间O(N) 空间O(K)
      */
     class Solution2 {
         public int[] maxSlidingWindow(int[] nums, int k) {
