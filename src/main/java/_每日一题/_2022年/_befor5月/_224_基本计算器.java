@@ -1,5 +1,7 @@
 package _每日一题._2022年._befor5月;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -10,14 +12,83 @@ public class _224_基本计算器 {
 
     public static void main(String[] args) {
         _224_基本计算器 instance = new _224_基本计算器();
-        instance.calculate("1+(1-2+3)");
+        System.out.println(instance.calculate("(1+(4+5+2)-3)+(6+8)"));
         //"(1+(4+5+2)-3)+(6+8)"
+    }
+
+    /**
+     * 解法：包含+ - * / () 的通用解法
+     */
+    public int calculate(String s) {
+        if (s == null || s.length() == 0) return 0;
+        Deque<Integer> valStack = new ArrayDeque<>();
+        Deque<Character> opsStack = new ArrayDeque<>();
+        char[] arr = s.toCharArray();
+        for (int i = 0; i < arr.length; i++) {
+            char c = arr[i];
+            if (c == ' ') continue;
+            //如果是数字，考虑入栈，或先计算再入栈
+            if (Character.isDigit(c)) {
+                //如果前一个ops是(或空，添加一个+
+                if(opsStack.isEmpty()||opsStack.peekLast()=='(') opsStack.addLast('+');
+                //计算连续的数字
+                int val = c - '0';
+                int j = i + 1;
+                for (; j < arr.length; j++) {
+                    if (!Character.isDigit(arr[j])) break;
+                    val = val * 10 + (arr[j] - '0');
+                }
+                i = j - 1;
+                //操作符栈如果是*或者/，那么先计算，再入栈
+                if (!opsStack.isEmpty() && (opsStack.peekLast() == '*' || opsStack.peekLast() == '/')) {
+                    char ops = opsStack.removeLast();
+                    if (ops == '*') {
+                        val = (valStack.removeLast() * val);
+                    } else {
+                        val = (valStack.removeLast() / val);
+                    }
+                }
+                valStack.addLast(val);
+            }
+            //如果是+或-或(，直接入栈
+            else if (c == '+' || c == '-' || c == '(') {
+                opsStack.addLast(c);
+            }
+            //如果是)，计算前面()积累的结果
+            else {
+                int num = 0;
+                boolean hasSign = false;
+                char sign = '+';
+                while (opsStack.peekLast() != '(') {
+                    if (opsStack.peekLast() == '+') {
+                        num += valStack.removeLast();
+                    } else {
+                        num += -valStack.removeLast();
+                    }
+                    opsStack.removeLast();
+                }
+                opsStack.removeLast();//弹出)
+                valStack.addLast(num);
+            }
+        }
+        //最后对栈累加
+        int res = 0;
+        while (!opsStack.isEmpty()) {
+            if (opsStack.peekLast() == '+') {
+                res += valStack.removeLast();
+            } else {
+                res += -valStack.removeLast();
+            }
+            opsStack.removeLast();
+        }
+        if(!valStack.isEmpty()) res += valStack.removeLast();
+        return res;
     }
 
     /**
      * 解法1：数值栈+操作符栈 时间O(N) 空间O(N)
      */
-    public int calculate(String s) {
+    public int calculate1(String s) {
         if (s == null || s.length() == 0) return 0;
         Stack<Integer> valStack = new Stack<>();
         Stack<Character> opsStack = new Stack<>();
