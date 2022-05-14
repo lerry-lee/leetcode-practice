@@ -33,10 +33,14 @@ public class _剑指Offer60_n个骰子的点数 {
         public double[] dicesProbability(int n) {
             double[] dp = new double[6];
             Arrays.fill(dp, 1.0 / 6.0);
+            // 从2个骰子，开始逐渐增加
             for (int i = 2; i <= n; i++) {
                 double[] tmp = new double[5 * i + 1];
+                // 上一步的dp状态，表示所有可能值s的概率
                 for (int j = 0; j < dp.length; j++) {
+                    // 增加一个骰子后，可能扔出1~6的点数，dp[j]和该1~6组合
                     for (int k = 0; k < 6; k++) {
+                        // 这里记得是加上dp数组值与1/6的乘积，1/6是第k个骰子投出某个值的概率
                         tmp[j + k] += dp[j] / 6.0;
                     }
                 }
