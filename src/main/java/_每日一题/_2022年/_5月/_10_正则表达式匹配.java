@@ -14,6 +14,10 @@ public class _10_正则表达式匹配 {
 
     /**
      * solution: dp time-complexity O(mn) space-complexity O(mn)
+     * 思路：
+     *      看p的当前字符是否是*，是*就分情况，不是就看能不能匹配s的字符
+     * 【注意】：
+     *      初始化时，p的*只能出现在偶数位才有用，因为*必须和前面的字符匹配发挥作用
      */
     class Solution {
         public boolean isMatch(String s, String p) {
