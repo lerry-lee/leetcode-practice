@@ -9,6 +9,13 @@ import java.util.Deque;
  * @Description
  */
 public class _224_基本计算器_通解 {
+
+    public static void main(String[] args) {
+        //"((1 - (1+1)))"
+        _224_基本计算器_通解 instance = new _224_基本计算器_通解();
+        instance.new Solution().calculate("((1 - (1+1)))");
+    }
+
     /**
      * 解法：基本计算机包含+、-、*、/和（）的通用解法
      * solution: Basic computers include general solutions for +, -, *, / and ( )
