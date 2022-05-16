@@ -71,7 +71,7 @@ public class _面试题_16_25_LRU缓存 {
             // 先删除该节点，再接到尾部
             node.pre.next = node.next;
             node.next.pre = node.pre;
-            moveToTail(node);
+            insertToTail(node);
 
             return node.val;
         }
@@ -85,7 +85,7 @@ public class _面试题_16_25_LRU缓存 {
             // 若不存在，new一个出来,如果超出容量，把头去掉
             ListNode node = new ListNode(key, value);
             map.put(key, node);
-            moveToTail(node);
+            insertToTail(node);
 
             if (map.size() > capacity) {
                 map.remove(head.next.key);
@@ -95,7 +95,7 @@ public class _面试题_16_25_LRU缓存 {
         }
 
         // 把节点移动到尾巴
-        private void moveToTail(ListNode node) {
+        private void insertToTail(ListNode node) {
             node.pre = tail.pre;
             tail.pre = node;
             node.pre.next = node;
