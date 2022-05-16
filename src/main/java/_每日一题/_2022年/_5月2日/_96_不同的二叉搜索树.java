@@ -31,9 +31,38 @@ public class _96_不同的二叉搜索树 {
     }
 
     /**
-     * 解法2：卡塔兰数
+     * 解法2：带备忘录的递归
      */
     class Solution2 {
+        public int numTrees(int n) {
+            int[] nums=new int[n];
+            for(int i=0;i<n;i++){
+                nums[i]=i+1;
+            }
+            memo=new int[n][n];
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    memo[i][j]=-1;
+                }
+            }
+            return dfs(nums,0,n-1);
+        }
+        int[][] memo;
+        private int dfs(int[] nums,int l,int r){
+            if(l>=r) return 1;
+            if(memo[l][r]!=-1) return memo[l][r];
+            memo[l][r]=0;
+            for(int i=l;i<=r;i++){
+                memo[l][r]+=dfs(nums,l,i-1)*dfs(nums,i+1,r);
+            }
+            return memo[l][r];
+        }
+    }
+
+    /**
+     * 解法3：卡塔兰数
+     */
+    class Solution3 {
         public int numTrees(int n) {
             // 提示：我们在这里需要用 long 类型防止计算过程中的溢出
             long C = 1;
