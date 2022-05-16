@@ -1,7 +1,5 @@
 package _每日一题._2022年._5月;
 
-import java.util.Arrays;
-
 /**
  * @Author: lerry_li
  * @CreateDate: 2022/05/15
@@ -30,7 +28,6 @@ public class _堆排序 {
                 // 从第一个非叶子结点从下至上，从右至左调整结构
                 downAdjust(array, i, array.length);
             }
-            System.out.println(Arrays.toString(array));
             // 2.循环删除堆顶元素，移到数组尾部，调节堆产生新的堆顶元素
             // 每次操作，[0,n]的数组末尾产生当前堆最大的元素，然后堆的数组范围变为[0,n-1]
             for (int i = array.length - 1; i >= 0; i--) {
@@ -50,11 +47,11 @@ public class _堆排序 {
                 if (childIndex + 1 < length && array[childIndex + 1] > array[childIndex]) {
                     childIndex += 1;
                 }
-                // 如果父节点小于任何一个孩子的值，直接跳出
+                // 如果父节点大于任何一个更大孩子的值，直接跳出，因为找到了父节点的正确位置
                 if (temp > array[childIndex]) {
                     break;
                 }
-                // 否则，父节点比孩子节点的值大，父节点下沉
+                // 否则，父节点比孩子节点的值小，父节点下沉
                 // 无需真正交换，单向赋值即可
                 array[parentIndex] = array[childIndex];
                 parentIndex = childIndex;
