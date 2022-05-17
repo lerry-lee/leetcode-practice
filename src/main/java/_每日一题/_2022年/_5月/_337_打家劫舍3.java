@@ -39,7 +39,7 @@ public class _337_打家劫舍3 {
     }
 
     /**
-     * 解法2：dp
+     * 解法2：树形dp
      */
     class Solution2 {
         public int rob(TreeNode root) {
@@ -54,9 +54,9 @@ public class _337_打家劫舍3 {
             }
             int[] l = dfs(node.left);
             int[] r = dfs(node.right);
-            int selected = node.val + l[1] + r[1];
+            int selected = node.val + l[0] + r[0];
             int notSelected = Math.max(l[0], l[1]) + Math.max(r[0], r[1]);
-            return new int[]{selected, notSelected};
+            return new int[]{notSelected, selected};
         }
     }
 }
